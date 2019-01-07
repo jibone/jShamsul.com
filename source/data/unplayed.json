@@ -1,0 +1,34 @@
+{
+  "unplayed": [
+    {
+      "name": "Battle Chasers: Nightwar",
+      "console": "Switch"
+    },
+    {
+      "name": "Octopath Travler",
+      "console": "Switch"
+    }
+  ],
+  "unbeaten": [
+    {
+      "name":"Diablo 3",
+      "console": "Switch",
+      "description": "Stright to the point of the game. Hack and slash all the way."
+    }
+  ],
+  "beaten": [
+    {
+      "name":"Mario Odyssey",
+      "console":"Switch",
+      "description":"Played through the main story two times. It was as fun as it was the first time."
+    },
+    {
+      "name":"I am Setsuna",
+      "console":"Switch",
+      "description":"Feels a bit too short."
+    }
+  ],
+  "abandoned": [
+  
+  ]
+}

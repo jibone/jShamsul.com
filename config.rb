@@ -45,6 +45,9 @@ configure :build do
   # Enable cache buster
   activate :asset_hash
 
+  # Ignore data directory
+  ignore 'data*'
+
   # Use relative URLs
   # activate :relative_assets
 
