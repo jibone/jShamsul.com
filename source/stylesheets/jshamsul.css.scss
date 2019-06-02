@@ -157,6 +157,52 @@ hr {
   }
 }
 
+table.book-index-table {
+  border-collapse: separate;
+  border-spacing: 0 20px;
+  .left-column {
+    text-align: right;
+    width: 100px;
+    vertical-align: top;
+    padding-right: 5px;
+  }
+
+  .right-column {
+    
+  }
+
+  .book-read-date-title, .book-details-title {
+    font-size: .7em;
+  }
+
+  .book-read-date-column {
+    font-size: .8em;
+  }
+
+  .book-details-column {
+    padding-left: 5px;
+    border-left: 1px solid $grey-light;
+  }
+}
+
+.book-container {
+  .book-title {
+    .main-title {
+      padding-left: 0px;
+      font-size: 1.5em;
+      color: $black;
+      line-height: 1;
+    }
+    .sub-title {
+      font-size: 1.2em;
+    }
+  }
+  .book-author {
+    font-size: .9em;
+    font-style: italic;
+  }
+}
+
 .footer-container {
   .page-container {
     font-family: $alt-font;
