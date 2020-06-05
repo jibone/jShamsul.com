@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import { NAV_LINKS } from '../lib/constants';
 
-export default function Navigation() {
+export default function Navigation({ path }) {
   const navigationLinks = NAV_LINKS.map((link, index) => {
     let borderStyle = "border-solid border-b-4 hover:border-black duration-200 transition-colors";
-    if (link.path !== window.location.pathname) {
+    if (link.path !== path) {
       borderStyle = `border-transparent ${borderStyle}`;
     }
 

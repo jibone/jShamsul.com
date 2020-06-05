@@ -13,7 +13,7 @@ export default function Index({ allPosts }) {
           <title>jShamsul. @jibone </title>
         </Head>
         <Container>
-          <Header size="large" />
+          <Header size="large" path="/" />
 
           <article className="grid grid-cols-3  gap-4">
             <HeroImage name="index.jpg" />

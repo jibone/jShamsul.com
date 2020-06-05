@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Navigation from './navigation';
 
-export default function Header({ size, page }) {
+export default function Header({ size, path }) {
   // Set default logo style.
   let logoStyle = "text-2xl md:text-4xl font-bold tracking-tighter leading-tight md:pr-8";
   if (size === "large") {
@@ -18,7 +18,7 @@ export default function Header({ size, page }) {
           .
         </h1>
       </div>
-      <Navigation />
+      <Navigation path={path} />
     </header>
   )
 }
