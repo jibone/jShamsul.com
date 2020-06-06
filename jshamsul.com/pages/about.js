@@ -32,7 +32,7 @@ export default function About() {
                 This site is created using a static site generator,{' '}
                 <a href="https://nextjs.com" className="border-solid border-b-4 bg-yellow-100 hover:border-black hover:bg-yellow-200 duration-200 transition-colors">Next.js</a>
                 . Codes are on{' '}
-                <a href="https://github.com" className="border-solid border-b-4 bg-yellow-100 hover:border-black hover:bg-yellow-200 duration-200 transition-colors">Github</a>
+                <a href="https://github.com/jibone/JShamsul.com" className="border-solid border-b-4 bg-yellow-100 hover:border-black hover:bg-yellow-200 duration-200 transition-colors">Github</a>
                 .
               </p>
             </div>

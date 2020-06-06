@@ -16,7 +16,7 @@ export default function Aside({ links }) {
     const item = ASIDE_LINKS[i];
 
     return (
-      <p key={item} className="mt-4">
+      <div key={item.name} className="mt-4">
         <div>
           <a target="_blank" href={item.url} className="border-solid border-b-2 hover:border-black duration-200 transition-colors">
             {item.link}
@@ -25,7 +25,7 @@ export default function Aside({ links }) {
         <div>
           {item.name}
         </div>
-      </p>
+      </div>
     );
   });
 

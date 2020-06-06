@@ -9,14 +9,14 @@ export default function Navigation({ path }) {
     }
 
     return (
-      <>
+      <span key={link.name + "-" + index}>
         {index > 0 && " / "}
         <Link href={link.path}>
           <a className={borderStyle}>
             {link.name}
           </a>
         </Link>
-      </>
+      </span>
     );
   });
 
