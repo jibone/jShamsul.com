@@ -1,9 +1,10 @@
-import Link from 'next/link';
-import { NAV_LINKS } from '../lib/constants';
+import Link from "next/link";
+import { NAV_LINKS } from "../lib/constants";
 
-export default function Navigation({ path }) {
+const Navigation: React.FC<{path: string}> = ({ path }) => {
   const navigationLinks = NAV_LINKS.map((link, index) => {
-    let borderStyle = "border-solid border-b-4 hover:border-black duration-200 transition-colors";
+    let borderStyle =
+      "border-solid border-b-4 hover:border-black duration-200 transition-colors";
     if (link.path !== path) {
       borderStyle = `border-transparent ${borderStyle}`;
     }
@@ -12,9 +13,7 @@ export default function Navigation({ path }) {
       <span key={link.name + "-" + index}>
         {index > 0 && " / "}
         <Link href={link.path}>
-          <a className={borderStyle}>
-            {link.name}
-          </a>
+          <a className={borderStyle}>{link.name}</a>
         </Link>
       </span>
     );
@@ -24,9 +23,9 @@ export default function Navigation({ path }) {
 
   return (
     <div className="col-span-2 flex items-end md:col-span-1">
-      <nav className="flex-1 text-center md:text-right">
-        {navigationLinks}
-      </nav>
+      <nav className="flex-1 text-center md:text-right">{navigationLinks}</nav>
     </div>
   );
-}
+};
+
+export default Navigation;

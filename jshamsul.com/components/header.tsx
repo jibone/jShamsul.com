@@ -1,11 +1,18 @@
-import Link from 'next/link';
-import Navigation from './navigation';
+import Link from "next/link";
+import Navigation from "./navigation";
 
-export default function Header({ size, path }) {
+type Props = {
+  size: string;
+  path: string;
+};
+
+const Header: React.FC<Props> = ({ size, path }) => {
   // Set default logo style.
-  let logoStyle = "text-2xl md:text-4xl font-bold tracking-tighter leading-tight md:pr-8";
+  let logoStyle =
+    "text-2xl md:text-4xl font-bold tracking-tighter leading-tight md:pr-8";
   if (size === "large") {
-    logoStyle = "text-7xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8";
+    logoStyle =
+      "text-7xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8";
   }
 
   return (
@@ -20,5 +27,7 @@ export default function Header({ size, path }) {
       </div>
       <Navigation path={path} />
     </header>
-  )
-}
+  );
+};
+
+export default Header;
