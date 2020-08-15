@@ -1,4 +1,4 @@
-export default function HeroImage({ name }) {
+const HeroImage: React.FC<{ name: string }> = ({ name }) => {
   const path = `/assets/covers/${name}`;
 
   return (
@@ -6,4 +6,6 @@ export default function HeroImage({ name }) {
       <img className="w-full" src={path} />
     </section>
   );
-}
+};
+
+export default HeroImage;
