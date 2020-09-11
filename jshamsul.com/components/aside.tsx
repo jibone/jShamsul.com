@@ -38,37 +38,3 @@ const Aside: React.FC<{ links?: string[] | undefined }> = ({ links }) => {
 };
 
 export default Aside;
-
-/*
-export default function Aside({ links }) {
-
-  // Return null if there is no aside.
-  if (links === undefined || links.length === 0) {
-    return (null);
-  }
-
-  const asideList = links.map((i) => {
-    const item = ASIDE_LINKS[i];
-
-    return (
-      <div key={item.name} className="mt-4">
-        <div>
-          <a target="_blank" href={item.url} className="border-solid border-b-2 hover:border-black duration-200 transition-colors">
-            {item.link}
-          </a>
-        </div>
-        <div>
-          {item.name}
-        </div>
-      </div>
-    );
-  });
-
-  return (
-    <aside className="mb-12 col-span-3 text-xs text-right md:col-span-1">
-      {asideList}
-    </aside>
-  );
-
-}
-*/
