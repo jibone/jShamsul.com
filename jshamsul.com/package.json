@@ -10,20 +10,20 @@
   "dependencies": {
     "@mdx-js/loader": "^1.6.16",
     "@next/mdx": "^9.5.2",
-    "classnames": "2.2.6",
-    "date-fns": "2.10.0",
-    "gray-matter": "4.0.2",
+    "classnames": "^2.2.6",
+    "date-fns": "^2.10.0",
+    "gray-matter": "^4.0.2",
     "next": "^9.5.2",
     "next-mdx-enhanced": "^3.1.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "remark": "11.0.2",
-    "remark-html": "10.0.0"
+    "remark": "^11.0.2",
+    "remark-html": "^10.0.0"
   },
   "devDependencies": {
     "@types/node": "^14.0.27",
     "@types/react": "^16.9.46",
-    "dotenv": "8.2.0",
+    "dotenv": "^8.2.0",
     "postcss-preset-env": "^6.7.0",
     "tailwindcss": "^1.4.0",
     "typescript": "^3.9.7"
