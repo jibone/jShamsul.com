@@ -35,12 +35,22 @@ const About: NextPage = () => {
                   I am a <strong>software engineer</strong> from{" "}
                   <strong>Kuala Lumpur, Malaysia</strong> currently working and living in{" "}
                   <strong>Singapore</strong>. During my free time, I read books, play video games,
-                  build mechnical keyboards, and other random cool stuff.
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href="https://jibone.notion.site/jibone/Unplayed-b85d75ba96864600a143b27e53ec0a79"
+                    className="border-solid border-b-4 bg-yellow-100 hover:border-black hover:bg-yellow-200 duration-200 transition-colors"
+                  >
+                    play video games
+                  </a>
+                  , build mechnical keyboards, and other random cool stuff.
                 </p>
                 <h2 className="mt-8 text-2xl md:text-3xl">About the website</h2>
                 <p className="mt-4">
                   This website is created using{" "}
                   <a
+                    target="_blank"
+                    rel="noreferrer"
                     href="https://nextjs.org"
                     className="border-solid border-b-4 bg-yellow-100 hover:border-black hover:bg-yellow-200 duration-200 transition-colors"
                   >
@@ -48,7 +58,7 @@ const About: NextPage = () => {
                   </a>
                 </p>
               </section>
-              <Aside links={["twitter", "github"]} />
+              <Aside links={["twitter", "github", "unplayed"]} />
             </article>
           </div>
         </main>

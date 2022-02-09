@@ -21,6 +21,11 @@ const ASIDE_LINKS: linksType = {
     link: "grab.com",
     url: "https://grab.com",
   },
+  unplayed: {
+    name: "Unplayed",
+    link: "jibone.notion.site/jibone/unplayed",
+    url: "https://jibone.notion.site/jibone/Unplayed-b85d75ba96864600a143b27e53ec0a79",
+  },
 };
 
 const Aside: React.FC<{ links?: string[] | undefined }> = ({ links }) => {
