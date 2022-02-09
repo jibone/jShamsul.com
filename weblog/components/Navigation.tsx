@@ -29,7 +29,7 @@ const Navigation: React.FC<{ path: string }> = ({ path }) => {
       return (
         <span key={link.name + "-" + index}>
           {index > 0 && " / "}
-          <a className={borderStyle} href={link.path} target="_blank">
+          <a className={borderStyle} href={link.path} target="_blank" rel="noreferrer">
             {link.name}
           </a>
         </span>
