@@ -36,6 +36,7 @@ const Aside: React.FC<{ links?: string[] | undefined }> = ({ links }) => {
         <div>
           <a
             target="_blank"
+            rel="noreferrer"
             href={item.url}
             className="text-stone-500 border-solid border-b-2 hover:border-black hover:text-stone-800 duration-200 transition-colors"
           >
