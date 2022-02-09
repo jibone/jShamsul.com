@@ -1,4 +1,0 @@
-[build]
-  base = "jshamsul.com/"
-  command = "yarn build && yarn export"
-  publish = "jshamsul.com/out"

@@ -4,10 +4,17 @@ export const nav_links = [
   {
     path: "/",
     name: "Home",
+    external: false,
   },
   {
     path: "/about",
     name: "About",
+    external: false,
+  },
+  {
+    path: "https://jibone.notion.site/jibone/Unplayed-b85d75ba96864600a143b27e53ec0a79",
+    name: "Unplayed",
+    external: true,
   },
 ];
 
@@ -16,6 +23,17 @@ const Navigation: React.FC<{ path: string }> = ({ path }) => {
     let borderStyle = "border-solid border-b-4 hover:border-black duration-200 transition-colors";
     if (link.path !== path) {
       borderStyle = `border-transparent ${borderStyle}`;
+    }
+
+    if (link.external) {
+      return (
+        <span key={link.name + "-" + index}>
+          {index > 0 && " / "}
+          <a className={borderStyle} href={link.path} target="_blank" rel="noreferrer">
+            {link.name}
+          </a>
+        </span>
+      );
     }
 
     return (
