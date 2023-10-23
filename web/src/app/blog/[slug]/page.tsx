@@ -1,9 +1,10 @@
 import "../../prism.css";
 import Link from "next/link";
 import { format, parseISO } from "date-fns";
+import { Metadata } from "next";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import { allBlogs } from "contentlayer/generated";
-import { siteMetadata } from "@/data/siteMetadata";
+import type { Blog } from "contentlayer/generated";
 
 export async function generateStaticParams() {
   return allBlogs.map((post) => ({
@@ -11,19 +12,27 @@ export async function generateStaticParams() {
   }));
 }
 
-function getPostFromSlug(slug: string) {
-  const post = allBlogs.find((p) => p._raw.flattenedPath === `blog/${slug}`);
-  if (!post) throw new Error(`Post not found for slug: ${slug}`);
-  return post;
-}
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata | undefined> {
+  const post = allBlogs.find(
+    (p) => p._raw.flattenedPath === `blog/${params.slug}`,
+  ) as Blog;
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const post = getPostFromSlug(params.slug);
-  return { title: `${post.title} | ${siteMetadata.title}` };
+  // TODO: Build better metadata, add openGraph and twitter
+
+  return {
+    title: post.title,
+    description: post.summary,
+  };
 }
 
 export default function Blog({ params }: { params: { slug: string } }) {
-  const post = getPostFromSlug(params.slug);
+  const post = allBlogs.find(
+    (p) => p._raw.flattenedPath === `blog/${params.slug}`,
+  ) as Blog;
 
   const MDXContent = useMDXComponent(post.body.code);
 
