@@ -1,5 +1,4 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
-import path from "path";
 // Import Remark packages
 import remarkGfm from "remark-gfm";
 // Import Rehype packages
@@ -7,8 +6,6 @@ import rehypePrismPlus from "rehype-prism-plus";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeCodeTitles from "rehype-code-titles";
-
-const rootPath = process.cwd();
 
 // Define document type for blog post
 export const Blog = defineDocumentType(() => ({
@@ -29,7 +26,7 @@ export const Blog = defineDocumentType(() => ({
   computedFields: {
     slug: {
       type: "string",
-      resolve: (doc) => doc._raw.flattenedPath.replace(/^.+?(\/)/, ""),
+      resolve: (doc) => doc._raw.flattenedPath.slice(5),
     },
     path: {
       type: "string",
@@ -44,6 +41,7 @@ export const Blog = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: "contents",
+  contentDirInclude: ["blog"],
   documentTypes: [Blog],
   mdx: {
     cwd: process.cwd(),

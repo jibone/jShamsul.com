@@ -8,7 +8,7 @@ import type { Blog } from "contentlayer/generated";
 
 export async function generateStaticParams() {
   return allBlogs.map((post) => ({
-    slug: post._raw.flattenedPath,
+    slug: post.slug,
   }));
 }
 
