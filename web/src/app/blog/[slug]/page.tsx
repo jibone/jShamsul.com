@@ -1,10 +1,10 @@
 import "../../prism.css";
-import Link from "next/link";
 import { format, parseISO } from "date-fns";
 import { Metadata } from "next";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import { allBlogs } from "contentlayer/generated";
 import type { Blog } from "contentlayer/generated";
+import { generateSiteMetadata } from "@/utils";
 
 export async function generateStaticParams() {
   return allBlogs.map((post) => ({
@@ -21,12 +21,13 @@ export async function generateMetadata({
     (p) => p._raw.flattenedPath === `blog/${params.slug}`,
   ) as Blog;
 
-  // TODO: Build better metadata, add openGraph and twitter
+  const ogBanner = `/img/${post._raw.flattenedPath}/og_banner.png`;
 
-  return {
+  return generateSiteMetadata({
     title: post.title,
     description: post.summary,
-  };
+    image: ogBanner,
+  });
 }
 
 export default function Blog({ params }: { params: { slug: string } }) {
@@ -46,13 +47,8 @@ export default function Blog({ params }: { params: { slug: string } }) {
           {post.title}
         </h1>
       </div>
-      <div className="prose lg:prose-lg">
+      <div className="prose-lg">
         <MDXContent />
-      </div>
-      <div className="mt-6">
-        <Link href="/" className="text-primary-500 hover:text-primary-900">
-          &larr; Back to Home
-        </Link>
       </div>
     </article>
   );

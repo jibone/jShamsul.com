@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="mt-16 flex flex-col items-center">
         <div className="mb-3 flex space-x-4">
           <Icon kind="x" href={siteMetadata.x} size={6} />
-          <Icon kind="mail" href="/mailto" size={6} />
+          <Icon kind="mail" href="/contact" size={6} />
           <Icon kind="github" href={siteMetadata.github} size={6} />
         </div>
         <div className="mb-2 flex space-x-2 text-sm text-gray-500">

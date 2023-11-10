@@ -30,7 +30,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".contentlayer/generated",
-    "src/data/siteMetadata.ts"
+    "src/data/siteMetadata.ts",
+    "contents/page/about.mdx"
   ],
   "exclude": ["node_modules"]
 }
