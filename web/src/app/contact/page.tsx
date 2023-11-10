@@ -10,18 +10,18 @@ function getPageContent(name: string): Page | undefined {
 }
 
 export async function generateMetadata(): Promise<Metadata | undefined> {
-  const page = allPages.find((p) => p.name === "about");
+  const page = allPages.find((p) => p.name === "contact");
   if (!page) notFound();
 
   return generateSiteMetadata({
-    title: "About.",
+    title: page.title,
     description: page.description,
     image: siteMetadata.socialBanner,
   });
 }
 
-export default function About() {
-  const pageContent = getPageContent("about");
+export default function Contact() {
+  const pageContent = getPageContent("contact");
   if (!pageContent) notFound();
 
   const MDXPageContent = useMDXComponent(pageContent.body.code);
@@ -31,7 +31,7 @@ export default function About() {
       <div className="divide-y divide-gray-200">
         <div className="space-y-2 pb-8 pt-6 md:space-y-5">
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            About.
+            Contact.
           </h1>
           <div className="prose-lg">
             <MDXPageContent />

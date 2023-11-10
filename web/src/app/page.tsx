@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { compareDesc, format, parseISO } from "date-fns";
-import { allBlogs, Blog } from "contentlayer/generated";
+import { allBlogs, allPages, Blog, Page } from "contentlayer/generated";
+import { useMDXComponent } from "next-contentlayer/hooks";
+import { notFound } from "next/navigation";
+import { PalestineLink } from "@/components/PalestineLink";
 
 // [TODO] Move this to Component...
 function BlogPostCard(post: Blog) {
@@ -29,14 +32,12 @@ function BlogPostCard(post: Blog) {
               </div>
               <div className="prose max-w-none text-gray-500">{summary}</div>
             </div>
-            <div className="text-base font-medium leading-6">
-              <Link
+            <div className="flex text-base font-medium leading-6 -ml-2">
+              <PalestineLink
                 href={`/blog/${slug}`}
-                className="text-primary-500 hover:text-primary-600"
-                aria-label={`Read "${title}"`}
-              >
-                Read more &rarr;
-              </Link>
+                aria-lable={`Read "${title}"`}
+                textLabel="Read more →"
+              />
             </div>
           </div>
         </div>
@@ -53,6 +54,11 @@ export default function Home() {
     compareDesc(new Date(a.date), new Date(b.date)),
   );
 
+  const page = allPages.find((p) => p.name === "home");
+  if (!page) notFound();
+
+  const MDXPageContent = useMDXComponent(page.body.code);
+
   return (
     <>
       <div className="divide-y divide-gray-200">
@@ -60,33 +66,9 @@ export default function Home() {
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
             Hello Internets.
           </h1>
-          <p className="text-lg leading-7">
-            My name is <strong>J. Shamsul Bahri</strong>. Around the web you
-            will often see me going by the handle{" "}
-            <em>
-              <a
-                href="https://x.com/jibone"
-                target="_blank"
-                aria-label="@jibone"
-              >
-                @jibone
-              </a>
-            </em>
-            . Husband to a lovely wife, father to an adorable daughter, seeker
-            of baneficial knowledge, and builder of useable software.
-          </p>
-          <p className="text-lg leading-7">
-            I am a <em>Software Engineer</em> from Kuala Lumpur, Malaysia.
-            Currently I am based on the sunny city of Singapore. As a full-stack
-            engineer, I love exploring both the frontend and backend of things.
-          </p>
-          <p className="text-lg leading-7">
-            In my spare time, I love building <em>Lego</em> sets with my
-            daughter, assembling plastic robots figures known as <em>Gunpla</em>
-            , soldering keyboard switches and customizing{" "}
-            <em>Machanical Keyboards</em>, and play games on{" "}
-            <em>Nintendo Switch</em>.
-          </p>
+          <div className="prose-lg">
+            <MDXPageContent />
+          </div>
         </div>
 
         <ul className="divide-y divide-gray-200">

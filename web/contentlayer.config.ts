@@ -39,10 +39,32 @@ export const Blog = defineDocumentType(() => ({
   },
 }));
 
+// Define documnet type for page
+export const Page = defineDocumentType(() => ({
+  name: "Page",
+  filePathPattern: `page/**/*.md`,
+  contentType: "mdx",
+  fields: {
+    title: {
+      type: "string",
+      required: true,
+    },
+    description: {
+      type: "string",
+    },
+  },
+  computedFields: {
+    name: {
+      type: "string",
+      resolve: (doc) => doc._raw.flattenedPath.slice(5),
+    },
+  },
+}));
+
 export default makeSource({
   contentDirPath: "contents",
-  contentDirInclude: ["blog"],
-  documentTypes: [Blog],
+  contentDirInclude: ["blog", "page"],
+  documentTypes: [Blog, Page],
   mdx: {
     cwd: process.cwd(),
     remarkPlugins: [remarkGfm],

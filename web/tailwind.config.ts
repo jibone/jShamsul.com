@@ -12,13 +12,17 @@ const config: Config = {
   theme: {
     extend: {
       typography: ({ theme }: any) => ({
-        DEFAULT: {
+        lg: {
           css: {
             a: {
-              color: "#ec4899",
+              color: "#ce1127",
               "&:hover": {
-                color: "#db2777",
+                color: "#007a3d",
               },
+              cursor: "pointer",
+            },
+            blockquote: {
+              borderLeftWidth: "thick",
             },
           },
         },
