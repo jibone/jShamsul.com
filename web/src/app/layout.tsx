@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Signika_Negative } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import { siteMetadata } from "@/data/siteMetadata";
 import { SectionContainer } from "@/components/Container";
 import { Header } from "@/components/Header";
@@ -93,6 +94,7 @@ export default function RootLayout({
             <Footer />
           </div>
         </SectionContainer>
+        <Analytics />
       </body>
     </html>
   );
