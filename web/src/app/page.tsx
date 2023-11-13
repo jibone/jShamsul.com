@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { compareDesc, format, parseISO } from "date-fns";
-import { allBlogs, allPages, Blog, Page } from "contentlayer/generated";
+import { allBlogs, allPages, Blog } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import { notFound } from "next/navigation";
 import { PalestineLink } from "@/components/PalestineLink";
