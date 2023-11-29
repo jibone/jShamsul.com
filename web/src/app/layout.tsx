@@ -6,6 +6,7 @@ import { siteMetadata } from "@/data/siteMetadata";
 import { SectionContainer } from "@/components/Container";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { TopG, BottomG } from "@/components/BgGradient";
 
 const signikaNegative = Signika_Negative({ subsets: ["latin"] });
 
@@ -87,6 +88,7 @@ export default function RootLayout({
       <meta name="theme-color" content="#ffffff" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       <body className="bg-white text-black antialiased">
+        <TopG />
         <SectionContainer>
           <div className="flex h-screen flex-col justify-between font-sans">
             <Header />
@@ -94,6 +96,7 @@ export default function RootLayout({
             <Footer />
           </div>
         </SectionContainer>
+        <BottomG />
         <Analytics />
       </body>
     </html>
