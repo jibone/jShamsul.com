@@ -1,6 +1,6 @@
 export const siteMetadata = {
   title: "jShamsul.com",
-  author: "@jibone // J.Shamsul Bahri",
+  author: "J.Shamsul Bahri (@jibone)",
   headerTitle: "jShamsul.com",
   description: "Software Builder, Full-stack Engineer, Web3 Crypto Curious.", // TODO: Add description to this blog
   language: "en-us",
