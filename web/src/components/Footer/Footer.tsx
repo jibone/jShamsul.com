@@ -12,12 +12,12 @@ export default function Footer() {
           <Icon kind="github" href={siteMetadata.github} size={6} />
         </div>
         <div className="flex flex-col sm:flex-row mb-2 space-x-2 text-sm text-gray-500">
-          <div className="text-center">{siteMetadata.author}</div>
-          <div className="hidden sm:block text-center">{` • `}</div>
           <div className="text-center">{`© ${new Date().getFullYear()}`}</div>
           <div className="hidden sm:block text-center">{` • `}</div>
-          <Link href="/" className="text-center">
-            {siteMetadata.title}
+          <div className="text-center">{siteMetadata.author}</div>
+          <div className="hidden sm:block text-center">{` • `}</div>
+          <Link href="/changelog" className="text-center">
+            changelog
           </Link>
         </div>
       </div>
