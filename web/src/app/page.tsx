@@ -1,12 +1,13 @@
 import Link from "next/link";
-import { compareDesc, format, parseISO } from "date-fns";
-import { allBlogs, allPages, Blog } from "contentlayer/generated";
-import { useMDXComponent } from "next-contentlayer/hooks";
+import { format, parseISO } from "date-fns";
 import { notFound } from "next/navigation";
 import { PalestineLink } from "@/components/PalestineLink";
+import { CompileMDXResult } from "next-mdx-remote/rsc";
+import PageModel, { PageFrontmatter } from "@/models/pageModel";
+import BlogModel, { BlogFrontmatter } from "@/models/blogpostModel";
 
 // [TODO] Move this to Component...
-function BlogPostCard(post: Blog) {
+function BlogPostCard(post: BlogFrontmatter) {
   const { date, title, slug, summary } = post;
 
   return (
@@ -35,7 +36,7 @@ function BlogPostCard(post: Blog) {
             <div className="flex text-base font-medium leading-6 -ml-2">
               <PalestineLink
                 href={`/blog/${slug}`}
-                aria-lable={`Read "${title}"`}
+                aria-label={`Read "${title}"`}
                 textLabel="Read more →"
               />
             </div>
@@ -48,16 +49,44 @@ function BlogPostCard(post: Blog) {
 
 const MAX_DISPLAY = 10;
 
-export default function Home() {
-  // sort post based on date
-  const posts = allBlogs.sort((a: any, b: any) =>
-    compareDesc(new Date(a.date), new Date(b.date)),
-  );
+async function getPageContent(): Promise<
+  CompileMDXResult<PageFrontmatter> | undefined
+> {
+  const pageName = "home";
+  const pageModel = new PageModel();
+  const pageContent = await pageModel.get(pageName);
 
-  const page = allPages.find((p) => p.name === "home");
-  if (!page) notFound();
+  return pageContent;
+}
 
-  const MDXPageContent = useMDXComponent(page.body.code);
+async function getBlogPostList(): Promise<BlogFrontmatter[]> {
+  const blogModel = new BlogModel();
+  const blogPostList = blogModel.list();
+
+  let max = MAX_DISPLAY;
+  if (blogPostList.length < MAX_DISPLAY) {
+    max = blogPostList.length;
+  }
+
+  let blogPostListOutput: BlogFrontmatter[] = [];
+  for (let i = 0; i < max; i++) {
+    const post = await blogModel.get(blogPostList[i]);
+    if (post?.frontmatter !== undefined) {
+      blogPostListOutput.push({
+        ...post?.frontmatter,
+        slug: blogPostList[i],
+      });
+    }
+  }
+
+  return blogPostListOutput;
+}
+
+export default async function Home() {
+  const pageContent = await getPageContent();
+  if (!pageContent) notFound();
+
+  const blogPostList = await getBlogPostList();
 
   return (
     <>
@@ -66,19 +95,16 @@ export default function Home() {
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
             Hello Internets.
           </h1>
-          <div className="prose-lg">
-            <MDXPageContent />
-          </div>
+          <div className="prose-lg">{pageContent.content}</div>
         </div>
 
-        <ul className="divide-y divide-gray-200">
-          {!posts.length && "No posts found."}
-          {posts.slice(0, MAX_DISPLAY).map((post: Blog, idx: number) => {
+        <ul className="divide-y divide-gray-200 py-3">
+          {blogPostList.map((post: BlogFrontmatter, idx: number) => {
             return <BlogPostCard key={idx} {...post} />;
           })}
         </ul>
       </div>
-      {posts.length > MAX_DISPLAY && (
+      {blogPostList.length > MAX_DISPLAY && (
         <div className="flex justify-end text-base font-medium leading-6">
           <Link
             href="/blog"
