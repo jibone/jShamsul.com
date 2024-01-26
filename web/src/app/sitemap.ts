@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next";
-import { allBlogs } from "contentlayer/generated";
+import BlogModel from "@/models/blogpostModel";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://jshamsul.com";
@@ -30,15 +30,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // Get all the posts
-  const posts: MetadataRoute.Sitemap = allBlogs.map((p) => {
+  // get all the blogposts
+  const blogModel = new BlogModel();
+  const blogPostList = blogModel.list();
+  const blogposts = blogPostList.map((p) => {
     return {
-      url: `${baseUrl}/blog/${p.slug}`,
-      lastModified: new Date(p.date),
-      changeFrequency: "never",
+      url: `${baseUrl}/blog/${p}`,
       priority: 0.9,
     };
   });
 
-  return [...staticNav, ...posts];
+  return [...staticNav, ...blogposts];
 }

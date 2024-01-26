@@ -1,22 +1,13 @@
-import fs from "fs";
-import { compileMDX } from "next-mdx-remote/rsc";
+import ChangelogModel from "@/models/changelogModel";
 import { ChangelogItems } from "@/components/Changelog";
 
 export default async function ChangeLog() {
-  const filepath = `${process.cwd()}/contents/changelogs`;
-  const fileList = fs.readdirSync(filepath);
-  const changelogFileList = fileList.sort().reverse();
+  const changelogModel = new ChangelogModel();
+  const changelogFileList = changelogModel.list();
   const changelogs = [];
 
   for (let i = 0; i < changelogFileList.length; i++) {
-    const filePath = `${process.cwd()}/contents/changelogs/${changelogFileList[i]}`;
-    let pageContents = fs.readFileSync(filePath, "utf8");
-
-    const compiled = await compileMDX<{ date: string }>({
-      source: pageContents,
-      options: { parseFrontmatter: true },
-    });
-
+    const compiled = await changelogModel.get(changelogFileList[i]);
     changelogs.push(compiled);
   }
 
