@@ -37,12 +37,9 @@ export async function generateMetadata({
 }): Promise<Metadata | undefined> {
   const frontmatter = await getPageMetadata(params.slug);
 
-  const ogBanner = `/img/${params.slug}/og_banner.png`;
-
   return generateSiteMetadata({
     title: frontmatter?.title || "",
     description: frontmatter?.summary,
-    image: ogBanner,
   });
 }
 
