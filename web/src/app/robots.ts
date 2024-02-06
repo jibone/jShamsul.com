@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: "/contact/",
+      disallow: "/api/",
     },
     sitemap: "https://jshamsul.com/sitemap.xml",
   };

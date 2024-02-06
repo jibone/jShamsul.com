@@ -1,5 +1,35 @@
+import type { Metadata } from "next";
 import ChangelogModel from "@/models/changelogModel";
 import { ChangelogItems } from "@/components/Changelog";
+import PageModel, { PageFrontmatter } from "@/models/pageModel";
+import { generateSiteMetadata } from "@/utils";
+import { CompileMDXResult } from "next-mdx-remote/rsc";
+import { notFound } from "next/navigation";
+
+async function getPageContent(): Promise<
+  CompileMDXResult<PageFrontmatter> | undefined
+> {
+  const pageName = "changelog";
+  const pageModel = new PageModel();
+  const pageContent = await pageModel.get(pageName);
+
+  return pageContent;
+}
+
+async function getPageMetadata(): Promise<PageFrontmatter | undefined> {
+  const contents = await getPageContent();
+  return contents?.frontmatter;
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const pageMetadata = await getPageMetadata();
+  if (!pageMetadata) notFound();
+
+  return generateSiteMetadata({
+    title: pageMetadata.title,
+    description: pageMetadata.ogSubtitle,
+  });
+}
 
 export default async function ChangeLog() {
   const changelogModel = new ChangelogModel();

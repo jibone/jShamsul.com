@@ -7,6 +7,10 @@ export type BlogFrontmatter = {
   title: string;
   summary: string;
   slug?: string;
+  ogTitle: string;
+  ogSubtitle: string;
+  ogTitleFont: number;
+  ogSubtitleFont: number;
 };
 
 interface BlogInterface {

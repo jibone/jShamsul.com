@@ -5,6 +5,10 @@ export type PageFrontmatter = {
   type: "Page";
   title: string;
   description: string;
+  ogTitle?: string;
+  ogSubtitle?: string;
+  ogTitleFont?: number;
+  ogSubtitleFont?: number;
 };
 
 interface PageInterface {

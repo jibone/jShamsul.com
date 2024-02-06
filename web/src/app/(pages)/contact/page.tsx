@@ -1,14 +1,13 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import PageModel, { PageFrontmatter } from "@/models/pageModel";
-import { siteMetadata } from "@/data/siteMetadata";
 import { generateSiteMetadata } from "@/utils";
 import { CompileMDXResult } from "next-mdx-remote/rsc";
+import PageModel, { PageFrontmatter } from "@/models/pageModel";
 
 async function getPageContent(): Promise<
   CompileMDXResult<PageFrontmatter> | undefined
 > {
-  const pageName = "about";
+  const pageName = "contact";
   const pageModel = new PageModel();
   const pageContent = await pageModel.get(pageName);
 
@@ -25,13 +24,12 @@ export async function generateMetadata(): Promise<Metadata | undefined> {
   if (!pageMetadata) notFound();
 
   return generateSiteMetadata({
-    title: "About.",
-    description: pageMetadata.description,
-    image: siteMetadata.socialBanner,
+    title: pageMetadata.title,
+    description: pageMetadata.ogSubtitle,
   });
 }
 
-export default async function About() {
+export default async function Contact() {
   const pageContent = await getPageContent();
   if (!pageContent) notFound();
 
@@ -40,7 +38,7 @@ export default async function About() {
       <div className="divide-y divide-gray-200">
         <div className="space-y-2 pb-8 pt-6 md:space-y-5">
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            About.
+            Contact.
           </h1>
           <div className="prose-lg">{pageContent.content}</div>
         </div>
