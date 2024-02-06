@@ -1,11 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
 
+import { siteMetadata } from "@/data/siteMetadata";
 import { ImageResponse } from "@vercel/og";
 
 export const runtime = "edge";
 export const contentType = "image/png";
 
 export default function Icon() {
+  let baseUrl = siteMetadata.siteUrl;
+  if (process.env.NODE_ENV === "development") {
+    baseUrl = "http://localhost:3000";
+  }
+
   return new ImageResponse(
     (
       <div
@@ -18,12 +24,7 @@ export default function Icon() {
           background: "white",
         }}
       >
-        <img
-          alt="logo"
-          src={"http://localhost:3000/jslogo.png"}
-          width={96}
-          height={96}
-        />
+        <img alt="logo" src={`${baseUrl}/jslogo.png`} width={96} height={96} />
       </div>
     ),
     {

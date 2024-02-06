@@ -2,7 +2,8 @@ export const siteMetadata = {
   title: "jShamsul.com",
   author: "J.Shamsul Bahri (@jibone)",
   headerTitle: "jShamsul.com",
-  description: "Software Builder, Full-stack Engineer, Web3 Crypto Curious.",
+  description:
+    "Software builder, Fullstack engineer, and AI, Web3, Crypto Curious.",
   language: "en-us",
   theme: "light", // TODO: switch this back to system
   siteUrl: "https://jshamsul.com",

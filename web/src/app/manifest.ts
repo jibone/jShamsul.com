@@ -1,10 +1,11 @@
+import { siteMetadata } from "@/data/siteMetadata";
 import { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "jShamsul.com",
-    short_name: "jShamsul.",
-    description: "Software builder, Fullstack engineer, web3 crypto curious.",
+    name: siteMetadata.title,
+    short_name: siteMetadata.title,
+    description: siteMetadata.description,
     start_url: "/",
     display: "standalone",
     background_color: "#fff",

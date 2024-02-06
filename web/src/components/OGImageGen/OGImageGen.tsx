@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 
+import { siteMetadata } from "@/data/siteMetadata";
 import { ImageResponse } from "@vercel/og";
 
 export type OGImageGenProps = {
@@ -25,12 +26,17 @@ export default async function OGImageGen({
   fontBlack,
   fontMedium,
 }: OGImageGenProps) {
+  let baseUrl = siteMetadata.siteUrl;
+  if (process.env.NODE_ENV === "development") {
+    baseUrl = "http://localhost:3000";
+  }
+
   if (logo === undefined) {
-    logo = `http://localhost:3000/jslogo.png`;
+    logo = `${baseUrl}/jslogo.png`;
   }
 
   if (bgImage === undefined) {
-    bgImage = `url('http://localhost:3000/social-banner.png')`;
+    bgImage = `url('${baseUrl}/social-banner.png')`;
   }
 
   let pageLink = "";
