@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 import { defaultMetadata } from "@/utils";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -53,6 +54,7 @@ export default function RootLayout({
         className={`bg-slate-50 ${iaWriterDuo.variable} ${iaWriterDuoItalic.variable} ${iaWriterQuattro.variable} ${iaWriterQuattroItelic.variable} ${iaWriterMono.variable} ${iaWriterMonoItalic.variable}`}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );
