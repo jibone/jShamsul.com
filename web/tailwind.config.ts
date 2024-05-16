@@ -1,8 +1,5 @@
 import type { Config } from "tailwindcss";
 
-const colors = require("tailwindcss/colors");
-
-/** @type {import("tailwindcss/types").Config } */
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -11,25 +8,18 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      typography: ({ theme }: any) => ({
-        lg: {
-          css: {
-            a: {
-              color: "#ce1127",
-              "&:hover": {
-                color: "#007a3d",
-              },
-              cursor: "pointer",
-            },
-            blockquote: {
-              borderLeftWidth: "thick",
-            },
-          },
-        },
-      }),
-      colors: {
-        primary: colors.pink,
-        gray: colors.gray,
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
+      fontFamily: {
+        iaWriterDuo: "var(--font-iawriter-duo)",
+        iaWriterDuoItalic: "var(--font-iawriter-duo-italic)",
+        iaWriterQuattro: "var(--font-iawriter-quattro)",
+        iaWriterQuattroItalic: "var(--font-iawriter-quattro-italic)",
+        iaWriterMono: "var(--font-iawriter-mono)",
+        iaWriterMonoItalic: "var(--font-iawriter-mono-italic)",
       },
     },
   },

@@ -1,3 +1,4 @@
-import generateSiteMetadata from "./generateSiteMetadata";
+import MDX from "./MDXProcessor";
+import generateSiteMetadata, { defaultMetadata } from "./metadataUtil";
 
-export { generateSiteMetadata };
+export { MDX, generateSiteMetadata, defaultMetadata };
