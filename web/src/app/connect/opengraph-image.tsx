@@ -8,8 +8,8 @@ export default async function OpenGraphImage() {
   const { fontNormal, fontItalic } = await OGFont();
 
   return OGImageGen({
-    title: "",
-    subtitle: "",
+    title: "Connect.",
+    subtitle: "Let's get in touch!",
     fontNormal,
     fontItalic,
   });

@@ -1,44 +1,36 @@
-import { MetadataRoute } from "next";
-import BlogModel from "@/models/blogpostModel";
+import type { MetadataRoute } from "next";
+import { BlogCollection } from "@/models";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://jshamsul.com";
-  const staticNav: MetadataRoute.Sitemap = [
+
+  const siteNav: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}`,
       lastModified: new Date(),
-      changeFrequency: "monthly",
       priority: 1,
     },
     {
       url: `${baseUrl}/about`,
       lastModified: new Date(),
-      changeFrequency: "yearly",
       priority: 0.5,
     },
     {
-      url: `${baseUrl}/contact`,
+      url: `${baseUrl}/connect`,
       lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.2,
-    },
-    {
-      url: `${baseUrl}/changelog`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.2,
+      priority: 0.5,
     },
   ];
 
-  // get all the blogposts
-  const blogModel = new BlogModel();
-  const blogPostList = blogModel.list();
-  const blogposts = blogPostList.map((p) => {
+  // get all the blog posts
+  const blogpostList = BlogCollection.slugList();
+
+  const blogposts = blogpostList.map((p) => {
     return {
       url: `${baseUrl}/blog/${p}`,
-      priority: 0.9,
+      priority: 1,
     };
   });
 
-  return [...staticNav, ...blogposts];
+  return [...siteNav, ...blogposts];
 }

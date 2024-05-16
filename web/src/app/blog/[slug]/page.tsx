@@ -1,66 +1,48 @@
-import "../../prism.css";
-import { format, parseISO } from "date-fns";
-import { Metadata } from "next";
-import { generateSiteMetadata } from "@/utils";
-import BlogModel, { BlogFrontmatter } from "@/models/blogpostModel";
-import { CompileMDXResult } from "next-mdx-remote/rsc";
-import { notFound } from "next/navigation";
+import type { BlogFrontmatter } from "@/models";
+import { MDX, generateSiteMetadata } from "@/utils";
+import { Layout } from "@/components";
+import "@/styles/highlightjs/tokyo-night-dark.css";
 
-async function getPageContent(
-  pageName: string,
-): Promise<CompileMDXResult<BlogFrontmatter> | undefined> {
-  const blogModel = new BlogModel();
-  const pageContent = await blogModel.get(pageName);
+const path = `${process.cwd()}/contents/blog`;
 
-  return pageContent;
-}
+async function getPageContents(slug: string) {
+  const filepath = `${path}/${slug}.mdx`;
 
-async function getPageMetadata(
-  pageName: string,
-): Promise<BlogFrontmatter | undefined> {
-  const contents = await getPageContent(pageName);
-  return contents?.frontmatter;
-}
-
-export async function generateStaticParams() {
-  const blogModel = new BlogModel();
-  const list = blogModel.list();
-  return list.map((item) => ({
-    slug: item,
-  }));
+  return await MDX.process<BlogFrontmatter>({ filepath });
 }
 
 export async function generateMetadata({
   params,
 }: {
   params: { slug: string };
-}): Promise<Metadata | undefined> {
-  const frontmatter = await getPageMetadata(params.slug);
+}) {
+  const { slug } = params;
+  const { frontmatter } = await getPageContents(slug);
+
+  const { ogTitle, ogSubtitle } = frontmatter;
+  const titleEncode = encodeURIComponent(ogTitle);
+  const subtitleEncode = encodeURIComponent(ogSubtitle);
+  const imagepath = `/api/og?title=${titleEncode}&subtitle=${subtitleEncode}`;
 
   return generateSiteMetadata({
-    title: frontmatter?.title || "",
-    description: frontmatter?.summary,
+    title: frontmatter.title,
+    description: frontmatter.summary,
+    image: imagepath,
   });
 }
 
-export default async function Blog({ params }: { params: { slug: string } }) {
-  const pageContent = await getPageContent(params.slug);
-  if (!pageContent) notFound();
+export default async function BlogPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const { slug } = params;
+
+  const { content } = await getPageContents(slug);
 
   return (
-    <article className="mx-auto max-w-3xl py-8">
-      <div className="mb-8 text-center">
-        <time
-          dateTime={pageContent.frontmatter.date}
-          className="mb-1 text-lg text-grey-600"
-        >
-          {format(parseISO(pageContent.frontmatter.date), "LLLL d, yyyy")}
-        </time>
-        <h1 className="text-3xl font-bold leading-loose md:text-6xl">
-          {pageContent.frontmatter.title}
-        </h1>
-      </div>
-      <div className="prose-lg">{pageContent.content}</div>
-    </article>
+    <Layout page="blogpost">
+      <div className="prose-custom">{content}</div>
+    </Layout>
   );
 }

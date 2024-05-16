@@ -1,20 +1,20 @@
-import { siteMetadata } from "@/data/siteMetadata";
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
+import { defaultMetadata } from "@/utils";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: siteMetadata.title,
-    short_name: siteMetadata.title,
-    description: siteMetadata.description,
+    name: defaultMetadata.siteName,
+    short_name: defaultMetadata.title,
+    description: defaultMetadata.description,
     start_url: "/",
     display: "standalone",
-    background_color: "#fff",
-    theme_color: "#fff",
+    background_color: "#f1f5f9",
+    theme_color: "#64748b",
     icons: [
       {
         src: "/favicon.ico",
         sizes: "any",
-        type: "image/x-icon",
+        type: "images/x-icon",
       },
     ],
   };

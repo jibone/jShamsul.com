@@ -2,16 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-.triangle {
-  width: 0;
-  height: 0;
-  border-top: 5px solid transparent;
-  border-bottom: 5px solid transparent;
-  border-left: 5px solid white;
-  margin-top: 6px;
-  margin-right: 3px;
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
 }
 
-.triangle-link:hover > .triangle {
-  border-left: 5px solid red;
+.prose-custom {
+  @apply font-iaWriterQuattro
+    prose
+    prose-slate
+    prose-headings:text-base
+    prose-headings:font-medium
+    prose-headings:text-black
+    prose-p:text-slate-500
+    prose-strong:font-medium
+    prose-ol:text-slate-500
+    prose-ul:text-slate-500
+    prose-em:font-iaWriterQuattroItalic
+    prose-code:font-iaWriterMono
+    prose-code:font-normal
+    prose-figcaption:text-sm
+    prose-table:text-slate-500
+    prose-thead:text-left
+    prose-pre:font-iaWriterMono
+    prose-a:decoration-purple-500
+    prose-a:decoration-2
+    prose-a:underline-offset-2
+    hover:prose-a:decoration-purple-300
+    hover:prose-a:text-slate-700
+    prose-blockquote:font-iaWriterQuattroItalic
+    prose-blockquote:text-slate-600;
+}
+
+.footnotes {
+  h2 {
+    margin-bottom: 0px;
+  }
+  ol {
+    li {
+      margin-top: 0px;
+      margin-bottom: 0px;
+      p {
+        margin-top: 0px;
+        margin-bottom: 0px;
+      }
+    }
+  }
+}
+
+.debug {
+  @apply border border-red-500;
 }
