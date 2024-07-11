@@ -51,7 +51,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`bg-slate-50 ${iaWriterDuo.variable} ${iaWriterDuoItalic.variable} ${iaWriterQuattro.variable} ${iaWriterQuattroItelic.variable} ${iaWriterMono.variable} ${iaWriterMonoItalic.variable}`}
+        className={`bg-slate-50/20 ${iaWriterDuo.variable} ${iaWriterDuoItalic.variable} ${iaWriterQuattro.variable} ${iaWriterQuattroItelic.variable} ${iaWriterMono.variable} ${iaWriterMonoItalic.variable}`}
       >
         {children}
         <Analytics />

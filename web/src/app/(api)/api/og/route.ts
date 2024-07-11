@@ -8,12 +8,13 @@ export async function GET(request: Request) {
   const title = searchParams.get("title") || "";
   const subtitle = searchParams.get("subtitle") || "";
 
-  const { fontNormal, fontItalic } = await OGFont();
+  const { fontNormal, fontItalic, fontBold } = await OGFont();
 
   return OGImageGen({
     title,
     subtitle,
     fontNormal,
     fontItalic,
+    fontBold,
   });
 }
