@@ -13,5 +13,12 @@ export async function OGFont() {
     ),
   ).then((res) => res.arrayBuffer());
 
-  return { fontNormal, fontItalic };
+  const fontBold = await fetch(
+    new URL(
+      `../../../public/assets/iAWriterQuattroS-Bold.ttf`,
+      import.meta.url,
+    ),
+  ).then((res) => res.arrayBuffer());
+
+  return { fontNormal, fontItalic, fontBold };
 }

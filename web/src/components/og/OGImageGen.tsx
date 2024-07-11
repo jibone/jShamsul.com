@@ -5,11 +5,13 @@ export default async function OGImageGen({
   subtitle,
   fontNormal,
   fontItalic,
+  fontBold,
 }: {
   title: string;
   subtitle: string;
   fontNormal: ArrayBuffer | Buffer;
   fontItalic: ArrayBuffer | Buffer;
+  fontBold: ArrayBuffer | Buffer;
 }) {
   return new ImageResponse(
     (
@@ -20,8 +22,9 @@ export default async function OGImageGen({
           display: "flex",
           flexDirection: "column",
           flexWrap: "nowrap",
-          fontSize: 32,
-          fontFamily: "iA Writter Quattro",
+          fontSize: 36,
+          fontFamily: "iA Writter Quattro Bold",
+          fontStyle: "normal",
           padding: 40,
           backgroundColor: "#f1f5f9",
           justifyContent: "flex-start",
@@ -29,19 +32,22 @@ export default async function OGImageGen({
       >
         <div
           style={{
-            color: "#020617",
+            color: "#000000",
             marginBottom: 5,
+            display: "flex",
           }}
         >
           {title}
         </div>
         <div
           style={{
-            color: "#64748b",
+            color: "#334155",
+            fontFamily: "iA Writter Quattro Italic",
             fontStyle: "italic",
+            display: "flex",
           }}
         >
-          {subtitle}
+          &gt; {subtitle}
         </div>
         <div
           style={{
@@ -57,7 +63,7 @@ export default async function OGImageGen({
             style={{
               marginTop: 0,
               marginBottom: 5,
-              color: "#020617",
+              color: "#000000",
             }}
           >
             jShamsul.com (@jibone)
@@ -67,20 +73,22 @@ export default async function OGImageGen({
               marginTop: 0,
               marginBottom: 0,
               fontStyle: "italic",
+              fontFamily: "iA Writter Quattro Italic",
               color: "#64748b",
             }}
           >
-            Software builder, Full-stack Engineer,
+            Software builder, Full-stack Engineer.
           </p>
           <p
             style={{
               marginTop: 0,
               marginBottom: 0,
               fontStyle: "italic",
+              fontFamily: "iA Writter Quattro Italic",
               color: "#64748b",
             }}
           >
-            and AI, Web3 Curious.
+            AI and Web3 Curious.
           </p>
         </div>
       </div>
@@ -91,15 +99,21 @@ export default async function OGImageGen({
       fonts: [
         {
           weight: 400,
-          name: "iA Writter Quattro",
+          name: "iA Writter Quattro Normal",
           style: "normal",
           data: fontNormal,
         },
         {
           weight: 400,
-          name: "iA Writter Quattro",
+          name: "iA Writter Quattro Italic",
           style: "italic",
           data: fontItalic,
+        },
+        {
+          weight: 800,
+          name: "iA Writter Quattro Bold",
+          style: "normal",
+          data: fontBold,
         },
       ],
     },

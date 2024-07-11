@@ -38,11 +38,17 @@ export default async function BlogPage({
 }) {
   const { slug } = params;
 
-  const { content } = await getPageContents(slug);
+  const { content, frontmatter } = await getPageContents(slug);
 
   return (
     <Layout page="blogpost">
-      <div className="prose-custom">{content}</div>
+      <div className="prose-custom">
+        <h1>{frontmatter.title}</h1>
+        <div className="text-slate-400 -mt-2">
+          &gt; <em>{frontmatter.summary}</em>
+        </div>
+        {content}
+      </div>
     </Layout>
   );
 }

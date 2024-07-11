@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="mt-10 py-5 px-10 font-iaWriterQuattro flex-none text-slate-600">
+    <footer className="mt-10 py-5 px-10 font-iaWriterQuattro flex-none text-slate-600 text-sm">
       <div className="text-slate-400">
         <a
           href="https://twitter.com/jibone"
@@ -20,8 +20,13 @@ export default function Footer() {
       </div>
       <div className="flex gap-2 text-slate-400">
         <div>&copy; 2024</div>
-        <div>J.Shamsul (@jibone)</div>
+        <div className="text-slate-500">J.Shamsul (@jibone)</div>
       </div>
+      {/* Not yet...
+       <div className="text-slate-400">
+        ( Software Builder / Full-stack Engineer / Futurist Philosopher )
+      </div>
+      */}
     </footer>
   );
 }
