@@ -1,0 +1,112 @@
+---
+title: 'From Dreamweaver to NeoVim'
+type: 'Blog'
+date: '2024-07-17'
+summary: 'A personal journey of finding the final code editor.' 
+ogTitle: "From Dreamweaver to NeoVim"
+ogSubtitle: "A personal journey of finding the final code editor."
+---
+
+This is a short anecdote of how I discovered Vim, and later NeoVim its modern equivalent, which has become my go-to text editor for most things. You don’t use a code editor unless you write code, so I’ll start the story from when I became interested in programming.
+
+## In The Beginning.
+
+My interest in programming began in primary school when my dad bought a Nintendo Famicom clone called Micro Genius. This was around the early 90s. The first game I played was Contra. I still remember that at the title screen — up, up, down, down, left, right, left, right, A, B, start — that gives you an extra 30 lives to start with.
+
+I was fascinated by how I could control the characters in the game with the controller. Unlike the characters in your Sunday morning cartoons, no matter how loud you yell at them, they won't listen to you. These characters in these games — the commando in Contra, the plumber in Mario, the tank in Battle City — they do what I tell them to do, via the controller, of course. I learned that they do this because they follow written instructions called 'programs,' and the people who write them are called 'programmers.' This is when my interest in learning programming started.
+
+I wanted to create games, but for a kid in the 90s, it was close to impossible to create a video game by himself. There was no game engine or any beginner-friendly game developer tools, especially for a school kid with no computer science background. I did joined the school computer club though, but it was not like we were learning to build game physics engines there.
+
+I still thought I could do it, so I tried to learn C programming from the book 'C Programming for Dummies.' There was no YouTube, no online video tutorials to follow. Some concepts were way over my head, but it gave me a strong foundation in basic programming concepts. I never did anything substantial with C, just some silly console command-line applications. I was far from making any sort of game with it.
+
+Getting into game development in the late 90s and early 2000s was hard. Doing web development was much easier. I learned HTML and CSS. JavaScript, with its syntax of curly brackets, seemed similar to C but was much easier and more forgiving. I started learning more about web development and how to build and host websites. 
+
+I’ve started doing a bit of freelancing while still in secondary school, making simple websites with HTML/CSS for anyone who wants one. As the internet and the World Wide Web went mainstream, everyone running a business wanted a website. I translated their business brochures into websites, hosted on shared hosting services with cPanel and virtual hosting already set up. I made good money (for a student) writing HTML. I guess you could say I was an 'HTML Programmer.'
+
+## Weaving Dreams with Dreamweaver.
+
+“If you want to make websites professionally, you’ll need Macromedia Dreamweaver,” those smarter than me said. These folks 'do IT' for a living, so they should know a thing or two. Those who used Microsoft Frontpage were 'noobs,' they said. Just as Adobe Photoshop was the de-facto software for image editing, Macromedia Dreamweaver was the de-facto software for making websites at that time.
+
+If I want to take my “HTML programmer” career seriously, I need serious tools. I need Macromedia Dreamweaver. However, as a typical Malaysian student at that time, I couldn’t afford to purchase professional grade software from the likes of Adobe and Macromedia. There were no options for a subscription-based software license, you had to pay for the full license. So I did what most typical Malaysian students do at that time—pirate the software. 
+
+I’ve always felt icky using pirated software. I am learning to make software, while pirating software others had spent time coding. I promised myself that as soon as I could afford to purchase software, I would buy it. Today, all the software products I use are legal. Today’s software prices are not as ridiculously high as last time. App Stores and subscription model does help software to become more accessible to more people.
+
+Pirating software was the only option for me at that time. I wasn’t aware of open-source software yet. Linux and open-source is a rabbit hole that I went into in later phase of my life. Moreover, let’s be frank, Linux and Open-Source in the 90s were difficult to use.
+
+Dreamweaver made it easy to lay out your webpage. The steps of creating websites back then was this, first you design it in Photoshop, then comes the ‘slicing’ step, where you slice and cut out elements from the design and turn it into HTML. You use Dreamweaver to create tables with 0-width borders and arrange all your UI element that you had ‘sliced’ from the Photoshop design. 
+
+This may surprise some of you, but there was a time when the HTML `<table>` tag was used for creating layout. This is how most of the big websites did it. I know this because someone had taught me this trick — right-click and “view source”. I learn a lot from just “view-source”-ing websites with designs I liked. I basically learn HTML and CSS this way. Back then, there was no “build” step for web development. The codes when you view-source are readable.
+
+I learn JavaScript the same way too. I remember copying codes from websites and tweaking it to make it behave the way I wanted. There were also many code snippets from Hotscripts.com that you can use, this was our ‘StackOverflow’. These were my informal education on web development. My prior attempt to learn C Programming — although I was unable to create anything worthwhile with it — did in a way helped me understand some of the more basic concepts of programming. This helped me to learn JavaScripts and other languages.
+
+Dreamweaver comes with a build-in deployment tool. You can magically connect to your server via this thing called FTP and you can transfer whatever file you were working on your computer to your shared hosting server. With just a click of a button, You can sync your local files to your remote server. Who need GitHub, CI/CD pipelines, and all of those things anyway when you can just click ‘sync’ and all your files on your computer are now on the server ready to serve.
+
+Dreamweaver also made it easy to build dynamic application using PHP. All the cutting-edge hipster web developers were using PHP at that time, and almost all shared hosting providers supported it. Only those yuppies in shirts and khakis pants sitting in a cubical office uses what they call ‘ColdFusion’ and this thing called ‘Active Server Pages (ASP)’. 
+
+PHP opened me up to the world of Open Source. I discovered that there are free equivalent software and frameworks that do the same thing as those professional and expensive ones. Still, Open Source was hard back then, you really need to invest a lot of time to get what you wanted. 
+
+I was happy with Dreamweaver, until I saw this video on YouTube that changed my view on software for writing codes. 
+
+## My New Mate, Textmate.
+
+One day, I saw this video of someone showing this new web framework written in this weird language called Ruby. This guy was making dynamic websites with just a terminal window and a software that looks like a plain text editor.
+
+Yes, it is [the first screencast video that DHH made to showcase Ruby on Rails](https://www.youtube.com/watch?v=Gzj723LkRJY]). This video changed my life. What caught my attention was not the weird programming language with lack of curly brackets and semicolons, or the scaffolding functionality of the Ruby on Rails MVC framework. It was how clean that text editor UI was.
+
+No fancy buttons, just a huge area to type your text, a list of tabs which you can switch files that you have opened, and a side directory structure of your files in a drawer type UI.
+
+Right after watching the video, I immediately downloaded the trial version of TextMate. By this time, I was studying at a local University and no longer a high-school student. I also got an Apple Mac laptop gifted to me by my parents. 
+
+I didn’t pick up the Ruby programming language and Ruby on Rails immediately; it was a few years later that I started with Ruby on Rails. I wrote a lot of Ruby code, and was hired to work on web apps that were written with Ruby on Rails. But I’ll delve more on this in a future post, perhaps. 
+
+As the more familiar I am with HTML, CSS, JavaScript, PHP, and programming in general, I find that I'm using the other UI features in Dreamweaver less and less, instead was relying more on the text editor part of Dreamweaver. Textmate started looking really good to me. It was a piece of software that I could actually afford, so I bought it. At this time, I was able to make some side income from freelancing building websites while in studying at University.
+
+I started to learn to use my text editor, going through multiple themes and changing the colour schemes. I explored multiple TextMate bundles and plugins. I loved these helper plugins that made it easy for me to write more code.
+
+I was a Textmate loyalist. I refuse to look at any other editors, for example, editors like Sublime Text. I was patiently waiting for Textmate 2 to come out, which it never did for me. It actually did come out eventually, but by then I had already moved on.
+
+Textmate is just a text editor, unlike Dreamweaver, which is a full IDE. With TextMate, I had to use the Terminal for other tasks. I had to get used to the terminal, and this contributes to the next phase of my text editor journey.
+
+## MacVim: The Gateway Drug to Vim
+
+After graduating from university, I transitioned from freelancing to working at an IT company as an R&D engineer in their Special Project division. This team explored unconventional solutions to enhance the company’s core products, and at the time, open-source technology was considered quite unconventional.
+
+I probably got hired into this division because I know my way around the terminal. I was not a sysadmin, I had no idea what it took to maintain Linux servers. So I learn on the job, one mistake at a time.
+
+I was working a lot on sysadmin things, which required me to SSH into servers and modify config files, writing shell scripts and modifying them, sometime on the server itself. We weren't that sophisticated back then. We had never heard of "infrastructure as code" or "deployment pipeline". Going into production servers and do code pull from version control was considered a step-up, as opposed to FTP/SFTP-ing files to production servers.
+
+I started to get comfortable with Vim in those days. I learned how to save and exit, which is the single most important thing to learn in Vim. I know that, being able to save and exit is something plenty of people struggle with when it comes to Vim. Jokes aside, learning the different modes really clicks with me.
+
+At this time, my Vim usage was only limited to when I'm on the server, configuring things. When I was on my local machine, Textmate is still the go-to text editor of choice. 
+
+That changed one day, when I saw someone using Vim with split screen. It looked so useful. You can have your model code on one side, your template code on the other side. My mind was blown. I just can't wait for Textmate 2 to get released any longer. This is when I decided to invest more time in learning Vim.
+
+I started using MacVim as it has some native feel to it. While I am getting more comfortable with Vim, I preferred not to leave the comfort of GUI just yet.
+
+I started to explore plugins and installed way more than what I needed. To this day, I still make a habit to clean up my Vim plugins from time to time. I look at my plugin list and find those that do not bring me joy, I thanked the plugin, and removed it. 
+
+Navigating code in Vim becomes natural to me. H-J-K-L is where I rest my fingers. Normal mode, visual mode and insert mode made sense. I knew I had already moved on from Textmate when I realised I did not install it when I got a new machine.  
+
+## Vim and Tmux, the Perfect Couple.
+
+All this while, I was working by Command+Tab-ing between MacVim and Terminal. I am getting more comfortable with both Vim and the terminal. One day, I saw a YouTube video of someone working with Vim in the terminal with a split screen. 
+
+Again I was not focusing on the actual thing that the presenter was demoing, but rather my focus was how the presenter uses Vim in the terminal with Vim on one side and the terminal shell on the other side. I was mind blown yet again. I can have my entire screen as a terminal window and have Vim and terminal side by side. This is when I learnt about Tmux. 
+
+I started to learn more about Tmux. I can split my terminal screen. I can write something, execute the test and see the result on the other side. I learn the various configurations for Tmux and Vim and made it my own. 
+
+Discovering Tmux revolutionised my workflow. For the longest time, this is my setup. This is something that I am comfortable with. Picking up Vim and Tmux is something that I had to invest a lot of my time. One thing I have to admit is that for me, the learning curve was a steep one, but once you go it, there is no turning back.
+
+## New and Improved VIM, NeoVim.
+
+There were no mind-blowing moment switching from Vim to NeoVim for me. Switching to NeoVim was a natural progression. With its advanced features like LSP support and more and more Lua-based plugins pops up, I decided to give it a try. Ported over my keybindings, and it just feels like home. It became my go-to code editor.
+
+## Should you switch to Vim?
+
+No, not really. Ultimately, the choice of code editor is personal. I believe everyone has to go on their personal journey in finding the right IDE / editor for them. It could be Vim or IntelliJ, it does not matter. What matters most is that you find one that you are comfortable with and are willing to spend a lot of time learning and understanding it.
+
+If you are a software engineer, and your work requires you to write codes, you will be spending a lot of time on your IDE / Editors. Might as well find one that you are comfortable and not one that you have to constantly fight with. Invest time in learning not just your craft, but the tools of your craft.
+
+A professional chef is more productive in his kitchen, he knows where everything is. A code editor together the development environment is a Software Engineer’s ‘kitchen’ learn to get used to it, learn where everything is like the chef. 
+
+That being said, there is no real reason to stick to just one. Use whichever that helps you get the job done. I believe that at the end of the day, what you produce is what matters. The users of your software does not care if you code it with Vim, IntelliJ, Atom, VS Code, or others. At the end of the day, they are just tools.
