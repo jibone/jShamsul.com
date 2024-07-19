@@ -44,7 +44,7 @@ export default async function BlogPage({
     <Layout page="blogpost">
       <div className="prose-custom">
         <h1>{frontmatter.title}</h1>
-        <div className="text-slate-400 -mt-2">
+        <div className="text-slate-600 font-light -mt-2">
           &gt; <em>{frontmatter.summary}</em>
         </div>
         {content}
