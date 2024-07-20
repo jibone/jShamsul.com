@@ -1,0 +1,50 @@
+---
+title: "Reducing the Blast Radius"
+type: 'Blog'
+date: '2024-07-20'
+summary: "We can’t stop mistakes from going to production, but we can reduce their blast radius."
+ogTitle: "Reducing the Blast Radius"
+ogSubtitle: "We can’t stop mistakes from going to production, but we can reduce their blast radius."
+---
+
+I am writing this during the weekend of the global BSOD (Blue Screen of Death). If you are reading this some time in the future, here is a quick recap of what happened.
+
+On Friday, CrowdStrike, a well-known cybersecurity company, pushed a bad update to its main product, the Falcon platform, an endpoint protection suite. Endpoint protection software can be considered similar to antivirus, but not quite. It protects machines from external threats. Large corporations use this to protect their IT infrastructure.
+
+The bad update came in the form of the ‘Falcon Sensor’ update. I must first admit that I am not familiar with CrowdStrike products. From my readings, it seems that ‘Falcon Sensor’ is a lightweight agent that installs drivers running in low-level kernel mode to monitor system activity.
+
+What made this tiny “bad update” disastrous is this: if a regular app crashes your machine, you can just reboot and avoid opening that app again until it’s updated or fixed. In the case of the ‘Falcon Sensor,’ it is different. Since it operates in kernel mode, the user can’t get into their machine to stop or remove the bad software. Device drivers are loaded when the computer boots up, sending the Windows machine into a recovery mode reboot loop, and the only thing a user sees is the blue screen message.
+
+As of this writing, the only known fix is to boot the machine in ‘safe mode’ and remove the bad update (`C-00000291*.sys` files) from the machine. The average Windows PC user does not know what ‘Safe Mode’ is, let alone how to locate and remove a .sys file. The company's IT professionals have to handle it. If the company has 5,000 machines with CrowdStrike Falcon installed, they have to manually do it for all 5,000 machines. I don’t think this can be done remotely with a script (I might be wrong). To make matters worse, if the machine has full-disk encryption lock protection turned on, they cannot access the file system even in ‘safe mode’ without the key. This is the predicament IT teams worldwide are facing during the global BSOD weekend.
+
+When I wrote this piece, I did not have additional information beyond what I mentioned in the recap above. CrowdStrike has not yet released any root cause analysis for this outage. If you are reading this sometime in the future and CrowdStrike has released their official RCA, I suggest you refer to that instead of my brief recap.
+
+This essay is not specific to the CrowdStrike incident. I do not know exactly what went wrong on their side, or how a bad update made it into the wild and managed to propagate globally. This essay is not a comment on their internal process. It is mainly to share some of my personal learnings from my own mistakes in the past.
+
+Firstly, I am not a tech engineering super expert, nor do I claim to be, but with over 15 years of experience in software engineering, I have made my share of disastrous mistakes. Here are some of the things that I’ve learned from folks who are smarter than I am.
+
+## Preventing Bugs From Going Into Production
+No, you can’t. You can’t prevent all bugs from going into production. However, that does not mean that you should not try. Here are some industry practices that are common.
+
+**Code Reviews**. Each new change introduced to the codebase has an extra set of eyes that review it. Typically, a fresh pair of eyes will see things that we missed.
+
+**Static Code Analysis**. Before we have our code reviewed, a static code analysis tool can have a first pass at the code changes we wrote. Static code analysis tools usually detect coding patterns that could be problematic and highlight them.
+
+**Automated Testing**. Run a full suite of tests before merging the code into the main codebase. Unit tests, integration tests, smoke tests, end-to-end tests—run them all. Most of the time, bugs are not in the unit of code you wrote, but when that code interacts with other parts of the system.
+
+**Manual Testing**. The human touch is still the best. Automated tests only test the scenarios the developer has written them to test. When a human tests it, they can go off script and explore different paths. The best QAs are the curious ones.
+ 
+## Reducing the Blast Radius
+There are probably more practices to prevent bad code from going to production, but let's be honest, nothing will be foolproof. Bad bugs will find their way to production one way or another. The best thing we can do is to make sure the ‘blast radius’ is minimized, ensuring the initial impact of the bug is as minimal as possible.
+
+I understand that in the case of CrowdStrike, it is a bit different from what I’m used to. My experiences are mostly in web development and deploying cloud services. Since our code changes get deployed to server instances that we control, we can do plenty of things to reduce the blast radius. One example is **‘canary deployment’**, where we deploy to one or two instances in production, wait awhile to see if there are any new errors, and deploy to all servers when we don’t encounter any new errors. Unlike CrowdStrike, we also have the advantage of rolling back our changes if there are critical issues. There are plenty of rollback strategies, but the simplest is to kill all our servers and launch new servers with an older version of the code that we know is stable.
+
+In the case of the CrowdStrike BSOD weekend, the bad code propagated globally to individual machines. I don’t think there is a way to roll back the update on all machines; the only way is to ‘roll forward’ with the fix patch and propagate it to all individual machines. However, if all the machines are stuck in a recovery loop, there is no way to get the fix into them.
+
+One strategy one can employ for this is to have a **‘rolling deployment’**. This is when you push an update to a subset of your users, and you monitor for errors or failures, if there are more errors than usual, we halt the deployment. For example, we deploy to 1% of the users, then to 5%, after then to 10% of the users, increase to 25%, and when we are confident to 50% and after that to all uses.
+
+I am not familiar with CrowdStrike products, so I am not sure if there are any forms of diagnostic or error telemetry sent back to them from their Falcon platform. Let’s assume there is. If CrowdStrike did a ‘rolling deployment’ (which I think they probably did with a more advanced strategy), even with telemetry in place, I don’t think they would get any error diagnostics sent to them. Since it is at the kernel level, the machine can’t even boot to the stage where it can connect to the network and send back diagnostics. They would just see a successful deployment and continue rolling out the updates.
+
+I am not saying that CrowdStrike did not have any of the industry practices mentioned in place. In fact, I am sure they have far more advanced practices than what I have mentioned. Yet, with all the reviews, testing, and rolling deployment, mistakes still happen. Perhaps the situation was a combination of multiple factors converging, creating what folks in the industry call, ‘a perfect storm’.
+
+Anyway, I look forward to reading their Root Cause Analysis if they release one.
