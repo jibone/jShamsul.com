@@ -1,0 +1,38 @@
+---
+title: "Thoughts On Refactoring Code"
+type: 'Blog'
+date: '2024-07-21'
+summary: "When you should refactor, how you should refactor."
+ogTitle: "Thoughts On Refactoring Code"
+ogSubtitle: "When you should refactor, how you should refactor."
+---
+
+Refactoring code usually refers to the process of restructuring existing computer code without changing its external behaviour. Often, the goal of a refactoring exercise is to improve the nonfunctional attributes of the software, such as code’s readability, reducing its complexity, making it more maintainable, and enhancing its extensibility. 
+
+The first thing to take note of when you want to refactor that piece of non-elegant code is to ask yourself if that piece of non-elegant code needs refactoring. Don’t be surprised that typically the answer is no. 
+
+Sure, the code reeks of bad smells, it looks appalling, and it is complex, but does it matter? The code works, you know it works as intended, so just leave it there in production to do its job, and walk away. To me, there are only a few cases when a code refactor is needed. 
+
+One of them is when you are experiencing performance issues, and that unit of code is not optimised and is inefficient. Before that, I would caution against jumping straight into changing the code. How do you know that complex unit of code is the one with the performance issue and not something else? Perhaps before you start to refactor, set up instrumentation for your codebase.
+
+Many times performance issues do not stem from code but elsewhere, for example, a misconfigured network, database slow query, or under-provisioned servers. Your code might just be running fast, but it is waiting for something somewhere else.
+
+Another case where I would think it is justified to call for a refactor is extensibility. When you want to implement a new feature, and you find that some old complex code is making it difficult, that is when you should think about refactoring.
+
+> Make the change easy (warning: this may be hard), then make the easy change — Kent Beck
+
+Change the complex code unit into something more flexible so that it is easy to implement the new feature. After that, only then do you implement the new feature.
+
+Remember to only refactor when you need to implement that new feature. If that request for the new feature never comes, don’t touch that non-elegant, appalling, complex code that is doing its job performantly all this time.
+
+Don’t refactor because you are embarrassed about your code. Don’t refactor because you just learned a shiny new design pattern, and you want to try it out. Don’t refactor because of a use case that might or might not happen. Refactoring is not about making the code pretty; it is about understanding the problem better.
+
+Now, if you still think that you need to refactor, here are some things to take note of:
+
+Do it in small incremental changes. Do not do a big bang refactor. If something goes wrong, it’s difficult to debug. Do small incremental steps that are easy to reverse, and it’s also easy to review. Use feature flags so you can turn it on and off if needed.
+
+Have sufficient tests. Do not refactor without tests. If the code unit you want to refactor does not have a test, write the test first before even starting to think about refactoring the code. The test should cover all the use cases that the complex unit of code is handling. Remember, a refactor process should not change the code’s function, and sufficient test coverage prevents any surprises.
+
+Measure all the things. Instrument your code, and monitor your app’s performance. Every so often, that refactor you did, while it made that complex code more readable, comes with a performance cost. We might not notice this in our test, the code still functions as it is, but in refactoring, we might introduce a performance issue elsewhere.
+
+Have fun refactoring.
