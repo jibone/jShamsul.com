@@ -1,0 +1,31 @@
+---
+title: "Monolith or Micro-service"
+type: 'Blog'
+date: '2024-07-22'
+summary: "Some thoughts on monolithic and micro-service architecture."
+ogTitle: "Monolith or Micro-service"
+ogSubtitle: "Some thoughts on monolithic and micro-service architecture."
+---
+
+There are two distinct architectures that software engineers love to debate about: the monolith and the micro-service. There was a time when folks were convinced that micro-service architecture was the only right way to design a backend system. Monoliths were how old neckbeard programmers used to do things, and if you want “web scale” architecture, you have to use micro-services. That's what they say.
+
+Before I share my thoughts about these two architectures, here is a little description of them, or at least what I understand of them.
+
+**Monolith architecture** — is a system design where the application is built as a single, indivisible unit. All components of the application, from rendering the user interface to the business logic and down to the data access layer, are bundled in the same software build. Everything is usually within a single codebase, and everything is deployed and scaled together.
+
+**Micro-service architecture** — is a system design that breaks down the application into smaller, independent services. Each of the services is responsible for a specific function and can be deployed and scaled independently.
+
+A common understanding of the difference between these two architectures is that, in a monolith, a single server or a set of servers handles everything, while in micro-service architecture, there are multiple set of servers' services that handle unique functions.
+ One of the things that we always hear is that with a monolith, it is a single point of failure. If the server is down, then everything is down, while micro-services are more resilient. Well, this is true if, and only if, the services in the micro-service are not tightly coupled in terms of business logic.
+
+For example, in an e-commerce website, there is a product info component, a shopping cart component, and a checkout component. Say that you have separated these into their services; they can be deployed and scaled independently. However, if all these services are talking to the same database, then they are not loosely coupled at all. In fact, the database tightly couples them. If one service performs a blocking operation on the database, the other two services would be out of commission.
+
+Say you improved the architecture. Now each service has its own individual database. The product service has the product info database. The shopping cart service has its database to keep track of the items in the cart, and the checkout service has its database to keep track of the transaction statuses. Now, these services are loosely coupled, right?
+
+The product service needs to know who the current user making the request is so it can show the related products. The shopping cart needs to know who the current user is so that it knows which cart it has to update. The checkout service has to know who the current user is so that it knows who is making the payment. From the looks of it, there is probably another service, perhaps a user service. And it looks like this user service is a single point of failure. If this service goes down, the rest of the services are useless. Is it really a micro-service if things are still tightly coupled?
+
+Unless you can really decouple these services, not just in terms of infrastructure but also in terms of business logic, then a micro-service architecture may be of an advantage. For example, the ‘blog’ section of your e-commerce website can be on its own, separated from the others.
+
+My opinion is that whether to monolith or to micro-service is less of a technical decision and more of an organizational decision. If you have a small engineering team, a monolith probably makes more sense. It's easier to manage the codebase. Now, if you have a large engineering department with multiple teams, then a micro-service architecture, in which each team maintains a service that they can deploy and scale independently, makes more sense.
+
+To me, if a micro-service, where any of its services were to go offline, and that stops the business flow, then it is no better than a monolith.
