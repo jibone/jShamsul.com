@@ -1,0 +1,37 @@
+---
+title: "Reading Satoshi Nakamoto’s Bitcoin Whitepaper"
+type: 'Blog'
+date: '2024-07-25'
+summary: "The whitepaper that inspired the cryptocurrency revolution."
+ogTitle: "Reading Satoshi Nakamoto’s Bitcoin Whitepaper"
+ogSubtitle: "The whitepaper that inspired the cryptocurrency revolution."
+---
+
+Back in 2008, a famous whitepaper titled “Bitcoin: A Peer-to-Peer Electronic Cash System” was published online. The author mentioned in the paper is one named ‘Satoshi Nakamoto’. As of this writing, no one really knows who ‘Satoshi Nakamoto’ is. No one knows if the name refers to a single person or a group of people. There are plenty of theories online about the identity of ‘Satoshi Nakamoto’, but that is not what this essay is about.
+
+When I first heard of the paper, I thought it would be too complicated for me to understand and that it was going to be long. So, I did not even bother to look it up. I just heard people talking about it and how it was going to revolutionise the entire financial system.
+ One day, I found out that the paper was actually just 9 pages long, and the last page was just references to other published papers. I’ve read system design proposals longer than 9 pages, so I thought I’d give it a try. This was a few years back. I wrote notes in my Obsidian vault about what I had thought about it, and it stayed there for a while. I thought now is a good time to share it.
+
+I was surprised at how simple it was. The whitepaper was very high-level and did not go in-depth on the implementation details. Perhaps the implementation details were fleshed out later.
+
+For example, the paper did not mention how nodes in the network find each other. It was later, out of personal curiosity, that I found out that it's a combination of methods from hardcoded seed nodes to DNS Seeders and later peer discovery. This was not explicitly mentioned in the initial whitepaper (perhaps later communications between Satoshi and others may have discussed this. I have not read all of Satoshi Nakamoto’s communication archives).
+
+So what did the whitepaper mention? The whitepaper proposes a new method of electronic cash transactions that is peer-to-peer. It is important to note that ‘peer-to-peer’ here emphasises that the new electronic cash transaction does not need to go through a ‘trust-based’ financial system run and maintained by a financial institution. Transactions are being relayed and verified from node to node, without the need for permission from a central authority.
+
+One problem with a distributed system is ‘double-spending’, and this was addressed in the whitepaper. ‘Double-spending’ is when two or more of the same transactions, were broadcasted and received by nodes. For a distributed ledger to work, all participants have to agree on a single source of transaction history. If I understand the paper correctly, the solution proposed is that the node will work on adding the first transaction it receives into the next block on the chain and disregard the later transaction. The node should keep the branch, just in case the longer chain is with the branch. The chain with the longest series of blocks is regarded as the source of truth.
+
+So what is a blockchain? Here is what the whitepaper describes: a blockchain is a series of data blocks linked together sequentially. Each block holds transaction information. Each transaction is hashed, and each transaction pair is hashed repeatedly until there is only one hash, which is the ‘hash root’. This is known as a Merkle Tree data structure. This way, to save disk space, the node can discard transactions in older blocks, but if needed, we can easily verify the authenticity of the transaction from the ‘root hash’ that was recorded.
+
+Each block is hashed with the previous block hash, plus the transaction root hash, plus a ‘nonce’. The ‘nonce’ is something the node has to find out by doing some computational work (Proof-of-Work). The right ‘nonce’ is the one that, when hashed together with the previous block’s hash and the transaction root hash, produces a hash with the required zero bits. Finding the right ‘nonce’ is the computational race for nodes to secure a block on the blockchain to get the reward incentive.
+
+For Bitcoin to work, it requires nodes to participate in the network and work on securing the next block. Participating here means running a computer that connects to the network, downloading the whole blockchain, and working on finding the right nonce to secure the next block. If there is no incentive, no one would want to do it. So the best thing is to incentivise the node owners with Bitcoin itself. However, for Bitcoin, there is no central authority that issues the coin. This is why the first transaction on the block is special; it creates new coins and makes the owner of the node the owner of the coin. It is not a transaction from person A to person B.
+
+This actually does two things: one, it creates an incentive scheme for node operators to keep maintaining their nodes on the network and keep working to secure the next block; second, it adds more Bitcoin into circulation. The reward changes every 4 years, the amount gets cut in half. The halving and the amount rewarded were not explicitly mentioned in the whitepaper, probably something that was sorted out later.
+
+The paper mentioned that there will be a predetermined number of coins that will be created, although it did not specifically mention how many. Once the limit is reached, the incentives will only be in terms of transaction fees.
+
+Incentives also guard against attacks on the network. The whitepaper mentioned several times that the network is only secure if there are more honest nodes are running than the dishonest nodes. If an attacker wants to attack the network, they need to control more than half of the participating nodes. Even if someone could control more than half of the nodes on the Bitcoin network, the only thing the attacker can do is modify their own recent transaction to give back their coin. The Bitcoin blockchain network is designed in a way that it is cost-ineffective to attack the network. If someone did control more than half of the participating nodes, they would have gained more with the reward incentives by just being honest than by changing their transaction.
+
+Interestingly, throughout the whitepaper, it does not mention “mining” or “miners”, only “nodes”. The only reference to miners is in the incentive section, where it mentioned that “The steady addition of a constant amount of new coins is analogous to gold miners expending resources to add gold to circulation.” Maybe it was this that made people associate getting new Bitcoins with “mining” and that Bitcoins are “digital gold”.
+
+The whitepaper references other works in the cryptography field. Bitcoin could not have been thought out if it were not for other previous writings about this topic, from Wei Dai’s ‘b-money’ to Adam Back’s ‘Hashcash’. Bitcoin might be the one that manages to implement these ideas on a large scale and also perhaps the catalyst that inspired all other modern cryptocurrencies.
