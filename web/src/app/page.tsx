@@ -30,11 +30,55 @@ export default async function Home() {
           switches customizing Machanical Keyboards, and play games on Nintendo
           Switch.
         </p>
+        <p>Find me in the wild:</p>
+        <ul>
+          <li>
+            Tweeting away:{" "}
+            <a href="http://x.com/jibone" target="_blank">
+              @jibone
+            </a>
+          </li>
+          <li>
+            Sharing codes:{" "}
+            <a href="http://github.com/jibone" target="_blank">
+              github.com/jibone
+            </a>
+          </li>
+        </ul>
       </div>
 
       <div className="pt-12 prose-custom">
         <h2 className="font-medium">Writings</h2>
         <BlogPostList posts={blogposts} />
+      </div>
+
+      <div className="pt-12 prose-custom">
+        <h2 className="font-medium">Buildings</h2>
+        <div className="bg-slate-50 p-2 border border-slate-200 rounded-lg hover:border-slate-400">
+          <div>
+            <a href="https://web3l.ist">Web3l.ist</a>
+          </div>
+          <div>
+            A curated directory of Web3 resources, indexing on projects, news,
+            podcast and other conversations in this space.
+          </div>
+        </div>
+      </div>
+
+      <div className="pt-12 prose-custom">
+        <h2 className="font-medium">Experimenting</h2>
+        <div className="bg-slate-50 p-2 border border-slate-200 rounded-lg hover:border-slate-400">
+          <div>
+            <a href="https://web3l.ist">ai.jshamsul.com</a>
+          </div>
+          <div>Experimental AI-based tooling, just for fun.</div>
+        </div>
+        <div className="mt-8 bg-slate-50 p-2 border border-slate-200 rounded-lg hover:border-slate-400">
+          <div>
+            <a href="https://web3l.ist">web3.jshamsul.com</a>
+          </div>
+          <div>Experimental Web3 apps, just for fun.</div>
+        </div>
       </div>
     </Layout>
   );
