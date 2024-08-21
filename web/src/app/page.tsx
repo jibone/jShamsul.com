@@ -53,7 +53,7 @@ export default async function Home() {
       </div>
 
       <div className="pt-12 prose-custom">
-        <h2 className="font-medium">Buildings</h2>
+        <h2 className="font-medium">Building</h2>
         <div className="bg-slate-50 p-2 border border-slate-200 rounded-lg hover:border-slate-400">
           <div>
             <a href="https://web3l.ist">Web3l.ist</a>
@@ -61,6 +61,15 @@ export default async function Home() {
           <div>
             A curated directory of Web3 resources, indexing on projects, news,
             podcast and other conversations in this space.
+          </div>
+        </div>
+        <div className="mt-10 bg-slate-50 p-2 border border-slate-200 rounded-lg hover:border-slate-400">
+          <div>
+            <a href="https://web3l.ist">Taskl.ist</a>
+          </div>
+          <div>
+            Building yet another To Do List app. This one is personal, private,
+            and minimalistic.
           </div>
         </div>
       </div>
