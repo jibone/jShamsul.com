@@ -44,6 +44,12 @@ export default async function Home() {
               github.com/jibone
             </a>
           </li>
+          <li>
+            Buy me coffee:{" "}
+            <a href="http://ko-fi.com/jibone" target="_blank">
+              ko-fi.com/jibone
+            </a>
+          </li>
         </ul>
       </div>
 
