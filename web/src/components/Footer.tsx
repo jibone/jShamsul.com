@@ -41,6 +41,14 @@ export default function Footer() {
         >
           cv
         </a>{" "}
+        /{" "}
+        <a
+          href="https://ko-fi.com/jibone"
+          target="_blank"
+          className="hover:text-black hover:underline hover:underline-offset-2 hover:decoration-2 hover:decoration-purple-500"
+        >
+          ko-fi
+        </a>{" "}
       </div>
       <div className="flex gap-2 text-slate-400">
         <div>&copy; 2024</div>

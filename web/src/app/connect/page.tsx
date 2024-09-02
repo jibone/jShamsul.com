@@ -19,6 +19,19 @@ export default function Connect() {
         </p>
         <p>I am not active in any other social media platforms.</p>
       </div>
+
+      <div>
+        <div>Support my work by buying me coffee!</div>
+        <div className="w-96">
+          <iframe
+            id="kofiframe"
+            src="https://ko-fi.com/jibone/?hidefeed=true&widget=true&embed=true&preview=true"
+            className="w-full p-4"
+            height="712"
+            title="jibone"
+          ></iframe>
+        </div>
+      </div>
     </Layout>
   );
 }
