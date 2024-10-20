@@ -46,16 +46,21 @@ export default async function BlogPage({
         <div className="mb-4">
           <a href="/">&larr; back</a>
         </div>
+
         <div className="mb-2">{frontmatter.date}</div>
+
         <h1>{frontmatter.title}</h1>
+
         <div className="text-slate-600 font-light -mt-4">
           &gt; <em>{frontmatter.summary}</em>
         </div>
+
         {content}
 
         <div className="mt-10">
           <a href="/">&larr; back</a>
         </div>
+
         <div className="h-8">
           <div className="-mb-8 mt-14">Like what you read? </div>
           <a
