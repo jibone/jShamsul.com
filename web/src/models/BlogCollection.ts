@@ -10,6 +10,7 @@ export type BlogFrontmatter = {
   summary: string;
   ogTitle: string;
   ogSubtitle: string;
+  mirror?: string;
 };
 
 export default class BlogCollection {
@@ -32,9 +33,10 @@ export default class BlogCollection {
       const { frontmatter } = await MDX.process<BlogFrontmatter>({ filepath });
 
       bloglist.push({
-        date: format(parseISO(frontmatter.date), "yyyy, LLL do"),
+        date: format(parseISO(frontmatter.date), "yyyy-MM-dd"),
         url: `/blog/${file.slice(0, -4)}`,
         title: frontmatter.title,
+        mirror: frontmatter.mirror,
       });
     }
 

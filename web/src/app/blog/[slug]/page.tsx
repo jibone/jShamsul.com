@@ -44,7 +44,17 @@ export default async function BlogPage({
     <Layout page="blogpost">
       <div className="prose-custom">
         <div className="mb-4">
-          <a href="/">&larr; back</a>
+          {frontmatter.mirror === undefined ? (
+            " "
+          ) : (
+            <a
+              href={frontmatter.mirror}
+              className="!py-1 !px-2 !bg-white !border !border-slate-300 !hover:border-slate-700 !rounded-full !text-xs !font-normal !decoration-0 !no-underline"
+              target="_blank"
+            >
+              Mint this on Mirror.xyz
+            </a>
+          )}
         </div>
 
         <div className="mb-2">{frontmatter.date}</div>
@@ -56,6 +66,20 @@ export default async function BlogPage({
         </div>
 
         {content}
+
+        <div className="mb-4">
+          {frontmatter.mirror === undefined ? (
+            " "
+          ) : (
+            <a
+              href={frontmatter.mirror}
+              className="!py-1 !px-2 !bg-white !border !border-slate-300 !hover:border-slate-700 !rounded-full !text-xs !font-normal !decoration-0 !no-underline"
+              target="_blank"
+            >
+              Mint this on Mirror.xyz
+            </a>
+          )}
+        </div>
 
         <div className="mt-10">
           <a href="/">&larr; back</a>
