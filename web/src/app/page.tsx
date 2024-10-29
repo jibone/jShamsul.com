@@ -45,6 +45,12 @@ export default async function Home() {
             </a>
           </li>
           <li>
+            On-chain Writings:{" "}
+            <a href="https://mirror.xyz/jibone.eth" target="_blank">
+              mirror.xyz/jibone.eth
+            </a>
+          </li>
+          <li>
             Buy me coffee:{" "}
             <a href="http://ko-fi.com/jibone" target="_blank">
               ko-fi.com/jibone
