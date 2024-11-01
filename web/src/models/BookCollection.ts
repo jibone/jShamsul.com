@@ -32,7 +32,7 @@ export default class BookCollection {
 
     for (const file of fileList) {
       const filepath = `${this.bookpath}/${file}`;
-      const { frontmatter } = await MDX.process<BookFrontmatter>({ filepath });
+      const { frontmatter } = await MDX.process({ filepath });
 
       booklist.push({
         title: frontmatter.title,
