@@ -1,5 +1,6 @@
 import type { BlogFrontmatter } from "@/models";
-import { MDX, generateSiteMetadata } from "@/utils";
+import Link from "next/link";
+import { generateSiteMetadata, MDX } from "@/utils";
 import { Layout } from "@/components";
 import "@/styles/highlightjs/tokyo-night-dark.css";
 
@@ -8,14 +9,15 @@ const path = `${process.cwd()}/contents/blog`;
 async function getPageContents(slug: string) {
   const filepath = `${path}/${slug}.mdx`;
 
-  return await MDX.process<BlogFrontmatter>({ filepath });
+  const { frontmatter, MDXContent } = await MDX.process({ filepath });
+
+  return { MDXContent, frontmatter };
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
+export async function generateMetadata(props: {
+  params: Promise<{ slug: string }>;
 }) {
+  const params = await props.params;
   const { slug } = params;
   const { frontmatter } = await getPageContents(slug);
 
@@ -31,14 +33,13 @@ export async function generateMetadata({
   });
 }
 
-export default async function BlogPage({
-  params,
-}: {
-  params: { slug: string };
+export default async function BlogPage(props: {
+  params: Promise<{ slug: string }>;
 }) {
+  const params = await props.params;
   const { slug } = params;
 
-  const { content, frontmatter } = await getPageContents(slug);
+  const { MDXContent, frontmatter } = await getPageContents(slug);
 
   return (
     <Layout page="blogpost">
@@ -65,7 +66,7 @@ export default async function BlogPage({
           &gt; <em>{frontmatter.summary}</em>
         </div>
 
-        {content}
+        <MDXContent />
 
         <div className="mb-4">
           {frontmatter.mirror === undefined ? (
@@ -82,7 +83,7 @@ export default async function BlogPage({
         </div>
 
         <div className="mt-10">
-          <a href="/">&larr; back</a>
+          <Link href="/">&larr; back</Link>
         </div>
 
         <div className="h-8">

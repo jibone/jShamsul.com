@@ -30,7 +30,7 @@ export default class BlogCollection {
 
     for (const file of fileList) {
       const filepath = `${this.blogpath}/${file}`;
-      const { frontmatter } = await MDX.process<BlogFrontmatter>({ filepath });
+      const { frontmatter } = await MDX.process({ filepath });
 
       bloglist.push({
         date: format(parseISO(frontmatter.date), "yyyy-MM-dd"),

@@ -1,4 +1,5 @@
 import type { BookFrontmatter } from "@/models/BookCollection";
+import Link from "next/link";
 import { MDX, generateSiteMetadata } from "@/utils";
 import { Layout } from "@/components";
 
@@ -7,14 +8,13 @@ const path = `${process.cwd()}/contents/books`;
 async function getPageContents(slug: string) {
   const filepath = `${path}/${slug}.mdx`;
 
-  return await MDX.process<BookFrontmatter>({ filepath });
+  return await MDX.process({ filepath });
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
+export async function generateMetadata(props: {
+  params: Promise<{ slug: string }>;
 }) {
+  const params = await props.params;
   const { slug } = params;
   const { frontmatter } = await getPageContents(slug);
 
@@ -30,19 +30,18 @@ export async function generateMetadata({
   });
 }
 
-export default async function BookPage({
-  params,
-}: {
-  params: { slug: string };
+export default async function BookPage(props: {
+  params: Promise<{ slug: string }>;
 }) {
+  const params = await props.params;
   const { slug } = params;
-  const { content, frontmatter } = await getPageContents(slug);
+  const { MDXContent, frontmatter } = await getPageContents(slug);
 
   return (
     <Layout page="bookshelf">
       <div className="prose-custom">
         <div className="mb-4">
-          <a href="/bookshelf">&larr; back to bookshelf</a>
+          <Link href="/bookshelf">&larr; back to bookshelf</Link>
         </div>
 
         <h1>{frontmatter.title}</h1>
@@ -59,10 +58,10 @@ export default async function BookPage({
           By: {frontmatter.author}
         </div>
 
-        {content}
+        <MDXContent />
 
         <div className="mb-4">
-          <a href="/bookshelf">&larr; back to bookshelf</a>
+          <Link href="/bookshelf">&larr; back to bookshelf</Link>
         </div>
       </div>
     </Layout>
