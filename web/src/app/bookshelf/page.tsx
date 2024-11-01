@@ -1,5 +1,6 @@
 import { Layout } from "@/components";
 import { BookCollection } from "@/models";
+import Image from "next/image";
 import Link from "next/link";
 
 export default async function Bookshelves() {
@@ -36,13 +37,23 @@ export default async function Bookshelves() {
         <h1>The Bookshelf</h1>
 
         {booklist.map((book) => (
-          <div key={book.url} className="mb-8">
-            <div>
-              <Link href={book.url} className="flex-1">
-                {book.title}
-              </Link>
+          <div
+            key={book.url}
+            className="flex space-x-4 bg-slate-50 p-2 border border-slate-200 rounded-lg mb-4"
+          >
+            <div className="w-14 m-0">
+              <img
+                src={book.coverImage}
+                alt={`book cover for ${book.title}`}
+                className="!my-0 rounded-lg border border-white drop-shadow-lg"
+              />
             </div>
-            <div>By {book.author}</div>
+            <div className="flex-1">
+              <div>
+                <Link href={book.url}>{book.title}</Link>
+              </div>
+              <div>By {book.author}</div>
+            </div>
           </div>
         ))}
       </div>

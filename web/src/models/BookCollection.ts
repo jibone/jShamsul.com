@@ -6,6 +6,7 @@ export type BookFrontmatter = {
   subtitle: string;
   author: string;
   translator: string;
+  coverImage: string;
   filedUnder: string[];
 };
 
@@ -13,6 +14,7 @@ type BookProps = {
   title: string;
   author: string;
   url: string;
+  coverImage: string;
 };
 
 export default class BookCollection {
@@ -38,6 +40,7 @@ export default class BookCollection {
         title: frontmatter.title,
         author: frontmatter.author,
         url: `/bookshelf/${file.slice(0, -4)}`,
+        coverImage: frontmatter.cover_img,
       });
     }
 
