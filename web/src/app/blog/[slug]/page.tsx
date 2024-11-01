@@ -11,11 +11,12 @@ async function getPageContents(slug: string) {
   return await MDX.process<BlogFrontmatter>({ filepath });
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export async function generateMetadata(
+  props: {
+    params: Promise<{ slug: string }>;
+  }
+) {
+  const params = await props.params;
   const { slug } = params;
   const { frontmatter } = await getPageContents(slug);
 
@@ -31,11 +32,12 @@ export async function generateMetadata({
   });
 }
 
-export default async function BlogPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default async function BlogPage(
+  props: {
+    params: Promise<{ slug: string }>;
+  }
+) {
+  const params = await props.params;
   const { slug } = params;
 
   const { content, frontmatter } = await getPageContents(slug);

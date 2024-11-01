@@ -33,9 +33,9 @@ export default function About() {
           local-based defence contractor specialising in developing, supplying,
           and maintaining IT systems for the Malaysian armed forces.
           Subsequently, I worked with a few local start-ups before I joined{" "}
-          <strong>Grab</strong>, which back then was a little ‘start-up’ known
-          as <strong>MyTeksi</strong>. One could say that I used to worked at
-          tech start-ups in the valley, the Klang Valley that is.
+          <strong>Grab</strong> — which back then was a little ‘start-up’ known
+          as <strong>MyTeksi</strong>. I often tell people that I used to work
+          at tech start-ups in the valley, the Klang Valley that is.
         </p>
 
         <p>
@@ -44,8 +44,8 @@ export default function About() {
         </p>
 
         <p>
-          This website is my personal space online. It is where I post my
-          thoughts in writing in the hope for posterity.
+          This website is my personal space online. Here is where I share my
+          writings in the attempt to make sense of things, and for posterity.
         </p>
 
         <blockquote>
@@ -58,7 +58,7 @@ export default function About() {
         </blockquote>
 
         <p>
-          A man can be brilliant as high as the sky, but as long as does not
+          A man can be brilliant as high as the sky, but as long as he does not
           write, he will disappear from society and history. To write is to work
           for posterity.
         </p>
@@ -87,7 +87,7 @@ export default function About() {
 
         <p>
           The fonts used for this website are the iA Writer font family the
-          combination for all three, the Quattro, Duo, and Mono. Check out their
+          combination for all three, the Quattro, Duo, and Mono. Check out their{" "}
           <a href="https://github.com/iaolo/iA-Fonts" target="_blank">
             GitHub repo
           </a>
