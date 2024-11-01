@@ -44,18 +44,28 @@ export default async function BookPage(props: {
           <Link href="/bookshelf">&larr; back to bookshelf</Link>
         </div>
 
-        <h1>{frontmatter.title}</h1>
-
-        {frontmatter.subtitle === "" ? (
-          ""
-        ) : (
-          <div className="text-slate-600 font-light -mt-4">
-            &gt; <em>{frontmatter.subtitle}</em>
+        <div className="flex space-x-4">
+          <div className="w-32">
+            <img
+              src={frontmatter.cover_img}
+              alt={`Book cover for ${frontmatter.title}`}
+              className="!my-0 border border-white rounded-lg drop-shadow-lg"
+            />
           </div>
-        )}
+          <div className="flex-1">
+            <h1>{frontmatter.title}</h1>
 
-        <div className="text-slate-600 font-light">
-          By: {frontmatter.author}
+            {frontmatter.subtitle === "" ? (
+              ""
+            ) : (
+              <div className="text-slate-600 font-light -mt-4">
+                &gt; <em>{frontmatter.subtitle}</em>
+              </div>
+            )}
+            <div className="text-slate-600 font-light">
+              By: {frontmatter.author}
+            </div>
+          </div>
         </div>
 
         <MDXContent />
