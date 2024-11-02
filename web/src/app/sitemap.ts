@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { BlogCollection } from "@/models";
+import { BlogCollection, BookCollection } from "@/models";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://jshamsul.com";
@@ -20,6 +20,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       priority: 0.5,
     },
+    {
+      url: `${baseUrl}/bookshelf`,
+      lastModified: new Date(),
+      priority: 0.5,
+    },
   ];
 
   // get all the blog posts
@@ -32,5 +37,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
-  return [...siteNav, ...blogposts];
+  // get all the books listed in bookshelf
+  const booklist = BookCollection.slugList();
+
+  const books = booklist.map((b) => {
+    return {
+      url: `${baseUrl}/bookshelf/${b}`,
+      priority: 1,
+    };
+  });
+
+  return [...siteNav, ...blogposts, ...books];
 }
