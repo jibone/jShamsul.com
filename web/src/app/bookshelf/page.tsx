@@ -1,7 +1,15 @@
 import { Layout } from "@/components";
 import { BookCollection } from "@/models";
+import { generateSiteMetadata } from "@/utils";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "On My Bookshelf & Tsundoku Stack",
+  description:
+    "A personal list of books that I've read and books that have yet to be read.",
+};
 
 export default async function Bookshelves() {
   const booklist = await BookCollection.list();

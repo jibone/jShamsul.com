@@ -18,10 +18,12 @@ export async function generateMetadata(props: {
   const { slug } = params;
   const { frontmatter } = await getPageContents(slug);
 
-  const { title, subtitle } = frontmatter;
+  const { title, subtitle, author, cover_img } = frontmatter;
   const titleEncode = encodeURIComponent(title);
   const subtitleEncode = encodeURIComponent(subtitle);
-  const imagepath = `/api/og?title=${titleEncode}&subtitle=${subtitleEncode}`;
+  const authorEncode = encodeURIComponent(author);
+  const coverEncode = encodeURIComponent(cover_img);
+  const imagepath = `/api/ogbook?title=${titleEncode}&subtitle=${subtitleEncode}&author=${author}&cover=${coverEncode}`;
 
   return generateSiteMetadata({
     title: frontmatter.title,
