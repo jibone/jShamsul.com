@@ -1,6 +1,7 @@
+import { getBookCoverImg } from "@/utils/booksImg";
 import { ImageResponse } from "@vercel/og";
 
-export default async function OGImageGen({
+export default async function OGBookshelf({
   title,
   subtitle,
   fontNormal,
@@ -13,6 +14,8 @@ export default async function OGImageGen({
   fontItalic: ArrayBuffer | Buffer;
   fontBold: ArrayBuffer | Buffer;
 }) {
+  const books = getBookCoverImg(4);
+
   return new ImageResponse(
     (
       <div
@@ -90,6 +93,61 @@ export default async function OGImageGen({
           >
             AI and Web3 Curious.
           </p>
+        </div>
+
+        <div style={{ display: "flex" }}>
+          <img
+            src={books[0]}
+            alt="book 1"
+            style={{
+              width: 200,
+              position: "absolute",
+              top: 0,
+              right: 70,
+              borderRadius: 8,
+              border: "1px solid white",
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+            }}
+          />
+          <img
+            src={books[1]}
+            alt="book 2"
+            style={{
+              width: 200,
+              position: "absolute",
+              top: 100,
+              right: 180,
+              borderRadius: 8,
+              border: "1px solid white",
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+            }}
+          />
+          <img
+            src={books[2]}
+            alt="book 3"
+            style={{
+              width: 200,
+              position: "absolute",
+              top: 190,
+              right: 50,
+              borderRadius: 8,
+              border: "1px solid white",
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+            }}
+          />
+          <img
+            src={books[3]}
+            alt="book 4"
+            style={{
+              width: 200,
+              position: "absolute",
+              top: 140,
+              right: -20,
+              borderRadius: 8,
+              border: "1px solid white",
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+            }}
+          />
         </div>
       </div>
     ),
