@@ -15,6 +15,7 @@ type BookProps = {
   author: string;
   url: string;
   coverImage: string;
+  read: boolean;
 };
 
 export default class BookCollection {
@@ -41,6 +42,7 @@ export default class BookCollection {
         author: frontmatter.author,
         url: `/bookshelf/${file.slice(0, -4)}`,
         coverImage: frontmatter.cover_img,
+        read: frontmatter.read || false,
       });
     }
 

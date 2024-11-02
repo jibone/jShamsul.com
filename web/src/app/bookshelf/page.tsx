@@ -14,8 +14,10 @@ export const metadata: Metadata = {
 export default async function Bookshelves() {
   const booklist = await BookCollection.list();
 
+  const bookshelf = booklist.filter((b) => b.read === true);
+
   return (
-    <Layout page="bookshelves">
+    <Layout page="bookshelf">
       <div className="prose-custom">
         <p>
           <strong>The Bookshelf</strong> is a collection of books I&apos;ve
@@ -44,7 +46,7 @@ export default async function Bookshelves() {
       <div className="prose-custom mt-10">
         <h1>The Bookshelf</h1>
 
-        {booklist.map((book) => (
+        {bookshelf.map((book) => (
           <div
             key={book.url}
             className="flex space-x-4 bg-slate-50 p-2 border border-slate-200 rounded-lg mb-4"

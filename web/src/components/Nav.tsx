@@ -17,6 +17,13 @@ export default function Nav({ page }: { page: string }) {
         className={page === "connect" ? highlightClass : ``}
       >
         connect
+      </Link>{" "}
+      /{" "}
+      <Link
+        href="/bookshelf"
+        className={page === "bookshelf" ? highlightClass : ``}
+      >
+        bookshelf
       </Link>
     </nav>
   );
