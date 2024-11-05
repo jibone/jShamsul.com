@@ -12,6 +12,7 @@ export type BookFrontmatter = {
 
 type BookProps = {
   title: string;
+  subtitle: string;
   author: string;
   url: string;
   coverImage: string;
@@ -39,6 +40,7 @@ export default class BookCollection {
 
       booklist.push({
         title: frontmatter.title,
+        subtitle: frontmatter.subtitle,
         author: frontmatter.author,
         url: `/bookshelf/${file.slice(0, -4)}`,
         coverImage: frontmatter.cover_img,
@@ -47,6 +49,12 @@ export default class BookCollection {
     }
 
     return booklist;
+  }
+
+  static async getFrontmatter(bookSlug: string) {
+    const filepath = `${this.bookpath}/${bookSlug}.mdx`;
+    const { frontmatter } = await MDX.process({ filepath });
+    return frontmatter;
   }
 
   static slugList() {

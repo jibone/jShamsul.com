@@ -11,6 +11,7 @@ export type BlogFrontmatter = {
   ogTitle: string;
   ogSubtitle: string;
   mirror?: string;
+  bookshelf?: string[];
 };
 
 export default class BlogCollection {
