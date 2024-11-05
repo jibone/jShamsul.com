@@ -4,6 +4,7 @@ import { generateSiteMetadata } from "@/utils";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import BookBox from "@/components/BookBox";
 
 export const metadata: Metadata = {
   title: "On My Bookshelf & Tsundoku Stack",
@@ -47,23 +48,14 @@ export default async function Bookshelves() {
         <h1>The Bookshelf</h1>
 
         {bookshelf.map((book) => (
-          <div
-            key={book.url}
-            className="flex space-x-4 bg-slate-50 p-2 border border-slate-200 rounded-lg mb-4"
-          >
-            <div className="w-14 m-0">
-              <img
-                src={book.coverImage}
-                alt={`book cover for ${book.title}`}
-                className="!my-0 rounded-lg border border-white drop-shadow-lg"
-              />
-            </div>
-            <div className="flex-1">
-              <div>
-                <Link href={book.url}>{book.title}</Link>
-              </div>
-              <div>By {book.author}</div>
-            </div>
+          <div key={book.url}>
+            <BookBox
+              url={book.url}
+              cover={book.coverImage}
+              title={book.title}
+              subtitle={book.subtitle}
+              author={book.author}
+            />
           </div>
         ))}
       </div>

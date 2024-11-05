@@ -1,8 +1,9 @@
-import type { BlogFrontmatter } from "@/models";
+import { BookCollection, type BlogFrontmatter } from "@/models";
 import Link from "next/link";
 import { generateSiteMetadata, MDX } from "@/utils";
 import { Layout } from "@/components";
 import "@/styles/highlightjs/tokyo-night-dark.css";
+import BookBox from "@/components/BookBox";
 
 const path = `${process.cwd()}/contents/blog`;
 
@@ -67,6 +68,29 @@ export default async function BlogPage(props: {
         </div>
 
         <MDXContent />
+
+        {frontmatter.bookshelf === undefined ? (
+          ""
+        ) : (
+          <div className="mb-4">
+            {frontmatter.bookshelf.map(async (b: string) => {
+              const book = await BookCollection.getFrontmatter(b);
+              console.log("this is frontmatter");
+              console.log(book);
+              return (
+                <div key={book.url}>
+                  <BookBox
+                    url={`/bookshelf/${b}`}
+                    cover={book.cover_img}
+                    title={book.title}
+                    subtitle={book.subtitle}
+                    author={book.author}
+                  />
+                </div>
+              );
+            })}
+          </div>
+        )}
 
         <div className="mb-4">
           {frontmatter.mirror === undefined ? (
