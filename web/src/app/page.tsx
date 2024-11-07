@@ -66,18 +66,32 @@ export default async function Home() {
 
       <div className="pt-12 prose-custom">
         <h2 className="font-medium">Building</h2>
-        <div className="bg-slate-50 p-2 border border-slate-200 rounded-lg hover:border-slate-400">
+        <div className="mb-10 bg-slate-50 p-2 border border-slate-200 rounded-lg hover:border-slate-400">
           <div>
-            <a href="https://web3l.ist">Web3l.ist</a>
+            <a href="https://cometo.my" target="_blank">
+              ComeTo.my
+            </a>
+          </div>
+          <div>
+            Discover interesting places and hidden gems around your city.
+          </div>
+        </div>
+        <div className="mb-10 bg-slate-50 p-2 border border-slate-200 rounded-lg hover:border-slate-400">
+          <div>
+            <a href="https://web3l.ist" target="_blank">
+              Web3l.ist
+            </a>
           </div>
           <div>
             A curated directory of Web3 resources, indexing on projects, news,
             podcast and other conversations in this space.
           </div>
         </div>
-        <div className="mt-10 bg-slate-50 p-2 border border-slate-200 rounded-lg hover:border-slate-400">
+        <div className="mb-10 bg-slate-50 p-2 border border-slate-200 rounded-lg hover:border-slate-400">
           <div>
-            <a href="https://web3l.ist">Taskl.ist</a>
+            <a href="https://taskl.ist" target="_blank">
+              Taskl.ist
+            </a>
           </div>
           <div>
             Building yet another To Do List app. This one is personal, private,
@@ -86,7 +100,7 @@ export default async function Home() {
         </div>
       </div>
 
-      <div className="pt-12 prose-custom">
+      <div className="pt-1 prose-custom">
         <h2 className="font-medium">Experimenting</h2>
         <div className="bg-slate-50 p-2 border border-slate-200 rounded-lg hover:border-slate-400">
           <div>
