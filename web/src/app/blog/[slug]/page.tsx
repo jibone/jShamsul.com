@@ -1,4 +1,4 @@
-import { BookCollection, type BlogFrontmatter } from "@/models";
+import { BookCollection } from "@/models";
 import Link from "next/link";
 import { generateSiteMetadata, MDX } from "@/utils";
 import { Layout } from "@/components";

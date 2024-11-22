@@ -1,9 +1,6 @@
 import { Layout } from "@/components";
 import { BookCollection } from "@/models";
-import { generateSiteMetadata } from "@/utils";
 import { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
 import BookBox from "@/components/BookBox";
 
 export const metadata: Metadata = {
@@ -14,7 +11,6 @@ export const metadata: Metadata = {
 
 export default async function Bookshelves() {
   const booklist = await BookCollection.list();
-
   const bookshelf = booklist.filter((b) => b.read === true);
 
   return (
