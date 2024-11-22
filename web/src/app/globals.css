@@ -35,6 +35,10 @@
     prose-blockquote:text-slate-600;
 }
 
+.prose-custom img {
+  @apply border-2 border-white drop-shadow-lg;
+}
+
 .footnotes {
   h2 {
     margin-bottom: 0px;
