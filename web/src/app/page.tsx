@@ -1,9 +1,6 @@
-import { Layout, BlogPostList } from "@/components";
-import { BlogCollection } from "@/models";
+import { Layout, EssayList } from "@/components";
 
 export default async function Home() {
-  const blogposts = await BlogCollection.list();
-
   return (
     <Layout page="home">
       <div className="prose-custom">
@@ -61,7 +58,7 @@ export default async function Home() {
 
       <div className="pt-12 prose-custom">
         <h2 className="font-medium">Writings</h2>
-        <BlogPostList posts={blogposts} />
+        <EssayList />
       </div>
 
       <div className="pt-12 prose-custom">

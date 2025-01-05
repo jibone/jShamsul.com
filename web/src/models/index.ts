@@ -1,9 +1,9 @@
-import BlogCollection from "./BlogCollection";
 import BookCollection from "./BookCollection";
+import EssayCollection from "./EssayCollection";
 
-export { BlogCollection, BookCollection };
+export { BookCollection, EssayCollection };
 
-import type { BlogFrontmatter } from "./BlogCollection";
 import type { BookFrontmatter } from "./BookCollection";
+import type { EssayFrontmatter } from "./EssayCollection";
 
-export type { BlogFrontmatter, BookFrontmatter };
+export type { BookFrontmatter, EssayFrontmatter };
