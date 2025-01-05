@@ -5,7 +5,7 @@ import { Layout } from "@/components";
 import "@/styles/highlightjs/tokyo-night-dark.css";
 import BookBox from "@/components/BookBox";
 
-const path = `${process.cwd()}/contents/blog`;
+const path = `${process.cwd()}/contents/essays`;
 
 async function getPageContents(slug: string) {
   const filepath = `${path}/${slug}.mdx`;
@@ -34,7 +34,7 @@ export async function generateMetadata(props: {
   });
 }
 
-export default async function BlogPage(props: {
+export default async function EssayPage(props: {
   params: Promise<{ slug: string }>;
 }) {
   const params = await props.params;
@@ -43,7 +43,7 @@ export default async function BlogPage(props: {
   const { MDXContent, frontmatter } = await getPageContents(slug);
 
   return (
-    <Layout page="blogpost">
+    <Layout page="essay">
       <div className="prose-custom">
         <div className="mb-4">
           {frontmatter.mirror === undefined ? (
@@ -75,8 +75,6 @@ export default async function BlogPage(props: {
           <div className="mb-4">
             {frontmatter.bookshelf.map(async (b: string) => {
               const book = await BookCollection.getFrontmatter(b);
-              console.log("this is frontmatter");
-              console.log(book);
               return (
                 <div key={book.url}>
                   <BookBox

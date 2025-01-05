@@ -3,7 +3,7 @@ import fs from "fs";
 import { format, parseISO } from "date-fns";
 import { MDX } from "@/utils";
 
-export type BlogFrontmatter = {
+export type EssayFrontmatter = {
   title: string;
   type: string;
   date: string;
@@ -14,43 +14,43 @@ export type BlogFrontmatter = {
   bookshelf?: string[];
 };
 
-export default class BlogCollection {
-  static readonly blogpath = `${process.cwd()}/contents/blog`;
+export default class EssayCollection {
+  static readonly essaypath = `${process.cwd()}/contents/essays`;
 
   static async list() {
     // get all the file list.
     let fileList;
     try {
-      fileList = fs.readdirSync(this.blogpath).reverse();
+      fileList = fs.readdirSync(this.essaypath).reverse();
     } catch {
-      throw new Error(`Fail to read directory ${this.blogpath}`);
+      throw new Error(`Fail to read directory ${this.essaypath}`);
     }
 
     // read to get the frontmatter
-    let bloglist: PostProps[] = [];
+    let essaylist: PostProps[] = [];
 
     for (const file of fileList) {
-      const filepath = `${this.blogpath}/${file}`;
+      const filepath = `${this.essaypath}/${file}`;
       const { frontmatter } = await MDX.process({ filepath });
 
-      bloglist.push({
+      essaylist.push({
         date: format(parseISO(frontmatter.date), "yyyy-MM-dd"),
-        url: `/blog/${file.slice(0, -4)}`,
+        url: `/essays/${file.slice(0, -4)}`,
         title: frontmatter.title,
         mirror: frontmatter.mirror,
       });
     }
 
-    return bloglist;
+    return essaylist;
   }
 
   static slugList() {
     // get all the file list.
     let fileList;
     try {
-      fileList = fs.readdirSync(this.blogpath).reverse();
+      fileList = fs.readdirSync(this.essaypath).reverse();
     } catch {
-      throw new Error(`Fail to read directory ${this.blogpath}`);
+      throw new Error(`Fail to read directory ${this.essaypath}`);
     }
 
     return fileList.map((f) => {

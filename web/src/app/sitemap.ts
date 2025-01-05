@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { BlogCollection, BookCollection } from "@/models";
+import { EssayCollection, BookCollection } from "@/models";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://jshamsul.com";
@@ -27,12 +27,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // get all the blog posts
-  const blogpostList = BlogCollection.slugList();
+  // get all the essyas listed
+  const essayList = EssayCollection.slugList();
 
-  const blogposts = blogpostList.map((p) => {
+  const essays = essayList.map((p) => {
     return {
-      url: `${baseUrl}/blog/${p}`,
+      url: `${baseUrl}/essays/${p}`,
       priority: 1,
     };
   });
@@ -47,5 +47,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
-  return [...siteNav, ...blogposts, ...books];
+  return [...siteNav, ...essays, ...books];
 }

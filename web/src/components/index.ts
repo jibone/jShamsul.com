@@ -3,10 +3,10 @@ import Footer from "./Footer";
 import Layout from "./Layout";
 import Nav from "./Nav";
 import BGfx from "./BGfx";
-import BlogPostList from "./BlogPostList";
+import EssayList from "./EssayList";
 
-export { Header, Footer, Layout, Nav, BGfx, BlogPostList };
+export { Header, Footer, Layout, Nav, BGfx, EssayList };
 
-import type { PostProps } from "./BlogPostList";
+import type { PostProps } from "./EssayList";
 
 export type { PostProps };

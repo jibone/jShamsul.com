@@ -51,12 +51,12 @@ export default function Footer() {
         </a>{" "}
       </div>
       <div className="flex gap-2 text-slate-400">
-        <div>&copy; 2024</div>
+        <div>&copy; 2025</div>
         <div className="text-slate-500">J.Shamsul (@jibone)</div>
       </div>
       {/* Not yet...
        <div className="text-slate-400">
-        ( Software Builder / Full-stack Engineer / Futurist Philosopher )
+        ( Software Builder / Techologist Commenter / Futurist Philosopher )
       </div>
       */}
     </footer>
