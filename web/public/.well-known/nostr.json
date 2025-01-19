@@ -1,0 +1,14 @@
+{
+  "names": {
+    "jibone": "08233767a972dd9fec5b12a0573f9d4b74796cef8ecb428cae4a2f6b81b62449"
+  },
+  "relays": {
+    "08233767a972dd9fec5b12a0573f9d4b74796cef8ecb428cae4a2f6b81b62449": [
+      "wss://relay.damus.io",
+      "wss://nos.lol",
+      "wss://eden.nostr.land",
+      "wss://nostr.wine",
+      "wss://relay.snort.social"
+    ]
+  }
+}
