@@ -27,14 +27,6 @@ export default function Footer() {
         </a>{" "}
         /{" "}
         <a
-          href="https://web3.jshamsul.com"
-          target="_blank"
-          className="hover:text-black hover:underline hover:underline-offset-2 hover:decoration-2 hover:decoration-purple-500"
-        >
-          web3
-        </a>{" "}
-        /{" "}
-        <a
           href="https://cv.jshamsul.com"
           target="_blank"
           className="hover:text-black hover:underline hover:underline-offset-2 hover:decoration-2 hover:decoration-purple-500"
