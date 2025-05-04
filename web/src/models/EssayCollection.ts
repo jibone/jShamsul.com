@@ -12,6 +12,8 @@ export type EssayFrontmatter = {
   ogSubtitle: string;
   mirror?: string;
   bookshelf?: string[];
+  codecodex?: string;
+  fleeting?: string;
 };
 
 export default class EssayCollection {
@@ -38,6 +40,8 @@ export default class EssayCollection {
         url: `/essays/${file.slice(0, -4)}`,
         title: frontmatter.title,
         mirror: frontmatter.mirror,
+        codex: frontmatter.codecodex,
+        fleeting: frontmatter.fleeting,
       });
     }
 

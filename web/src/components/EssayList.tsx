@@ -6,6 +6,8 @@ export type PostProps = {
   url: string;
   title: string;
   mirror?: string;
+  codex?: string;
+  fleeting?: string;
 };
 
 export default async function EssayList() {
@@ -29,7 +31,29 @@ export default async function EssayList() {
                 className="!py-1 !px-2 !bg-white !border !border-slate-300 !hover:border-slate-700 !rounded-full !text-xs !font-normal !decoration-0 !no-underline"
                 target="_blank"
               >
-                mint-able
+                mirror.xyz
+              </a>
+            )}
+            {essay.codex === undefined ? (
+              " "
+            ) : (
+              <a
+                href={essay.codex}
+                className="!py-1 !px-2 !bg-white !border !border-slate-300 !hover:border-slate-700 !rounded-full !text-xs !font-normal !decoration-0 !no-underline"
+                target="_blank"
+              >
+                code &amp; codex
+              </a>
+            )}
+            {essay.fleeting === undefined ? (
+              " "
+            ) : (
+              <a
+                href={essay.mirror}
+                className="!py-1 !px-2 !bg-white !border !border-slate-300 !hover:border-slate-700 !rounded-full !text-xs !font-normal !decoration-0 !no-underline"
+                target="_blank"
+              >
+                fleeting notes
               </a>
             )}
           </div>

@@ -57,6 +57,20 @@ export default async function EssayPage(props: {
               Mint this on Mirror.xyz
             </a>
           )}
+
+          {frontmatter.codecodex === undefined ? (
+            " "
+          ) : (
+            <div className="space-x-4 bg-slate-50 p-2 border border-slate-200 rounded-lg mb-4">
+              <div>
+                This was first posted on{" "}
+                <strong>Code &amp; Codex Newsletter</strong>.
+              </div>
+              <a className="!ml-0" href={frontmatter.codecodex}>
+                Subscribe to get it in your inbox &rarr;
+              </a>
+            </div>
+          )}
         </div>
 
         <div className="mb-2">{frontmatter.date}</div>
@@ -104,24 +118,32 @@ export default async function EssayPage(props: {
           )}
         </div>
 
+        <div className="h-8">
+          <div className="flex w-fit space-x-4 bg-slate-50 p-2 border border-slate-200 rounded-lg mb-4">
+            <a href="https://ko-fi.com/jibone" target="_blank">
+              ☕️ Buy me ko-fi ?
+            </a>
+          </div>
+        </div>
+
         <div className="mt-10">
           <Link href="/">&larr; back</Link>
         </div>
 
-        <div className="h-8">
-          <div className="-mb-8 mt-14">Like what you read? </div>
-          <a
-            href="https://ko-fi.com/N4N112RRIJ"
-            target="_blank"
-            className="mt-0 pt-0"
-          >
-            <img
-              className="h-8 mt-0 pt-0"
-              src="https://storage.ko-fi.com/cdn/kofi3.png?v=3"
-              alt="Buy Me a Coffee at ko-fi.com"
-            />
-          </a>
-        </div>
+        {frontmatter.codecodex === undefined ? (
+          " "
+        ) : (
+          <div className="mt-12">
+            Subscribe to have <strong>Code &amp; Codex</strong> delivered to
+            your inbox.
+            <div className="space-x-4 bg-slate-50 p-2 border border-slate-200 rounded-lg mb-4">
+              <iframe
+                className="w-full"
+                src="https://codeandcodex.substack.com/embed"
+              ></iframe>
+            </div>
+          </div>
+        )}
       </div>
     </Layout>
   );
