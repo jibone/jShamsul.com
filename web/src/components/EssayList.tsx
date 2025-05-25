@@ -28,7 +28,7 @@ export default async function EssayList() {
             ) : (
               <a
                 href={essay.mirror}
-                className="!py-1 !px-2 !bg-white !border !border-slate-300 !hover:border-slate-700 !rounded-full !text-xs !font-normal !decoration-0 !no-underline"
+                className="whitespace-nowrap !py-1 !px-2 !bg-white !border !border-slate-300 !hover:border-slate-700 !rounded-full !text-xs !font-normal !decoration-0 !no-underline"
                 target="_blank"
               >
                 mirror.xyz
@@ -39,7 +39,7 @@ export default async function EssayList() {
             ) : (
               <a
                 href={essay.codex}
-                className="!py-1 !px-2 !bg-white !border !border-slate-300 !hover:border-slate-700 !rounded-full !text-xs !font-normal !decoration-0 !no-underline"
+                className="whitespace-nowrap !py-1 !px-2 !bg-white !border !border-slate-300 !hover:border-slate-700 !rounded-full !text-xs !font-normal !decoration-0 !no-underline"
                 target="_blank"
               >
                 code &amp; codex
