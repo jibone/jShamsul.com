@@ -84,19 +84,21 @@ export default async function OGImageGen({
             @jibone
           </p>
         </div>
-        <div
-          style={{
-            width: 500,
-            display: "flex",
-            position: "absolute",
-            bottom: 50,
-            right: 50,
-            color: "#000",
-            border: "2px solid #fff",
-          }}
-        >
-          <img src={coverImgPath} alt="cover image" />
-        </div>
+        {coverImg && (
+          <div
+            style={{
+              width: 500,
+              display: "flex",
+              position: "absolute",
+              bottom: 50,
+              right: 50,
+              color: "#000",
+              border: "2px solid #fff",
+            }}
+          >
+            <img src={coverImgPath} alt="cover image" />
+          </div>
+        )}
       </div>
     ),
     {
