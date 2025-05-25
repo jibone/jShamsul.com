@@ -1,4 +1,5 @@
 import { ImageResponse } from "@vercel/og";
+import { getBaseUrl } from "@/utils/metadataUtil";
 
 export default async function OGImageGen({
   title,
@@ -6,13 +7,18 @@ export default async function OGImageGen({
   fontNormal,
   fontItalic,
   fontBold,
+  coverImg,
 }: {
   title: string;
   subtitle: string;
   fontNormal: ArrayBuffer | Buffer;
   fontItalic: ArrayBuffer | Buffer;
   fontBold: ArrayBuffer | Buffer;
+  coverImg?: string;
 }) {
+  const baseUrl = getBaseUrl();
+  const coverImgPath = `${baseUrl}/imgs/essays/${coverImg}`;
+
   return new ImageResponse(
     (
       <div
@@ -51,11 +57,11 @@ export default async function OGImageGen({
         </div>
         <div
           style={{
-            width: 1000,
+            width: 280,
             display: "flex",
             flexDirection: "column",
             position: "absolute",
-            bottom: 80,
+            bottom: 40,
             left: 40,
           }}
         >
@@ -66,31 +72,33 @@ export default async function OGImageGen({
               color: "#000000",
             }}
           >
-            jShamsul.com (@jibone)
+            jShamsul.com
           </p>
           <p
             style={{
               marginTop: 0,
-              marginBottom: 0,
-              fontStyle: "italic",
-              fontFamily: "iA Writter Quattro Italic",
-              color: "#64748b",
+              marginBottom: 5,
+              color: "#000000",
             }}
           >
-            Software builder, Full-stack.
-          </p>
-          <p
-            style={{
-              marginTop: 0,
-              marginBottom: 0,
-              fontStyle: "italic",
-              fontFamily: "iA Writter Quattro Italic",
-              color: "#64748b",
-            }}
-          >
-            AI and Web3 Curious.
+            @jibone
           </p>
         </div>
+        {coverImg && (
+          <div
+            style={{
+              width: 500,
+              display: "flex",
+              position: "absolute",
+              bottom: 50,
+              right: 50,
+              color: "#000",
+              border: "2px solid #fff",
+            }}
+          >
+            <img src={coverImgPath} alt="cover image" />
+          </div>
+        )}
       </div>
     ),
     {
