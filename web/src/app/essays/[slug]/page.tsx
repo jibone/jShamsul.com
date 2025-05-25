@@ -69,11 +69,13 @@ export default async function EssayPage(props: {
           ) : (
             <div className="space-x-4 bg-slate-50 p-2 border border-slate-200 rounded-lg mb-4">
               <div>
-                This was first posted on{" "}
-                <strong>Code &amp; Codex Newsletter</strong>.
+                <div>This was first posted on</div>
+                <div>
+                  <strong>Code &amp; Codex Newsletter</strong>.
+                </div>
               </div>
               <a className="!ml-0" href={frontmatter.codecodex}>
-                Subscribe to get it in your inbox &rarr;
+                Subscribe &rarr;
               </a>
             </div>
           )}
@@ -124,7 +126,7 @@ export default async function EssayPage(props: {
           )}
         </div>
 
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row gap-4">
           <div className="w-fit space-x-4 bg-slate-50 p-2 border border-slate-200 rounded-lg mb-4">
             <a href="https://ko-fi.com/jibone" target="_blank">
               ☕️ Buy me ko-fi ?
