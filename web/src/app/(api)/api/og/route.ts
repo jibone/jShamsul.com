@@ -7,6 +7,7 @@ export async function GET(request: Request) {
 
   const title = searchParams.get("title") || "";
   const subtitle = searchParams.get("subtitle") || "";
+  const coverImg = searchParams.get("cover") || "";
 
   const { fontNormal, fontItalic, fontBold } = await OGFont();
 
@@ -16,5 +17,6 @@ export async function GET(request: Request) {
     fontNormal,
     fontItalic,
     fontBold,
+    coverImg,
   });
 }

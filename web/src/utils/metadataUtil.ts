@@ -17,6 +17,17 @@ type GenSiteMetadataProps = {
   [key: string]: any;
 };
 
+export function getBaseUrl(): string {
+  let baseURL = defaultMetadata.siteUrl;
+
+  if (process.env.NODE_ENV === "development") {
+    baseURL = "http://localhost:3000";
+  }
+
+  return baseURL;
+}
+
+
 export default function generateSiteMetadata({
   title,
   description,

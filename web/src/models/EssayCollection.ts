@@ -14,6 +14,7 @@ export type EssayFrontmatter = {
   bookshelf?: string[];
   codecodex?: string;
   fleeting?: string;
+  coverImg?: string;
 };
 
 export default class EssayCollection {

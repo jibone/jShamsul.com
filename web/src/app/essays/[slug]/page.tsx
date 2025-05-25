@@ -4,6 +4,7 @@ import { generateSiteMetadata, MDX } from "@/utils";
 import { Layout } from "@/components";
 import "@/styles/highlightjs/tokyo-night-dark.css";
 import BookBox from "@/components/BookBox";
+import { encode } from "punycode";
 
 const path = `${process.cwd()}/contents/essays`;
 
@@ -22,10 +23,15 @@ export async function generateMetadata(props: {
   const { slug } = params;
   const { frontmatter } = await getPageContents(slug);
 
-  const { ogTitle, ogSubtitle } = frontmatter;
+  const { ogTitle, ogSubtitle, coverImg } = frontmatter;
   const titleEncode = encodeURIComponent(ogTitle);
   const subtitleEncode = encodeURIComponent(ogSubtitle);
-  const imagepath = `/api/og?title=${titleEncode}&subtitle=${subtitleEncode}`;
+  let imagepath = `/api/og?title=${titleEncode}&subtitle=${subtitleEncode}`;
+
+  if (coverImg !== undefined) {
+    const coverImgEncode = encodeURIComponent(coverImg);
+    imagepath = imagepath + `&cover=${coverImgEncode}`;
+  }
 
   return generateSiteMetadata({
     title: frontmatter.title,
