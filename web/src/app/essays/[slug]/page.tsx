@@ -4,7 +4,7 @@ import { generateSiteMetadata, MDX } from "@/utils";
 import { Layout } from "@/components";
 import "@/styles/highlightjs/tokyo-night-dark.css";
 import BookBox from "@/components/BookBox";
-import { encode } from "punycode";
+import ZapButton from "@/components/ZapButton";
 
 const path = `${process.cwd()}/contents/essays`;
 
@@ -124,11 +124,15 @@ export default async function EssayPage(props: {
           )}
         </div>
 
-        <div className="h-8">
-          <div className="flex w-fit space-x-4 bg-slate-50 p-2 border border-slate-200 rounded-lg mb-4">
+        <div className="flex gap-4">
+          <div className="w-fit space-x-4 bg-slate-50 p-2 border border-slate-200 rounded-lg mb-4">
             <a href="https://ko-fi.com/jibone" target="_blank">
               ☕️ Buy me ko-fi ?
             </a>
+          </div>
+
+          <div className="w-fit space-x-4 bg-slate-50 p-2 border border-slate-200 rounded-lg mb-4">
+            <ZapButton />
           </div>
         </div>
 
