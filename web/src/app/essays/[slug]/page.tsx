@@ -134,7 +134,7 @@ export default async function EssayPage(props: {
           </div>
 
           <div className="w-fit space-x-4 bg-slate-50 p-2 border border-slate-200 rounded-lg mb-4">
-            <ZapButton />
+            <ZapButton noteId={frontmatter.nostrNoteId} />
           </div>
         </div>
 
