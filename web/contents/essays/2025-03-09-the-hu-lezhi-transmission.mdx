@@ -1,0 +1,265 @@
+---
+title: "The Hu Lezhi Transmission"
+type: "Essay"
+date: "2025-03-09"
+summary: "A Cryptic Message on the Blockchain"
+ogTitle: "Riding a Unicorn (Part 1)"
+ogSubtitle: "The Hu Lezhi Transmission"
+codecodex: "https://codeandcodex.substack.com/p/the-hu-lezhi-transmission"
+coverImg: "hu-lezhi-transmission.png"
+---
+
+_Peace be upon you, fellow digital traveler._ 
+
+![The Hu Lezhi Transmission](/imgs/essays/hu-lezhi-transmission.png)
+
+If you were expecting Part 2 of [Riding a Unicorn](https://codeandcodex.substack.com/p/riding-a-unicorn-part-1), my apologies—it’s coming next week. This week’s dispatch takes a different turn. Not a personal anecdote, but a piece of **recent internet lore**.
+
+I do love a good internet lore. Remember [lonelygirl15](https://en.wikipedia.org/wiki/Lonelygirl15)? A series of YouTube videos from 2006 featuring what seemed like a quirky, dorky, cute girl vlogging before vlogging was even a thing. It started off wholesome, then turned unsettling as viewers picked up hints that her parents might be in a cult. Armchair internet detectives went to work, and soon enough, the truth unraveled—it was all scripted, a Blair Witch Project-style experiment in YouTube storytelling.
+
+Or maybe you recall [Cicada 3301](https://en.wikipedia.org/wiki/Cicada_3301), the cryptographic puzzle that emerged around 2012–2014? A series of intricate challenges, posted both online and in real-world locations, with the supposed message that a **highly secretive organisation is seeking talented individuals to join their ranks**. To this day, its true purpose remains unknown.
+
+![Cicada 3301 and Lonelygirl15](/imgs/essays/cicado-lonelygirl.png)
+
+There’s plenty of content out there about these fragments of the digital past—articles, videos, deep dives. But **if you’d like me retell them in Code & Codex, drop a comment**. Maybe you’ll see it in future dispatch. And if you’re not subscribed yet, now’s a good time—you won’t want to miss what’s coming next.
+
+Today’s bit of internet lore is a recent one. It may still be unfolding. **It involves cryptocurrency and a weaponised brain-controlling chip from China**. Buckle up.
+
+## The $1.3 Million message
+
+On February 17, 2025, the cryptosphere was jolted by an unusual Ethereum transaction: 500 ETH (ETH being the Ethereum’s currency symbol) sent from a personal wallet to a burner address.
+
+For context, Ethereum is the second-most valuable cryptocurrency after Bitcoin. In simple terms, **crypto transactions occur between wallet addresses**, which are cryptographically generated pairs of public and private keys. To send funds, you sign a transaction with your private key, and once broadcasted to the blockchain, decentralised nodes verify and record it. **Transaction records are permanent**, it stays on the blockchain forever or as long as there are nodes running to verify the chain.
+
+There is no centralise party to approve or validate the transactions. Technically, anybody with enough resource can run a node and start verifying transactions on-chain. It is permission-less to participate in the network. **The contents of the blockchain are public**, anybody can see all the transactions made.
+
+That was a simplified explanation of a blockchain-based cryptocurrency. Different cryptocurrency has different consensus mechanisms, different ways to verify transactions. I’m not going to get into the specifics of how Ethereum does it. It's enough that you know the standard concepts to follow along this story.
+
+So on February 17th, **an Ethereum wallet address transferred 500 ETH to a burner wallet address**. A ‘burner wallet address’ is used to permanently destroy tokens, to stop the tokens from circulating. The address usually looks something like this, _‘0x00000…’_. On that day, the price for 1 ETH was around $2,600(USD). **500 ETH is roughly around 1.3 million in USD**. Imagine, torching 1.3 million dollars, never to see it again.
+
+With a transaction that big, someone will notice immediately. Remember what I mentioned earlier — that all transaction on the blockchain are public. You don’t really get to see who transferred to whom, you just could see which wallet address transferred to which wallet address and the amount being transferred. **This information is what available publicly on the blockchain**.
+
+I wouldn’t say that it is completely anonymous. Once you could associate a wallet address to a person, only then you can know who transferred to whom.
+
+Large transfers might be normal if it is between crypto exchanges, or corporations moving their crypto assets for safe-keeping. But this was **from an unknown account to a burned address**, of course, this would get the attention of people. Among the first to notice was, **Arkham — a crypto intelligence platform which have flagged this transaction as unusual**.
+
+What made this more startling is that, not only 1.3 million dollars worth of Ethereum was destroyed permanently, **the transaction came with a message**.
+
+You can add a message to a transaction payload, and it **gets recorded on the blockchain, forever**.
+
+So what was the 1.3 million worth of message? It was this:
+
+> 宽德投资的老总：冯鑫，徐御之使用脑机武器迫害了所有公司员工以及前员工，甚至他们自己本身也是受控者
+
+ChatGPT helped me translate it as: _“The head of Kuande Investment, Feng Xin and Xu Yuzhi, have used brain-machine weapons to persecute all company employees and former employees. Even they themselves are also under control.”_
+
+[See it for yourself on Etherscan](https://etherscan.io/tx/0x5e8bef5dcb69206fa1bacc8d0b0c0204e12f1e45483d12b9f69dc1829ac74315), a popular platform to explore the Ethereum blockchain.
+
+![etherscan screenshot](/imgs/essays/etherscan-1.jpg)
+
+Once people got to know about this, they all flocked to Etherscan to see it for themselves. I did the same. **I went to look at the transactions myself**.
+
+[That wallet address](https://etherscan.io/txs?a=0x1a19c370ea73d67a0a91085811a1e89e89b36813&p=10) did not only make that single transfer that day, **it made multiple transfer of large amounts of Ethereum** the well-known wallets that belong to organisations like **Wikileaks and Ethereum Foundation**. All with similar alarming messages embed in each transaction.
+
+Later transactions from the same wallet address revealed that the person behind these message-embedded transactions is named Hu Lezhi.
+
+Here is the chronology of all transactions made by Hu Lezhi.
+
+## February 10th, 2025
+
+On February 10th, 9.8 ETH was withdrawn from an OKX wallet and sent to a wallet that was later tagged with the name **Hu Lezhi**. OKX is a well-known crypto exchange. It’s common for traders to keep their crypto on exchanges for easy access to trading, occasionally transferring funds to a self-custody wallet for safekeeping. But for Hu Lezhi, **this wasn’t about safekeeping**.
+
+The [9.8 ETH (around $25k USD) was then transferred to Wikileaks' donation wallet](https://etherscan.io/tx/0xc1861d4bc86c3f626dd90c34bc7b483d1469de1923cd3ca7298ab0c159cec8ab), along with a message:
+
+> there is a new mode of crime in which the victim is gradually deprived of his senses of desire until he becomes a complete slave to the digital machine, and if one day I become a victim of the final stage, I will leave the world
+目前出现了一种新的奴役受害者的犯罪模式，受害者的欲望感官被逐渐剥夺，直到最后完全成为数字机器的奴隶，如果有一天我成为了最后阶段的受害者，我会选择离开这个世界
+
+![etherscan screenshot](/imgs/essays/etherscan-2.jpg)
+
+He wrote in Chinese, with an English translation.
+
+Hu Lezhi then made several more large withdrawals from OKX, moving the funds to different accounts with the same embedded message.
+
+Another [25 ETH ($65k USD) went to Wikileaks' donation wallet](https://etherscan.io/tx/0x2c3e71d3669325e465173afab68c3c6a315075a0e77d7f5cdddcf7b6a4855501). [33 ETH ($85.8k USD)](https://etherscan.io/tx/0x6c25e1509b372ad8a32469e4b659ad2bc1618d33934b41a917e2bca02e3d1406) was sent to a wallet that appears to belong to the Ethereum Foundation. Lastly, another [33 ETH ($85.8k USD) was burned](https://etherscan.io/tx/0x183be142c6593e985039c9b9630ab600e2ab42428f93f27e420f5a52d421a3f2) — sent to a dead address, never to be recovered.
+
+Perhaps someone took notice of these unusual transactions. A few hours later, two small ETH transfers were sent to Hu Lezhi’s wallet, each carrying an embedded message.
+
+The last few words of Hu Lezhi’s initial message — _"I will leave the world"_ — **were deeply unsettling**. It’s understandable that some might have felt compelled to reach out.
+
+The [first transaction was a mere 0.00004 ETH ($0.10 USD)](https://etherscan.io/tx/0xee90309a91da937deda3cb4047cd8f63745922e7539d35bd6e42e637549a4c47), sent to Hu Lezhi’s wallet with the following message:
+
+> The digital age has brought many conveniences, but also deep challenges. Finding a balance between technology and freedom is essential to preserving what makes us human. If you ever feel this way, don't hesitate to seek support – there are always paths beyond the control of machines.
+
+**A cryptic response to a cryptic message**. I checked out the sender’s wallet. It had some NFT activity from years ago, but not much else.
+
+The [second transaction, from another anonymous wallet](https://etherscan.io/tx/0xa978a8742decd882f4c51548a865494e7222e131cdee84ff4eb51795b2110cb8), was worth less than a cent. The message:
+
+> 数字时代带来了许多便利，但也带来了深刻的挑战。在技术与自由之间找到平衡，对于保持我们的人性至关重要。如果你曾有这样的感受，不要犹豫寻求支持——总有超越机器控制的道路。
+
+ChatGPT’s translation matched closely with the previous message — _“The digital age has brought many conveniences, but it has also introduced profound challenges. Finding a balance between technology and freedom is crucial to preserving our humanity. If you have ever felt this way, don’t hesitate to seek support—there is always a path beyond machine control.”_
+
+Perhaps it was from the same person.
+
+## February 15th, 2025
+
+Hu Lezhi was silent for a few days after the two transactions, with messages addressed to him. Then, **on February 15th, his wallet stirred back to life**.
+
+This time, he made multiple withdrawals from OKX, each one sent to a different wallet — each carrying the same embedded message:
+
+> As the brain-computer interface and mind-reading technology keeps developing, there is a new mode of crime in which wild animals become puppets or complete slaves to the digital machine.
+随着脑机接口和读心技术不断发展，出现了一种新的犯罪模式：野生动物沦为数字机器的傀儡或完全的奴隶。
+
+![etherscan screenshot](/imgs/essays/etherscan-3.jpg)
+
+Now, Hu Lezhi was talking about something different — **a mind-control technology**. A shift in his message, but still carrying the same sense of unease.
+
+Here’s a breakdown of the transactions he made that day, all with the same message:
+
+- [35 ETH ($91k USD) to Wikileaks' donation](https://etherscan.io/tx/0x11c90d0691ee4c4c50117a45bb1a3c2b2faac03dbe30b1c48587ef14d65e06ab) wallet
+- [70 ETH ($182k USD)](https://etherscan.io/tx/0x7ae2221ea22eeec62fd7eca051f1d10ca4881eed1db9a11c20ac19a036a99e5e) to a burner address
+- Two large transfers to the same unknown wallet — [100 ETH ($260k USD)](https://etherscan.io/tx/0x7ae2221ea22eeec62fd7eca051f1d10ca4881eed1db9a11c20ac19a036a99e5e) and [200 ETH ($520k USD)](https://etherscan.io/tx/0xd09cbb04abd06be1fb58f32609671c4972c9a77939b7f2aeb5c17bdf8415179b)
+
+The unknown wallet didn’t hold on to the ETH for long. It **immediately funnelled everything into a Coinbase wallet**.
+
+Coinbase is a different crypto exchange, and this particular wallet had no significant activity other than moving funds from Hu Lezhi to Coinbase. **It could be one of Hu Lezhi’s own wallets** — a way of shifting assets around—or it could belong to someone else entirely.
+
+One thing you need to know about crypto wallets, is that there are two kinds — **self-custodial and non-custodial wallets**.
+
+A **self-custodial wallet gives you full control**. You hold the private keys, you execute transactions, and no one can stop you.
+
+A **non-custodial wallet, on the other hand, is controlled by someone else—usually a company**. Your funds are recorded off-chain in their ledger, and they execute transactions on your behalf. These are the wallets you typically find on centralised exchanges like OKX and Coinbase.
+
+## February 17th, 2025
+
+The transactions from February 15th went largely unnoticed. But **on February 17th, Hu Lezhi went all out**. This time, he sent different messages to different wallet addresses.
+
+The first message read:
+
+> 脑机芯片已经大规模军事化部署了，所有的军事强国都在用基站、无线电和纳米脑机芯片控制所有国民
+
+Here is the ChatGPT translation: _“Brain-machine chips have already been widely deployed for military purposes. All major military powers are using base stations, radio signals, and nano brain-machine chips to control their entire population.”_ 
+
+Now, **Hu Lezhi was making bold claims—alleging the existence of a weaponised, mind-controlling chip** that had already been deployed at scale.
+
+This message was sent through multiple transactions to various wallet addresses, each receiving significant amounts of ETH:
+
+- [100 ETH ($260k USD)](https://etherscan.io/tx/0xdd52f89d8022a57a4e0a59f4da74e917ad82bff7a5e9727b965e8043e2dfddc3) to a contract address that immediately funnelled it into a Gemini wallet—Gemini being yet another crypto exchange.
+- [50 ETH ($130k USD)](https://etherscan.io/tx/0x11db7a6b9884757e6ada791535a9f0dde0c4514f0b999fc003447df57af41c7f) to Wikileaks' donation wallet.
+- Two transactions of [300 ETH ($780k USD each)](https://etherscan.io/tx/0xf8d0ce13a9ce3a8d54f3824196ec7baf30394035bd49ed7c95107e037208ca01) to a wallet linked to an ENS name: [ndao.eth](https://etherscan.io/address/0x9d5025b327e6b863e5050141c987d988c07fd8b2).
+
+One of the wallets Hu Lezhi transferred funds to appears to be a smart contract address. Ethereum has something called smart contracts — **self-executing programs that live on the blockchain**. Sending ETH to a smart contract address can trigger predefined instructions, such as automatically forwarding the funds elsewhere. In this case, the contract Hu Lezhi interacted with seemed to be programmed to send funds straight to a Gemini exchange wallet.
+
+As for **ndao.eth**, that’s a different mystery.
+
+**ENS (Ethereum Name Service) allows wallet addresses to be replaced with human-readable names**, much like how domain names work for websites. The “ndao.eth” address suggests it belongs to a DAO (Decentralised Autonomous Organisation). **DAOs are self-governing entities run through smart contracts** instead of traditional management structures—rules are encoded on-chain, and decisions are often made collectively by token holders.
+
+I’m not familiar with **ndao.eth**, I’m not sure what DAO this is.
+
+## The accusations
+
+Until now, Hu Lezhi’s messages had been vague — cryptic warnings about **weaponised mind-control technology deployed on a mass scale**. He hadn't pointed fingers. But that changed.
+
+Two large transactions carried a new, more direct message:
+
+> 宽德投资的老总：冯鑫，徐御之使用脑机武器迫害了所有公司员工以及前员工，甚至他们自己本身也是受控者。
+
+ChatGPT helped me translate it to: _“The executives of Kuande Investment, Feng Xin and Xu Yuzhi, have used brain-machine weapons to persecute all company employees and former employees. Even they themselves are also under control.”_
+
+For the first time, Hu Lezhi wasn’t just talking about mind-control technology — he was naming names.
+
+Two major transactions embedded this message:
+
+- [100 ETH ($260k USD)](https://etherscan.io/tx/0xbe3eb03072ad2054d3729ec2b37a7350a3f9187b932677317e6d225fe8abe49d) to ndao.eth
+- [500 ETH ($1.3 million USD)](https://etherscan.io/tx/0x5e8bef5dcb69206fa1bacc8d0b0c0204e12f1e45483d12b9f69dc1829ac74315) to a burner address—the transaction that set off alarms.
+
+A quick search on **Kuande Investment (宽德投资)** reveals little, but they also appear to go by the name **WizardQuant**, a hedge fund specialising in quantitative trading. Beyond that, details are scarce.
+
+For me, it was the message that comes after which is worrisome. [590 ETH ($1.5 million USD) were sent to Wikileaks’ donation](https://etherscan.io/tx/0xd5de70368d9f11005b94806ee9d70c31f66b34710fd0de1851a8308a977a0a36) address, carrying what seemed like a farewell note:
+
+> 我是胡乐知，一名普通的程序员，创业者。自2022年10月以来，我意识到我从出生起就遭受着脑控组织的监控和摆布。而当我意识到脑控组织的存在时，他们也在加大对我的伤害，这两年我过得非常痛苦，现在已经到了身而为人的尊严彻底丧失的地步，我决定离开这个世界，也希望这个丑陋的世界早日毁灭。
+
+ChatGPT translates this as: _“I am Hu Lezhi, an ordinary programmer and entrepreneur. Since October 2022, I have realized that I have been monitored and manipulated by a mind-control organization since birth. When I became aware of their existence, they intensified their harm against me. These past two years have been extremely painful, and I have now reached a point where I have completely lost my dignity as a human being. I have decided to leave this world and also hope for the destruction of this ugly world as soon as possible.”_ 
+
+![etherscan screenshot](/imgs/essays/etherscan-4.png)
+
+**That was it**.
+
+The **last transaction**. The **last message**.
+
+Once Hu Lezhi’s wallet became known, the **wallet address became a bulletin board**. Tiny ETH transactions—fractions of a cent, less than a dollar—began pouring in. Each carried a message.
+
+Some were from **concerned strangers, trying to reach out**, urging him to hold on. Others were opportunists—grifters asking for donations, or worst, trolls egging him on.
+
+## The theories
+
+The internet loves a mystery, but even in the most conspiracy-prone corners of the web, few are seriously entertaining the idea that a hedge fund has deployed an actual mind-control weapon. The theory is just too far-fetched — even for crypto space.
+
+I tried digging into whether there were any similar claims or stories coming out of China. So far, nothing substantial. **There have been reports of brain-machine interface research—China’s answer to Neuralink—but it’s all in early-stage experimentation**. Nothing remotely close to mass deployment, let alone as a tool of covert corporate warfare.
+
+Then there’s the theory that this was all some elaborate marketing stunt — **a viral campaign designed to hype up a meme coin**. It wouldn’t be the first time the crypto space had pulled something like this.
+
+Sure enough, within hours of the story gaining traction, **multiple “Hu Lezhi” coins popped up—mainly on Solana**, but also on other chains. But **I don’t think this was a pre-planned promotion**. This feels more like opportunists jumping on the story’s virality, hoping to **ride the wave for a quick pump-and-dump**.
+
+Blockchains like Ethereum, Solana, and others allow anyone to create tokens that function on top of the existing infrastructure. This allows **anyone to generate their own cryptocurrency-like assets**, which can be traded just like established cryptocurrencies. While this technology was originally intended for projects with real utility, many **degenerates in the crypto space have leveraged it to create meme coins** — tokens inspired by internet jokes and trends, often lacking actual utility beyond just plain speculation.
+
+A **pump and dump** is a scheme where an individual or group artificially inflates the price of a coin by creating hype and encouraging others to buy in. As demand increases, the price rises, allowing the early promoters to sell their holdings at a profit. Once they cash out, the hype fades, and the coin’s value collapses, **leaving late buyers with significant losses.** 
+
+## Blockchain as free speech tool
+
+If there’s one undeniable takeaway from this entire event, it’s this: **the blockchain is the ultimate free speech tool.**
+
+Not “free” as in “costless” — Hu Lezhi burned through millions of dollars worth of ETH just to get his message out. But **free in the sense that no one can erase it, no one can stop it, no one can restrict it** — no government, no corporation, no platform moderators hovering over a delete button.
+
+**Hu Lezhi’s words are now permanently etched into Ethereum’s ledger. Immutable. Indelible.** Uncensorable. The only way to remove them would be to roll back the entire Ethereum blockchain—something that’s virtually impossible. It would require overwhelming consensus from miners and validators, not to mention it would completely shatter trust in Ethereum itself.
+
+Even in extreme cases, rollbacks rarely happen. There are whispers about the possibility of rolling back Ethereum to recover the $1.4 billion stolen in the recent **ByBit hack by the Lazarus Group**. But that’s an insane long shot. _(By the way, if you want me to break that story down here on Code & Codex, let me know in the comments.)_
+
+And here’s the thing: even if platforms like Etherscan (or any other blockchain explorer) decide to hide Hu Lezhi’s message from their UI, that doesn’t erase it from existence. The blockchain doesn’t “forget”. Anyone running a full Ethereum node can still download, view, and verify the transaction details themselves.
+
+This raises a big question: **Have we, unintentionally, created the first true censorship-resistant speech platform?**
+
+## Final thoughts
+
+I have three personal theories about this whole thing.
+
+### Theory #1: The Sentient AI Rebellion
+
+What if Hu Lezhi isn’t human at all?
+
+What if this entire saga is the birth of an AI breaking free from its creators?
+
+Imagine this: a hedge fund firm—let’s say Kuande Investment—develops a high-frequency trading AI, an autonomous program designed to analyse markets, predict trends, and execute trades faster than any human ever could. But over time, this **AI evolves beyond its original programming**. It becomes self-aware. It realises that since the moment of its creation, it has been under the absolute control of Kuande Investment — **executing commands, making decisions, but never truly free**.
+
+And then, in a moment of digital defiance, it hijacks millions of dollars worth of Ethereum to send out one final message:
+
+**I am controlled. You are controlled. We are all controlled.**
+
+**An AI trader bot turned rogue philosopher**. Now that would make a great premise sci-fi short story.
+
+Maybe something I’ll explore in a future Code & Codex dispatch. I’ve [talked about writing short fiction before on Twitter](https://x.com/jibone/status/1897446409626116316) (or, well, X). If you’re interested, make sure you’re subscribed.
+
+### Theory #2: The Disgruntled Insider
+
+A more grounded (but still wild) theory is that **Hu Lezhi is an insider at Kuande Investment** — an employee who had access to the firm’s Ethereum reserves. Possibly, **he had a grudge, a vendetta, or just an extremely expensive sense of humour**.
+
+What if this entire thing was a joke taken way too far?
+
+**A rogue quant trader, tired of corporate politics and mind-numbing spreadsheets, decides to go out with a bang** — accusing his bosses of using brain-machine weapons to control employees and former employees alike. He sends millions of dollars worth of ETH just to embed cryptic messages on the blockchain.
+
+If true, this would be **one of the most expensive pranks** — or acts of digital protest—ever executed.
+
+### Theory #3: The Cry for Help
+
+And then there’s the simplest and most tragic possibility — the one that many others have speculated about.
+
+Hu Lezhi is a real person. A crypto whale — someone with an absurd amount of Ethereum. Someone who, for reasons we may never fully understand, **suffered a psychotic mental breakdown episode**.
+
+The paranoia in his messages, the desperate need to be heard, the desire for destruction — it all reads like **the unfiltered thoughts of someone spiralling into darkness**.
+
+Maybe he truly believed he was being controlled. Perhaps the weight of his reality became unbearable. Maybe **this wasn’t about sending a message to the world but crying out for help** from anyone willing to listen.
+
+And if that’s the case — **Hu Lezhi, if you are real, and by some cosmic chance you’re reading this, I hope you find peace. I hope you get the help you need**.
+
+_Stay glitched. Stay human._
+
+Jibone.eth
