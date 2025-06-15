@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { defaultMetadata } from "@/utils";
@@ -54,6 +55,10 @@ export default function RootLayout({
       <body
         className={`bg-slate-50/20 ${iaWriterDuo.variable} ${iaWriterDuoItalic.variable} ${iaWriterQuattro.variable} ${iaWriterQuattroItelic.variable} ${iaWriterMono.variable} ${iaWriterMonoItalic.variable}`}
       >
+        <Script
+          src="https://cdn.jsdelivr.net/npm/nostr-zap@latest"
+          strategy="beforeInteractive"
+        />
         {children}
         <Analytics />
         <SpeedInsights />
