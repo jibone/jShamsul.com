@@ -4,15 +4,9 @@ import { useEffect } from "react";
 
 export default function ZapButton({ noteId }: { noteId: string }) {
   useEffect(() => {
-    // Dynamically load the nostr-zap script
-    const script = document.createElement("script");
-    script.src = "https://cdn.jsdelivr.net/npm/nostr-zap@latest";
-    script.async = true;
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
+    if (typeof (window as any).nostrZap.initTargets === "function") {
+      (window as any).nostrZap.initTargets();
+    }
   }, []);
 
   return (
