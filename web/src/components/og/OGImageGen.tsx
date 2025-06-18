@@ -8,6 +8,7 @@ export default async function OGImageGen({
   fontItalic,
   fontBold,
   coverImg,
+  newsletter,
 }: {
   title: string;
   subtitle: string;
@@ -15,9 +16,23 @@ export default async function OGImageGen({
   fontItalic: ArrayBuffer | Buffer;
   fontBold: ArrayBuffer | Buffer;
   coverImg?: string;
+  newsletter?: string;
 }) {
   const baseUrl = getBaseUrl();
-  const coverImgPath = `${baseUrl}/imgs/essays/${coverImg}`;
+
+  console.log("Generating OG image with title:", title);
+  console.log("Subtitle:", subtitle);
+  console.log("Cover Image:", coverImg);
+  console.log("Newsletter Image:", newsletter);
+
+  let imagePath = "";
+  if (coverImg !== undefined && coverImg !== "") {
+    imagePath = `${baseUrl}/imgs/essays/${coverImg}`;
+  } else if (newsletter !== undefined && newsletter !== "") {
+    imagePath = `${baseUrl}/imgs/newsletters/${newsletter}`;
+  }
+
+  console.log("Image Path:", imagePath);
 
   return new ImageResponse(
     (
@@ -84,19 +99,19 @@ export default async function OGImageGen({
             @jibone
           </p>
         </div>
-        {coverImg && (
+        {imagePath && (
           <div
             style={{
-              width: 500,
+              width: 600,
               display: "flex",
               position: "absolute",
-              bottom: 50,
-              right: 50,
+              bottom: 30,
+              right: 40,
               color: "#000",
               border: "2px solid #fff",
             }}
           >
-            <img src={coverImgPath} alt="cover image" />
+            <img src={imagePath} alt="cover image" />
           </div>
         )}
       </div>

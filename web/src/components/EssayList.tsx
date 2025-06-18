@@ -10,8 +10,30 @@ export type PostProps = {
   fleeting?: string;
 };
 
-export default async function EssayList() {
-  const essays = await EssayCollection.list();
+export type EssayListProps = {
+  limit?: number;
+  filter?: "codex" | "fleeting" | "others";
+};
+
+export default async function EssayList({
+  limit,
+  filter,
+}: EssayListProps = {}) {
+  let essays = await EssayCollection.list();
+
+  // if filter is set, filter the result
+  if (filter === "codex") {
+    essays = essays.filter((essay) => !!essay.codex);
+  } else if (filter === "fleeting") {
+    essays = essays.filter((essay) => !!essay.fleeting);
+  } else if (filter === "others") {
+    essays = essays.filter((essay) => !essay.codex && !essay.fleeting);
+  }
+
+  // limit the result if limit is set
+  if (typeof limit === "number") {
+    essays = essays.slice(0, limit);
+  }
 
   return (
     <>
