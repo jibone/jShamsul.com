@@ -9,7 +9,9 @@ export default async function Home() {
           <em>Peace be upon you, fellow digital traveler.</em>
         </h1>
 
-        <p>I’m J. Shamsul — or @jibone, if you've seen me online.</p>
+        <p>
+          I&rsquo;m J. Shamsul — or @jibone, if you&rsquo;ve seen me online.
+        </p>
 
         <p>A husband, a father, and a son.</p>
 

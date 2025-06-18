@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { EssayList, Layout } from "@/components";
 import { generateSiteMetadata } from "@/utils";
 
@@ -98,7 +99,7 @@ export default function CodeCodexPage() {
         <EssayList filter="codex" />
 
         <p>
-          <a href="/">← Back to Home</a>
+          <Link href="/">← Back to Home</Link>
         </p>
       </div>
     </Layout>
