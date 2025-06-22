@@ -18,7 +18,7 @@ export default function ZapButton({ noteId }: { noteId?: string }) {
       <button
         data-npub="npub1pq3nweafwtwelmzmz2s9w0uafd68jm803m959r9wfghkhqdky3ys9feyc5"
         data-relays="wss://relay.damus.io,wss://relay.snort.social,wss://nostr.wine,wss://relay.nostr.band"
-        data-note-id={noteId}
+        {...(noteId ? { "data-note-id": noteId } : {})}
       >
         <span className="text-black font-medium hover:decoration-purple-300 underline underline-offset-2 decoration-2 decoration-purple-500">
           ⚡️ Zap me Sats ?
