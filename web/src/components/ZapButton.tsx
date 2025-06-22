@@ -2,12 +2,16 @@
 
 import { useEffect } from "react";
 
-export default function ZapButton({ noteId }: { noteId: string }) {
+export default function ZapButton({ noteId }: { noteId?: string }) {
   useEffect(() => {
     if (typeof (window as any).nostrZap.initTargets === "function") {
       (window as any).nostrZap.initTargets();
     }
   }, []);
+
+  if (noteId === undefined) {
+    noteId = "";
+  }
 
   return (
     <div>

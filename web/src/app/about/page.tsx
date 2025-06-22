@@ -6,99 +6,81 @@ export default function About() {
       <div className="prose-custom">
         <h1>About the person.</h1>
         <p>
-          My name is <strong>J. Shamsul Bahri</strong>. Around the web, I often
-          go by the handle{" "}
-          <a href="https://twitter.com/jibone" target="_blank">
-            @jibone
-          </a>
-          . A husband to a lovely wife, father to an adorable daughter, seeker
-          of beneficial knowledge, and a builder of software. Born in Malaysia,
-          currently residing in Singapore.
+          <em>Peace be upon you, fellow digital traveller.</em>
         </p>
 
         <p>
-          I am a <strong>full-stack Software Engineer</strong> with over 15
-          years of professional experience building scalable software systems.
-          The recent 9 years I was with{" "}
-          <a href="https://grab.com" target="_blank">
-            Grab
-          </a>
-          , the South East Asian ‘super-app’ offering logistical services,
-          ride-hailing, and financial services to the region.
+          My name is <strong>J. Shamsul</strong>. If we&rsquo;ve crossed paths
+          online, you might know me as <strong>Jibone</strong>. If we
+          haven&rsquo;t — I&rsquo;ve prepared a <a href="/connect">Connect</a>{" "}
+          page that lists the platforms where I&rsquo;m active. I&rsquo;d love
+          to connect with fellow <em>cyberspace wanderers.</em>
         </p>
 
         <p>
-          I started my career in software engineering after finishing my studies
-          at <strong>University Tenaga National</strong>, working at a
-          local-based defence contractor specialising in developing, supplying,
-          and maintaining IT systems for the Malaysian armed forces.
-          Subsequently, I worked with a few local start-ups before I joined{" "}
-          <strong>Grab</strong> — which back then was a little ‘start-up’ known
-          as <strong>MyTeksi</strong>. I often tell people that I used to work
-          at tech start-ups in the valley, the Klang Valley that is.
+          A husband to a lovely wife, a father to an adorable daughter, and a
+          son to caring parents. A seeker of beneficial knowledge, a builder of
+          software, and a writer aspiring to be. I consider myself a
+          <em>technologist-philosopher</em>, a <em>digital storyteller</em>, and
+          a <em>cyberspace wanderer</em>.
         </p>
 
         <p>
-          I relocated to <strong>Singapore</strong> as Grab relocated its
-          engineering office back in 2015, and have been here since.
+          By trade, I&rsquo;m a seasoned full-stack software engineer with over
+          15 years of experience. By choice, I&rsquo;m expanding my craft as a
+          <em>technologist who tells stories</em>.
         </p>
 
         <p>
-          This website is my personal space online. Here is where I share my
-          writings in the attempt to make sense of things, and for posterity.
+          When I&rsquo;m not writing code, I write prose — sometimes short,
+          sometimes long — ranging from personal anecdotes in tech to
+          philosophical musings on how technology shapes culture, society, and
+          the individual self.
         </p>
 
-        <blockquote>
-          <p>
-            Orang boleh pandai setinggi langit, tapi selama ia tidak menulis, ia
-            akan hilang di dalam masyarakat dan dari sejarah. Menulis adalah
-            berkerja untuk keabadian.
-          </p>
-          — Pramoedya Ananta Toer
-        </blockquote>
-
         <p>
-          A man can be brilliant as high as the sky, but as long as he does not
-          write, he will disappear from society and history. To write is to work
-          for posterity.
+          This website is my little outpost in the vastness of cyberspace — a
+          home to gather all my writing in one place. Most of it was first
+          published in my newsletter,{" "}
+          <a href="/code-and-codex">Code &amp; Codex</a>.
         </p>
 
         <h2>About the website.</h2>
 
         <p>
-          This website is build using{" "}
+          This site is built with{" "}
           <a href="https://nextjs.org/" target="_blank">
             Next.js
-          </a>{" "}
-          and{" "}
+          </a>
+          , styled using{" "}
           <a href="https://tailwindcss.com/" target="_blank">
             TailwindCSS
-          </a>{" "}
-          for the stylings. I use{" "}
+          </a>
+          , and powered by{" "}
           <a href="https://mdxjs.com/" target="_blank">
             MDX
           </a>{" "}
-          for the content. You can snoop around this{" "}
+          for content. If you&rsquo;re curious, feel free to snoop around the{" "}
           <a href="https://github.com/jibone/jShamsul.com" target="_blank">
             GitHub repo
           </a>{" "}
-          if you want to see how things are wired up.{" "}
+          to see how things are wired up.
         </p>
 
         <p>
-          The fonts used for this website are the iA Writer font family the
-          combination for all three, the Quattro, Duo, and Mono. Check out their{" "}
+          The fonts used here are from the iA Writer font family — a combination
+          of Quattro, Duo, and Mono. Check out iA&rsquo;s{" "}
           <a href="https://github.com/iaolo/iA-Fonts" target="_blank">
             GitHub repo
-          </a>
-          , and their{" "}
+          </a>{" "}
+          and their{" "}
           <a
             href="https://ia.net/topics/a-typographic-christmas"
             target="_blank"
           >
-            write up
+            write-up
           </a>{" "}
-          about these fonts.
+          on the design philosophy behind these fonts — it&rsquo;s a great read.
         </p>
       </div>
     </Layout>
