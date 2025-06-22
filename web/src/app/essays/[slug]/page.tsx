@@ -5,6 +5,7 @@ import { Layout } from "@/components";
 import "@/styles/highlightjs/tokyo-night-dark.css";
 import BookBox from "@/components/BookBox";
 import ZapButton from "@/components/ZapButton";
+import KofiButton from "@/components/KofiButton";
 
 const path = `${process.cwd()}/contents/essays`;
 
@@ -128,9 +129,7 @@ export default async function EssayPage(props: {
 
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="w-fit space-x-4 bg-slate-50 p-2 border border-slate-200 rounded-lg mb-4">
-            <a href="https://ko-fi.com/jibone" target="_blank">
-              ☕️ Buy me ko-fi ?
-            </a>
+            <KofiButton />
           </div>
 
           <div className="w-fit space-x-4 bg-slate-50 p-2 border border-slate-200 rounded-lg mb-4">
