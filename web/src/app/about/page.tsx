@@ -1,5 +1,14 @@
 import { Layout } from "@/components";
 
+export async function generateMetadata() {
+  const title = "About - J. Shamsul (@jibone)";
+  const description = "The person, and the website.";
+  return {
+    title: title,
+    description: description,
+  };
+}
+
 export default function About() {
   return (
     <Layout page="about">

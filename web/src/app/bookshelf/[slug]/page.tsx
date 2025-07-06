@@ -21,7 +21,6 @@ export async function generateMetadata(props: {
   const { title, subtitle, author, cover_img } = frontmatter;
   const titleEncode = encodeURIComponent(title);
   const subtitleEncode = encodeURIComponent(subtitle);
-  const authorEncode = encodeURIComponent(author);
   const coverEncode = encodeURIComponent(cover_img);
   const imagepath = `/api/ogbook?title=${titleEncode}&subtitle=${subtitleEncode}&author=${author}&cover=${coverEncode}`;
 

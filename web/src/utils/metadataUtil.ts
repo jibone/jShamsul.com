@@ -4,7 +4,7 @@ export const defaultMetadata = {
   title: "jShamsul.com (@jibone)",
   author: "J.Shamsul (@jibone)",
   description:
-    "A software builder, full-stack engineer, currently curious about AI and Web3.",
+    "J.Shamsul is a staff software engineer, aspiring writer, and digital wanderer sharing essays, ideas, and reflections on technology, culture, and modern society.",
   language: "en_US",
   siteUrl: "https://jshamsul.com",
   siteName: "jShamsul.com",
@@ -27,7 +27,6 @@ export function getBaseUrl(): string {
   return baseURL;
 }
 
-
 export default function generateSiteMetadata({
   title,
   description,
@@ -35,10 +34,10 @@ export default function generateSiteMetadata({
   ...rest
 }: GenSiteMetadataProps): Metadata {
   return {
-    title,
-    description,
+    title: title || defaultMetadata.title,
+    description: description || defaultMetadata.description,
     openGraph: {
-      title: `${title} / ${defaultMetadata.title}`,
+      title: title || defaultMetadata.title,
       description: description || defaultMetadata.description,
       url: "./",
       siteName: defaultMetadata.siteName,
@@ -47,7 +46,7 @@ export default function generateSiteMetadata({
       images: [image || ""],
     },
     twitter: {
-      title: `${title} / ${defaultMetadata.title}`,
+      title: title || defaultMetadata.title,
       card: "summary_large_image",
       images: [image || ""],
     },
