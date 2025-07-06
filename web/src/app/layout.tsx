@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(defaultMetadata.siteUrl),
   title: {
     default: defaultMetadata.title,
-    template: `${defaultMetadata.title} / %s`,
+    template: `%s`,
   },
   description: defaultMetadata.description,
 };

@@ -1,5 +1,4 @@
 import { Layout, EssayList } from "@/components";
-// import LinkBox from "@/components/LinkBox";
 
 export default async function Home() {
   return (

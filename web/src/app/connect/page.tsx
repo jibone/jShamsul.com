@@ -2,6 +2,13 @@ import { Layout } from "@/components";
 import ZapButton from "@/components/ZapButton";
 import KofiButton from "@/components/KofiButton";
 
+export async function generateMetadata() {
+  return {
+    title: "Connect with J. Shamsul (@jibone)",
+    description: "Find out where to connect with Jibone on various platforms.",
+  };
+}
+
 export default function Connect() {
   return (
     <Layout page="connect">
