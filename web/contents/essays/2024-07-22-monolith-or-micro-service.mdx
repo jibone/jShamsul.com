@@ -16,7 +16,8 @@ Before I share my thoughts about these two architectures, here is a little descr
 **Micro-service architecture** — is a system design that breaks down the application into smaller, independent services. Each of the services is responsible for a specific function and can be deployed and scaled independently.
 
 A common understanding of the difference between these two architectures is that, in a monolith, a single server or a set of servers handles everything, while in micro-service architecture, there are multiple set of servers' services that handle unique functions.
- One of the things that we always hear is that with a monolith, it is a single point of failure. If the server is down, then everything is down, while micro-services are more resilient. Well, this is true if, and only if, the services in the micro-service are not tightly coupled in terms of business logic.
+
+One of the things that we always hear is that with a monolith, it is a single point of failure. If the server is down, then everything is down, while micro-services are more resilient. Well, this is true if, and only if, the services in the micro-service are not tightly coupled in terms of business logic.
 
 For example, in an e-commerce website, there is a product info component, a shopping cart component, and a checkout component. Say that you have separated these into their services; they can be deployed and scaled independently. However, if all these services are talking to the same database, then they are not loosely coupled at all. In fact, the database tightly couples them. If one service performs a blocking operation on the database, the other two services would be out of commission.
 
