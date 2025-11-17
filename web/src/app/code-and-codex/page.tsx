@@ -52,7 +52,7 @@ export default function CodeCodexPage() {
         </p>
 
         <p>
-          This newsletter isn’t a place for tutorials or trends —{" "}
+          This newsletter isn’t a place for tutorials or trends.{" "}
           <a href="https://codeandcodex.substack.com" target="_blank">
             Code &amp; Codex
           </a>{" "}
@@ -75,7 +75,7 @@ export default function CodeCodexPage() {
         <p>
           Through essays, commentary, and the occasional cryptic dispatch, I
           want <a href="https://codeandcodex.substack.com">Code &amp; Codex</a>{" "}
-          to speak to those who write code not just to build — but to create
+          to speak to those who write code not just to build, but to create
           meaning.
         </p>
 
