@@ -22,6 +22,9 @@ const nextConfig = {
       },
     ];
   },
+  outputFileTracingIncludes: {
+    "/*": ["./contents/**/*.mdx"],
+  },
   async headers() {
     return [
       {

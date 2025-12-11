@@ -6,8 +6,12 @@ import "@/styles/highlightjs/tokyo-night-dark.css";
 import BookBox from "@/components/BookBox";
 import ZapButton from "@/components/ZapButton";
 import KofiButton from "@/components/KofiButton";
+import { Metadata } from "next";
 
 const path = `${process.cwd()}/contents/essays`;
+
+console.log("process.cwd");
+console.log(process.cwd());
 
 async function getPageContents(slug: string) {
   const filepath = `${path}/${slug}.mdx`;
@@ -19,7 +23,7 @@ async function getPageContents(slug: string) {
 
 export async function generateMetadata(props: {
   params: Promise<{ slug: string }>;
-}) {
+}): Promise<Metadata> {
   const params = await props.params;
   const { slug } = params;
   const { frontmatter } = await getPageContents(slug);
