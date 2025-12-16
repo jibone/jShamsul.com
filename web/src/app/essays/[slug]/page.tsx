@@ -10,9 +10,6 @@ import { Metadata } from "next";
 
 const path = `${process.cwd()}/contents/essays`;
 
-console.log("process.cwd");
-console.log(process.cwd());
-
 async function getPageContents(slug: string) {
   const filepath = `${path}/${slug}.mdx`;
 
