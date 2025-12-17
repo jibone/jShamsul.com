@@ -53,36 +53,6 @@ export default async function EssayPage(props: {
   return (
     <Layout page="essay">
       <div className="prose-custom">
-        <div className="mb-4">
-          {frontmatter.mirror === undefined ? (
-            " "
-          ) : (
-            <a
-              href={frontmatter.mirror}
-              className="!py-1 !px-2 !bg-white !border !border-slate-300 !hover:border-slate-700 !rounded-full !text-xs !font-normal !decoration-0 !no-underline"
-              target="_blank"
-            >
-              Mint this on Mirror.xyz
-            </a>
-          )}
-
-          {frontmatter.codecodex === undefined ? (
-            " "
-          ) : (
-            <div className="space-x-4 bg-slate-50 p-2 border border-slate-200 rounded-lg mb-4">
-              <div>
-                <div>This was first posted on</div>
-                <div>
-                  <strong>Code &amp; Codex Newsletter</strong>.
-                </div>
-              </div>
-              <a className="!ml-0" href={frontmatter.codecodex}>
-                Subscribe &rarr;
-              </a>
-            </div>
-          )}
-        </div>
-
         <div className="mb-2">{frontmatter.date}</div>
 
         <h1>{frontmatter.title}</h1>
@@ -114,19 +84,22 @@ export default async function EssayPage(props: {
           </div>
         )}
 
-        <div className="mb-4">
-          {frontmatter.mirror === undefined ? (
-            " "
-          ) : (
-            <a
-              href={frontmatter.mirror}
-              className="!py-1 !px-2 !bg-white !border !border-slate-300 !hover:border-slate-700 !rounded-full !text-xs !font-normal !decoration-0 !no-underline"
-              target="_blank"
-            >
-              Mint this on Mirror.xyz
-            </a>
-          )}
-        </div>
+        {frontmatter.codecodex === undefined ? (
+          " "
+        ) : (
+          <div className="mb-4 space-x-4 bg-slate-50 p-2 border border-slate-200 rounded-lg">
+            <span>
+              Canonical archive / Published on{" "}
+              <a href="https://codeandcodex.substack.com/">Substack</a> /
+              Mirrored on-chain via{" "}
+              <a href="https://paragraph.com/@code_codex">Paragraph</a> /
+              Relayed across{" "}
+              <a href="https://primal.net/p/nprofile1qqsqsgehv75h9hvla3d39gzh87w5karednhcaj6z3jhy5tmtsxmzgjgpwsmcx#reads">
+                Nostr
+              </a>
+            </span>
+          </div>
+        )}
 
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="w-fit space-x-4 bg-slate-50 p-2 border border-slate-200 rounded-lg mb-4">
@@ -139,23 +112,12 @@ export default async function EssayPage(props: {
         </div>
 
         <div className="mt-10">
-          <Link href="/">&larr; back</Link>
+          {frontmatter.codecodex === undefined ? (
+            <Link href="/">&larr; back</Link>
+          ) : (
+            <Link href="/code-and-codex">&larr; back to archive</Link>
+          )}
         </div>
-
-        {frontmatter.codecodex === undefined ? (
-          " "
-        ) : (
-          <div className="mt-12">
-            Subscribe to have <strong>Code &amp; Codex</strong> delivered to
-            your inbox.
-            <div className="space-x-4 bg-slate-50 p-2 border border-slate-200 rounded-lg mb-4">
-              <iframe
-                className="w-full"
-                src="https://codeandcodex.substack.com/embed"
-              ></iframe>
-            </div>
-          </div>
-        )}
       </div>
     </Layout>
   );
