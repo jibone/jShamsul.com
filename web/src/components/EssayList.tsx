@@ -45,39 +45,6 @@ export default async function EssayList({
           <div className="hidden md:block flex-none w-3">-</div>
           <div className="flex-1">
             <Link href={essay.url}>{essay.title}</Link>{" "}
-            {essay.mirror === undefined ? (
-              " "
-            ) : (
-              <a
-                href={essay.mirror}
-                className="whitespace-nowrap !py-1 !px-2 !bg-white !border !border-slate-300 !hover:border-slate-700 !rounded-full !text-xs !font-normal !decoration-0 !no-underline"
-                target="_blank"
-              >
-                mirror.xyz
-              </a>
-            )}
-            {essay.codex === undefined ? (
-              " "
-            ) : (
-              <a
-                href={essay.codex}
-                className="whitespace-nowrap !py-1 !px-2 !bg-white !border !border-slate-300 !hover:border-slate-700 !rounded-full !text-xs !font-normal !decoration-0 !no-underline"
-                target="_blank"
-              >
-                code &amp; codex
-              </a>
-            )}
-            {essay.fleeting === undefined ? (
-              " "
-            ) : (
-              <a
-                href={essay.mirror}
-                className="!py-1 !px-2 !bg-white !border !border-slate-300 !hover:border-slate-700 !rounded-full !text-xs !font-normal !decoration-0 !no-underline"
-                target="_blank"
-              >
-                fleeting notes
-              </a>
-            )}
           </div>
         </div>
       ))}
