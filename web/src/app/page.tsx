@@ -27,21 +27,11 @@ export default async function Home() {
         </p>
 
         <p>When I’m not writing code, I write prose.</p>
-
-        <p>
-          I write about the <em>philosophy</em> of software, personal{" "}
-          <em>anecdotes</em> on tech, and <em>thought experiments</em> on
-          cybernetic futures in my newsletter:{" "}
-          <a href="/code-and-codex" className="whitespace-nowrap">
-            Code &amp; Codex
-          </a>
-          .
-        </p>
       </div>
 
       <div className="pt-8 prose-custom">
         <h2 className="font-medium">Latest Code &amp; Codex dispatches:</h2>
-        <EssayList filter="codex" limit={5} />
+        <EssayList filter="codex" limit={10} />
 
         <p className="pt-4">
           <a href="/code-and-codex">Read more essays →</a>
