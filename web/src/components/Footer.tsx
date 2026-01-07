@@ -43,7 +43,7 @@ export default function Footer() {
         </a>{" "}
       </div>
       <div className="flex gap-2 text-slate-400">
-        <div>&copy; 2025</div>
+        <div>&copy; 2026</div>
         <div className="text-slate-500">J.Shamsul (@jibone)</div>
       </div>
       {/* Not yet...
