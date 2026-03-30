@@ -25,6 +25,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       priority: 0.5,
     },
+    {
+      url: `${baseUrl}/code-and-codex`,
+      lastModified: new Date(),
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/code-and-codex/manifesto`,
+      lastModified: new Date(),
+      priority: 0.5,
+    },
   ];
 
   // get all the essyas listed
