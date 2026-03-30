@@ -26,47 +26,54 @@ export default function CodeCodexPage() {
         <h1>Code &amp; Codex</h1>
 
         <p>
-          <em>Essays on code, meaning, and modern myth.</em>
+          <em>
+            A field manual for understanding power, code,
+            <br /> and truth in the digital age.
+          </em>
         </p>
 
+        <p>Peace be upon you, fellow digital wanderer.</p>
+
+        <p>We are living inside systems we did not design.</p>
+
         <p>
-          <strong>Code &amp; Codex</strong> is a newsletter I started in early
-          2025. It’s a cyberpunk-inspired project that explores the liminal
-          space between software engineering, encrypted knowledge, and the
-          aesthetics of digital subculture.
+          Invisible architectures shape what we see, what we believe, and what
+          we become. Algorithms decide what is visible. Platforms decide what is
+          true. Power hides behind interfaces.
         </p>
+
+        <p>Most people, they scroll. We observe.</p>
 
         <p>
           <img src="/imgs/newsletters/code-and-codex-banner.png" />
         </p>
 
         <p>
-          I consider myself a seasoned technologist with a taste for
-          storytelling. <strong>Code &amp; Codex</strong> is where I weave
-          together reflections on code, language, meaning, and permanence in the
-          ever-shifting matrix of modern tech.
+          I am a technologist by craft, and a writer by necessity.{" "}
+          <strong>Code &amp; Codex</strong> is where these two converge. This is
+          not a space for tech trends, framework, or tutorials. This is a field
+          manual for understanding the system that shape perceptions, truth, and
+          power in the digital age. A companion for moving through them with
+          intent.
         </p>
 
         <p>
-          This newsletter isn’t a place for tutorials or trends.{" "}
-          <strong>Code &amp; Codex</strong> operates more like a digital
-          grimoire: a dispatch of philosophical dev musings, underground
-          signals, and long-form essays that examine the act of creation in code
-          as both an engineering discipline and an artistic pursuit.
+          <strong>Code &amp; Codex</strong> functions as a digital grimoire, a
+          collection of essays, fragments, and signals. Some entries will be
+          clear, some will be cryptic. That is intentional because clarity is
+          something you develop, not something handed to you.
         </p>
 
         <p>
-          By bringing together themes like digital permanence, the search for
-          truth, and the hacker-as-alchemist, I hope{" "}
-          <strong>Code &amp; Codex</strong> will resonate with readers who see
-          technology not just as a tool, but as a form of intellectual and
-          existential expression.
+          If you write code not just to build, but to create meaning, to explore
+          truth, and to carve your own path within the system, then you are
+          exactly who this is for.
         </p>
 
         <p>
-          Through essays, commentary, and the occasional cryptic dispatch, I
-          want <strong>Code &amp; Codex</strong> to speak to those who write
-          code not just to build, but to create meaning.
+          For teh full philosophy and operational framework behind{" "}
+          <strong>Code &amp; Codex</strong>:{" "}
+          <Link href="/code-and-codex/manifesto">Read the Manifesto.</Link>
         </p>
 
         <p>
