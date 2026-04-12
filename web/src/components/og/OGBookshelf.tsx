@@ -4,15 +4,9 @@ import { ImageResponse } from "@vercel/og";
 export default async function OGBookshelf({
   title,
   subtitle,
-  fontNormal,
-  fontItalic,
-  fontBold,
 }: {
   title: string;
   subtitle: string;
-  fontNormal: ArrayBuffer | Buffer;
-  fontItalic: ArrayBuffer | Buffer;
-  fontBold: ArrayBuffer | Buffer;
 }) {
   const books = getBookCoverImg(4);
 
@@ -24,156 +18,116 @@ export default async function OGBookshelf({
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          flexWrap: "nowrap",
-          fontSize: 36,
-          fontFamily: "iA Writter Quattro Bold",
-          fontStyle: "normal",
-          padding: 40,
-          backgroundColor: "#f1f5f9",
-          justifyContent: "flex-start",
+          backgroundColor: "#0f172a",
         }}
       >
         <div
           style={{
-            color: "#000000",
-            marginBottom: 5,
-            display: "flex",
-          }}
-        >
-          {title}
-        </div>
-        <div
-          style={{
-            color: "#334155",
-            fontFamily: "iA Writter Quattro Italic",
-            fontStyle: "italic",
-            display: "flex",
-          }}
-        >
-          &gt; {subtitle}
-        </div>
-        <div
-          style={{
-            width: 1000,
             display: "flex",
             flexDirection: "column",
-            position: "absolute",
-            bottom: 80,
-            left: 40,
+            padding: "40px 50px",
+            backgroundColor: "#1e293b",
+            borderBottom: "4px solid #3b82f6",
           }}
         >
-          <p
+          <div
             style={{
-              marginTop: 0,
-              marginBottom: 5,
-              color: "#000000",
+              display: "flex",
+              color: "#ffffff",
+              fontSize: 42,
+              fontWeight: 700,
+              fontFamily: "Inter",
+              lineHeight: 1.2,
+              marginBottom: 12,
             }}
           >
-            jShamsul.com (@jibone)
-          </p>
-          <p
-            style={{
-              marginTop: 0,
-              marginBottom: 0,
-              fontStyle: "italic",
-              fontFamily: "iA Writter Quattro Italic",
-              color: "#64748b",
-            }}
-          >
-            Software builder, Full-stack.
-          </p>
-          <p
-            style={{
-              marginTop: 0,
-              marginBottom: 0,
-              fontStyle: "italic",
-              fontFamily: "iA Writter Quattro Italic",
-              color: "#64748b",
-            }}
-          >
-            AI and Web3 Curious.
-          </p>
+            {title}
+          </div>
+          {subtitle && (
+            <div
+              style={{
+                display: "flex",
+                color: "#94a3b8",
+                fontSize: 24,
+                fontFamily: "Inter",
+                fontStyle: "italic",
+              }}
+            >
+              {subtitle}
+            </div>
+          )}
         </div>
-
-        <div style={{ display: "flex" }}>
+        <div
+          style={{
+            flex: 1,
+            display: "flex",
+            position: "relative",
+            padding: 40,
+            gap: 20,
+          }}
+        >
           <img
             src={books[0]}
             alt="book 1"
             style={{
-              width: 200,
-              position: "absolute",
-              top: 0,
-              right: 70,
+              width: 180,
+              height: 270,
               borderRadius: 8,
-              border: "1px solid white",
-              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+              boxShadow: "0 8px 16px rgba(0, 0, 0, 0.4)",
             }}
           />
           <img
             src={books[1]}
             alt="book 2"
             style={{
-              width: 200,
-              position: "absolute",
-              top: 100,
-              right: 180,
+              width: 180,
+              height: 270,
               borderRadius: 8,
-              border: "1px solid white",
-              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+              boxShadow: "0 8px 16px rgba(0, 0, 0, 0.4)",
             }}
           />
           <img
             src={books[2]}
             alt="book 3"
             style={{
-              width: 200,
-              position: "absolute",
-              top: 190,
-              right: 50,
+              width: 180,
+              height: 270,
               borderRadius: 8,
-              border: "1px solid white",
-              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+              boxShadow: "0 8px 16px rgba(0, 0, 0, 0.4)",
             }}
           />
           <img
             src={books[3]}
             alt="book 4"
             style={{
-              width: 200,
-              position: "absolute",
-              top: 140,
-              right: -20,
+              width: 180,
+              height: 270,
               borderRadius: 8,
-              border: "1px solid white",
-              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+              boxShadow: "0 8px 16px rgba(0, 0, 0, 0.4)",
             }}
           />
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            bottom: 30,
+            left: 50,
+            display: "flex",
+            alignItems: "center",
+            padding: "8px 16px",
+            backgroundColor: "rgba(15, 23, 42, 0.85)",
+            borderRadius: 8,
+          }}
+        >
+          <span style={{ color: "#ffffff", fontSize: 20, fontFamily: "Inter" }}>
+            @jibone
+          </span>
         </div>
       </div>
     ),
     {
       width: 1200,
       height: 630,
-      fonts: [
-        {
-          weight: 400,
-          name: "iA Writter Quattro Normal",
-          style: "normal",
-          data: fontNormal,
-        },
-        {
-          weight: 400,
-          name: "iA Writter Quattro Italic",
-          style: "italic",
-          data: fontItalic,
-        },
-        {
-          weight: 800,
-          name: "iA Writter Quattro Bold",
-          style: "normal",
-          data: fontBold,
-        },
-      ],
     },
   );
 }

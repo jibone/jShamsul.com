@@ -5,20 +5,12 @@ export default async function OGBookSingle({
   subtitle,
   author,
   coverimg,
-  fontNormal,
-  fontItalic,
-  fontBold,
 }: {
   title: string;
   subtitle: string;
   author: string;
   coverimg: string;
-  fontNormal: ArrayBuffer | Buffer;
-  fontItalic: ArrayBuffer | Buffer;
-  fontBold: ArrayBuffer | Buffer;
 }) {
-  // const book = "https://m.media-amazon.com/images/I/81pIICZO2PL._SY466_.jpg";
-
   const book = coverimg;
   return new ImageResponse(
     (
@@ -28,129 +20,101 @@ export default async function OGBookSingle({
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          flexWrap: "nowrap",
-          fontSize: 36,
-          fontFamily: "iA Writter Quattro Bold",
-          fontStyle: "normal",
-          padding: 40,
-          backgroundColor: "#f1f5f9",
-          justifyContent: "flex-start",
+          backgroundColor: "#0f172a",
         }}
       >
         <div
           style={{
-            color: "#000000",
-            marginBottom: 5,
-            display: "flex",
-          }}
-        >
-          {title}
-        </div>
-        {subtitle === "" ? null : (
-          <div
-            style={{
-              color: "#334155",
-              fontFamily: "iA Writter Quattro Italic",
-              fontStyle: "italic",
-              display: "flex",
-            }}
-          >
-            {subtitle}
-          </div>
-        )}
-        <div
-          style={{
-            color: "#334155",
-            fontFamily: "iA Writter Quattro Italic",
-            fontStyle: "italic",
-            display: "flex",
-          }}
-        >
-          by {author}
-        </div>
-        <div
-          style={{
-            width: 1000,
             display: "flex",
             flexDirection: "column",
-            position: "absolute",
-            bottom: 80,
-            left: 40,
+            padding: "40px 50px",
+            backgroundColor: "#1e293b",
+            borderBottom: "4px solid #3b82f6",
           }}
         >
-          <p
+          <div
             style={{
-              marginTop: 0,
-              marginBottom: 5,
-              color: "#000000",
+              display: "flex",
+              color: "#ffffff",
+              fontSize: 42,
+              fontWeight: 700,
+              fontFamily: "Inter",
+              lineHeight: 1.2,
+              marginBottom: 8,
             }}
           >
-            jShamsul.com (@jibone)
-          </p>
-          <p
+            {title}
+          </div>
+          {subtitle && (
+            <div
+              style={{
+                display: "flex",
+                color: "#94a3b8",
+                fontSize: 24,
+                fontFamily: "Inter",
+                fontStyle: "italic",
+              }}
+            >
+              {subtitle}
+            </div>
+          )}
+          <div
             style={{
-              marginTop: 0,
-              marginBottom: 0,
-              fontStyle: "italic",
-              fontFamily: "iA Writter Quattro Italic",
+              display: "flex",
               color: "#64748b",
+              fontSize: 20,
+              fontFamily: "Inter",
+              marginTop: 8,
             }}
           >
-            {"Bookshelf & Tsundoku Stack"}
-          </p>
-          <p
-            style={{
-              marginTop: 0,
-              marginBottom: 0,
-              fontStyle: "italic",
-              fontFamily: "iA Writter Quattro Italic",
-              color: "#64748b",
-            }}
-          >
-            My read and to be read book list.
-          </p>
+            by {author}
+          </div>
         </div>
-
-        <div style={{ display: "flex" }}>
+        <div
+          style={{
+            flex: 1,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            position: "relative",
+          }}
+        >
           <img
             src={book}
-            alt="book 1"
+            alt="book cover"
             style={{
-              width: 300,
-              position: "absolute",
-              top: -100,
-              right: 0,
+              width: 220,
+              height: 330,
               borderRadius: 8,
-              border: "1px solid white",
-              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+              boxShadow: "0 12px 24px rgba(0, 0, 0, 0.5)",
             }}
           />
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            bottom: 30,
+            right: 40,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-end",
+            padding: "8px 16px",
+            backgroundColor: "rgba(15, 23, 42, 0.85)",
+            borderRadius: 8,
+          }}
+        >
+          <span style={{ color: "#ffffff", fontSize: 20, fontFamily: "Inter" }}>
+            @jibone
+          </span>
+          <span style={{ color: "#64748b", fontSize: 16, fontFamily: "Inter" }}>
+            Bookshelf & Tsundoku Stack
+          </span>
         </div>
       </div>
     ),
     {
       width: 1200,
       height: 630,
-      fonts: [
-        {
-          weight: 400,
-          name: "iA Writter Quattro Normal",
-          style: "normal",
-          data: fontNormal,
-        },
-        {
-          weight: 400,
-          name: "iA Writter Quattro Italic",
-          style: "italic",
-          data: fontItalic,
-        },
-        {
-          weight: 800,
-          name: "iA Writter Quattro Bold",
-          style: "normal",
-          data: fontBold,
-        },
-      ],
     },
   );
 }

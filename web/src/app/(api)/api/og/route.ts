@@ -1,4 +1,4 @@
-import { OGImageGen, OGFont } from "@/components/og";
+import { OGImageGen } from "@/components/og";
 
 export const runtime = "edge";
 
@@ -10,14 +10,9 @@ export async function GET(request: Request) {
   const coverImg = searchParams.get("cover") || "";
   const newsletter = searchParams.get("newsletter") || "";
 
-  const { fontNormal, fontItalic, fontBold } = await OGFont();
-
   return OGImageGen({
     title,
     subtitle,
-    fontNormal,
-    fontItalic,
-    fontBold,
     coverImg,
     newsletter,
   });

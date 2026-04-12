@@ -4,26 +4,15 @@ import { getBaseUrl } from "@/utils/metadataUtil";
 export default async function OGImageGen({
   title,
   subtitle,
-  fontNormal,
-  fontItalic,
-  fontBold,
   coverImg,
   newsletter,
 }: {
   title: string;
   subtitle: string;
-  fontNormal: ArrayBuffer | Buffer;
-  fontItalic: ArrayBuffer | Buffer;
-  fontBold: ArrayBuffer | Buffer;
   coverImg?: string;
   newsletter?: string;
 }) {
   const baseUrl = getBaseUrl();
-
-  console.log("Generating OG image with title:", title);
-  console.log("Subtitle:", subtitle);
-  console.log("Cover Image:", coverImg);
-  console.log("Newsletter Image:", newsletter);
 
   let imagePath = "";
   if (coverImg !== undefined && coverImg !== "") {
@@ -31,8 +20,6 @@ export default async function OGImageGen({
   } else if (newsletter !== undefined && newsletter !== "") {
     imagePath = `${baseUrl}/imgs/newsletters/${newsletter}`;
   }
-
-  console.log("Image Path:", imagePath);
 
   return new ImageResponse(
     (
@@ -42,103 +29,124 @@ export default async function OGImageGen({
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          flexWrap: "nowrap",
-          fontSize: 36,
-          fontFamily: "iA Writter Quattro Bold",
-          fontStyle: "normal",
-          padding: 40,
-          backgroundColor: "#f1f5f9",
-          justifyContent: "flex-start",
+          backgroundColor: "#0f172a",
         }}
       >
         <div
           style={{
-            color: "#000000",
-            marginBottom: 5,
-            display: "flex",
-          }}
-        >
-          {title}
-        </div>
-        <div
-          style={{
-            color: "#334155",
-            fontFamily: "iA Writter Quattro Italic",
-            fontStyle: "italic",
-            display: "flex",
-          }}
-        >
-          &gt; {subtitle}
-        </div>
-        <div
-          style={{
-            width: 280,
             display: "flex",
             flexDirection: "column",
-            position: "absolute",
-            bottom: 40,
-            left: 40,
+            padding: "20px 30px",
+            backgroundColor: "#1e293b",
+            borderBottom: "4px solid #3b82f6",
           }}
         >
-          <p
-            style={{
-              marginTop: 0,
-              marginBottom: 5,
-              color: "#000000",
-            }}
-          >
-            jShamsul.com
-          </p>
-          <p
-            style={{
-              marginTop: 0,
-              marginBottom: 5,
-              color: "#000000",
-            }}
-          >
-            @jibone
-          </p>
-        </div>
-        {imagePath && (
           <div
             style={{
-              width: 600,
               display: "flex",
-              position: "absolute",
-              bottom: 30,
-              right: 40,
-              color: "#000",
-              border: "2px solid #fff",
+              color: "#ffffff",
+              fontSize: 42,
+              fontWeight: 700,
+              fontFamily: "Inter",
+              lineHeight: 1.2,
+              marginBottom: subtitle ? 12 : 0,
             }}
           >
-            <img src={imagePath} alt="cover image" />
+            {title}
           </div>
-        )}
+          {subtitle && (
+            <div
+              style={{
+                display: "flex",
+                color: "#94a3b8",
+                fontSize: 24,
+                fontFamily: "Inter",
+                fontStyle: "italic",
+              }}
+            >
+              {subtitle}
+            </div>
+          )}
+        </div>
+        <div
+          style={{
+            flex: 1,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            position: "relative",
+            overflow: "hidden",
+          }}
+        >
+          {imagePath ? (
+            <img
+              src={imagePath}
+              alt="cover"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+              }}
+            />
+          ) : (
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "100%",
+                height: "100%",
+                background: "linear-gradient(135deg, #1e293b 0%, #0f172a 100%)",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  color: "#3b82f6",
+                  fontSize: 80,
+                  fontWeight: 800,
+                  fontStyle: "italic",
+                  fontFamily: "Inter",
+                }}
+              >
+                Stay glitched, stay human.
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  color: "#64748b",
+                  fontSize: 28,
+                  fontFamily: "Inter",
+                  marginTop: 16,
+                }}
+              >
+                ...
+              </div>
+            </div>
+          )}
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            bottom: 30,
+            right: 40,
+            display: "flex",
+            alignItems: "center",
+            padding: "8px 16px",
+            backgroundColor: "rgba(15, 23, 42, 0.85)",
+            borderRadius: 8,
+          }}
+        >
+          <span style={{ color: "#ffffff", fontSize: 20, fontFamily: "Inter" }}>
+            @jibone
+          </span>
+        </div>
       </div>
     ),
     {
       width: 1200,
       height: 630,
-      fonts: [
-        {
-          weight: 400,
-          name: "iA Writter Quattro Normal",
-          style: "normal",
-          data: fontNormal,
-        },
-        {
-          weight: 400,
-          name: "iA Writter Quattro Italic",
-          style: "italic",
-          data: fontItalic,
-        },
-        {
-          weight: 800,
-          name: "iA Writter Quattro Bold",
-          style: "normal",
-          data: fontBold,
-        },
-      ],
     },
   );
 }

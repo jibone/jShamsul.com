@@ -1,4 +1,4 @@
-import { OGBookSingle, OGFont } from "@/components/og";
+import { OGBookSingle } from "@/components/og";
 
 export const runtime = "edge";
 
@@ -10,15 +10,10 @@ export async function GET(request: Request) {
   const author = searchParams.get("author") || "";
   const coverimg = searchParams.get("cover") || "";
 
-  const { fontNormal, fontItalic, fontBold } = await OGFont();
-
   return OGBookSingle({
     title,
     subtitle,
     author,
     coverimg,
-    fontNormal,
-    fontItalic,
-    fontBold,
   });
 }
