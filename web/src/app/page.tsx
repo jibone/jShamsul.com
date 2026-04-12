@@ -30,7 +30,9 @@ export default async function Home() {
       </div>
 
       <div className="pt-8 prose-custom">
-        <h2 className="font-medium">Latest Code &amp; Codex dispatches:</h2>
+        <h2 className="font-medium">
+          Essays from Code &amp; Codex newsletters:
+        </h2>
         <EssayList filter="codex" limit={10} />
 
         <p className="pt-4">
@@ -39,7 +41,7 @@ export default async function Home() {
       </div>
 
       <div className="pt-8 prose-custom">
-        <h2 className="font-medium">Other fleeting notes:</h2>
+        <h2 className="font-medium">Short notes and reflections.:</h2>
         <EssayList filter="others" />
       </div>
 
