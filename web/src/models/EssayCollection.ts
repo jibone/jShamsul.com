@@ -21,7 +21,7 @@ export type EssayFrontmatter = {
 export default class EssayCollection {
   static readonly essaypath = `${process.cwd()}/contents/essays`;
 
-  static async list() {
+  static list() {
     // get all the file list.
     let fileList;
     try {
@@ -35,7 +35,7 @@ export default class EssayCollection {
 
     for (const file of fileList) {
       const filepath = `${this.essaypath}/${file}`;
-      const { frontmatter } = await MDX.process({ filepath });
+      const { frontmatter } = MDX.frontmatterOnly({ filepath });
 
       essaylist.push({
         date: format(parseISO(frontmatter.date), "yyyy-MM-dd"),

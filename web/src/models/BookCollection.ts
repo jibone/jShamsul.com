@@ -22,7 +22,7 @@ type BookProps = {
 export default class BookCollection {
   static readonly bookpath = `${process.cwd()}/contents/books`;
 
-  static async list() {
+  static list() {
     // get all the file list.
     let fileList;
     try {
@@ -36,7 +36,7 @@ export default class BookCollection {
 
     for (const file of fileList) {
       const filepath = `${this.bookpath}/${file}`;
-      const { frontmatter } = await MDX.process({ filepath });
+      const { frontmatter } = MDX.frontmatterOnly({ filepath });
 
       booklist.push({
         title: frontmatter.title,
@@ -51,9 +51,9 @@ export default class BookCollection {
     return booklist;
   }
 
-  static async getFrontmatter(bookSlug: string) {
+  static getFrontmatter(bookSlug: string) {
     const filepath = `${this.bookpath}/${bookSlug}.mdx`;
-    const { frontmatter } = await MDX.process({ filepath });
+    const { frontmatter } = MDX.frontmatterOnly({ filepath });
     return frontmatter;
   }
 

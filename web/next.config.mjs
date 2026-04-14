@@ -36,6 +36,46 @@ const nextConfig = {
           },
         ],
       },
+      {
+        source: "/essays/:slug",
+        headers: [
+          {
+            key: "Cache-Control",
+            value:
+              "public, s-maxage=86400, stale-while-revalidate=31536000",
+          },
+        ],
+      },
+      {
+        source: "/bookshelf/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value:
+              "public, s-maxage=86400, stale-while-revalidate=31536000",
+          },
+        ],
+      },
+      {
+        source: "/api/og",
+        headers: [
+          {
+            key: "Cache-Control",
+            value:
+              "public, s-maxage=604800, stale-while-revalidate=31536000",
+          },
+        ],
+      },
+      {
+        source: "/api/ogbook",
+        headers: [
+          {
+            key: "Cache-Control",
+            value:
+              "public, s-maxage=604800, stale-while-revalidate=31536000",
+          },
+        ],
+      },
     ];
   },
 };

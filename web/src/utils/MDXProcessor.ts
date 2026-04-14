@@ -25,4 +25,17 @@ export default class MDX {
 
     return { frontmatter, MDXContent };
   }
+
+  static frontmatterOnly({ filepath }: { filepath: string }) {
+    let fileContents;
+    try {
+      fileContents = fs.readFileSync(filepath);
+    } catch {
+      throw new Error(`Fail to open file: ${filepath}`);
+    }
+
+    const { data: frontmatter } = matter(fileContents);
+
+    return { frontmatter };
+  }
 }

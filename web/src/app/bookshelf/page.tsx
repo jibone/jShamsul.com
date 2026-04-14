@@ -3,14 +3,16 @@ import { BookCollection } from "@/models";
 import { Metadata } from "next";
 import BookBox from "@/components/BookBox";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "On My Bookshelf & Tsundoku Stack",
   description:
     "A personal list of books that I've read and books that have yet to be read.",
 };
 
-export default async function Bookshelves() {
-  const booklist = await BookCollection.list();
+export default function Bookshelves() {
+  const booklist = BookCollection.list();
   const bookshelf = booklist.filter((b) => b.read === true);
 
   return (

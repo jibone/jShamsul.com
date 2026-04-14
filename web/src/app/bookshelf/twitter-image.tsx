@@ -1,6 +1,5 @@
 import { OGBookshelf } from "@/components/og";
 
-export const runtime = "edge";
 export const alt = "jShamsul.com";
 export const contentType = "image/png";
 
