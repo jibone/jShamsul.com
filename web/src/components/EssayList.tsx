@@ -15,11 +15,11 @@ export type EssayListProps = {
   filter?: "codex" | "fleeting" | "others";
 };
 
-export default async function EssayList({
+export default function EssayList({
   limit,
   filter,
 }: EssayListProps = {}) {
-  let essays = await EssayCollection.list();
+  let essays = EssayCollection.list();
 
   // if filter is set, filter the result
   if (filter === "codex") {

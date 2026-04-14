@@ -3,6 +3,8 @@ import { EssayList, Layout } from "@/components";
 import { generateSiteMetadata } from "@/utils";
 import { Metadata } from "next";
 
+export const dynamic = "force-static";
+
 export async function generateMetadata(): Promise<Metadata> {
   const title = "Code & Codex";
   const subtitle = "Essays on code, meaning, and modern myth";

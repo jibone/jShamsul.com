@@ -1,9 +1,17 @@
 import type { BookFrontmatter } from "@/models/BookCollection";
+import { BookCollection } from "@/models";
 import Link from "next/link";
 import { MDX, generateSiteMetadata } from "@/utils";
 import { Layout } from "@/components";
 
 const path = `${process.cwd()}/contents/books`;
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  const slugs = BookCollection.slugList();
+  return slugs.map((slug) => ({ slug }));
+}
 
 async function getPageContents(slug: string) {
   const filepath = `${path}/${slug}.mdx`;

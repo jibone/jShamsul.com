@@ -1,4 +1,4 @@
-import { BookCollection } from "@/models";
+import { BookCollection, EssayCollection } from "@/models";
 import Link from "next/link";
 import { generateSiteMetadata, MDX } from "@/utils";
 import { Layout } from "@/components";
@@ -9,6 +9,13 @@ import KofiButton from "@/components/KofiButton";
 import { Metadata } from "next";
 
 const path = `${process.cwd()}/contents/essays`;
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  const slugs = EssayCollection.slugList();
+  return slugs.map((slug) => ({ slug }));
+}
 
 async function getPageContents(slug: string) {
   const filepath = `${path}/${slug}.mdx`;
@@ -67,8 +74,8 @@ export default async function EssayPage(props: {
           ""
         ) : (
           <div className="mb-4">
-            {frontmatter.bookshelf.map(async (b: string) => {
-              const book = await BookCollection.getFrontmatter(b);
+            {frontmatter.bookshelf.map((b: string) => {
+              const book = BookCollection.getFrontmatter(b);
               return (
                 <div key={book.url}>
                   <BookBox
