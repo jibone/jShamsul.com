@@ -16,6 +16,7 @@ export type EssayFrontmatter = {
   fleeting?: string;
   coverImg?: string;
   nostrNoteId?: string;
+  relatedEssays?: string[];
 };
 
 export default class EssayCollection {

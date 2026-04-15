@@ -118,6 +118,28 @@ export default async function EssayPage(props: {
           </div>
         </div>
 
+        {frontmatter.relatedEssays !== undefined &&
+          frontmatter.relatedEssays.length > 0 && (
+            <div className="mt-10">
+              <h3>Related Essays</h3>
+              <ul>
+                {frontmatter.relatedEssays.map((relatedSlug: string) => {
+                  const relatedPath = `${path}/${relatedSlug}.mdx`;
+                  const { frontmatter: relatedFm } = MDX.frontmatterOnly({
+                    filepath: relatedPath,
+                  });
+                  return (
+                    <li key={relatedSlug}>
+                      <Link href={`/essays/${relatedSlug}`}>
+                        {relatedFm.title}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          )}
+
         <div className="mt-10">
           {frontmatter.codecodex === undefined ? (
             <Link href="/">&larr; back</Link>

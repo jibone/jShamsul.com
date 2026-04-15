@@ -178,6 +178,32 @@ web/
 
 ---
 
+## Essay Relationship Clusters
+
+Essays have a `relatedEssays` frontmatter field containing 5 related essay slugs. The
+relationships are based on the following thematic clusters. Use these when adding new
+essays or updating related links.
+
+| Cluster | Slugs |
+|---------|-------|
+| **Writing / Personal Philosophy** | `what-is-next-for-jshamsul-com`, `10-posts-in-10-days`, `why-i-choose-to-write`, `from-e-zine-to-newsletter` |
+| **Software Engineering (practical)** | `from-dreamweaver-to-vim`, `reducing-the-blast-radius`, `thoughts-on-refactoring-code`, `monolith-or-micro-service` |
+| **AI / LLMs (critique & philosophy)** | `not-the-end-of-software`, `ai-is-the-ui`, `my-ai-usage-manifesto`, `the-story-of-theuth-and-king-thamus`, `ai-is-a-bubble` |
+| **Tech Criticism / Attention Economy** | `the-war`, `spiders-and-their-web`, `click-here-to-enter`, `the-queen-s-magic-mirror`, `fear-plus-hate-equals-power`, `brainrot-industrial-complex` |
+| **Blockchain / Crypto / Decentralization** | `the-ethos-of-web2_0-and-the-promise-of-web3`, `reading-bitcoin-whitepaper`, `breaking-the-e-hailing-silos`, `the-hu-lezhi-transmission`, `import-tariffs-for-code`, `introducing-satslot` |
+| **Grab / Startup Memoir** | `riding-a-unicorn-part-1`, `riding-a-unicorn-part-2`, `short-stroll-on-the-manager-s-path` |
+| **Sci-fi / Book Reviews** | `cyberspace-and-metaverse`, `when-children-rule-the-world` |
+| **Geopolitics / Power** | `the-melian-dialogue`, `fear-plus-hate-equals-power` |
+| **Spirituality / Existentialism** | `digital-sufism` |
+| **Internet Nostalgia / History** | `from-e-zine-to-newsletter`, `click-here-to-enter`, `the-ethos-of-web2_0-and-the-promise-of-web3` |
+
+> **Note:** Slugs above omit the date prefix for readability. The actual frontmatter
+> values include the full date-prefixed slug (e.g., `2025-04-06-spiders-and-their-web`).
+> An essay can belong to multiple clusters. When adding a new essay, pick 5 related essays
+> from the most relevant clusters and add them to `relatedEssays` in the frontmatter.
+
+---
+
 ## Git Conventions
 
 - **Commit messages**: Short imperative descriptions, often with PR numbers.
