@@ -9,10 +9,10 @@ export default function Layout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="text-base font-iaWriterQuattro flex flex-col h-screen lg:max-w-4xl lg:mx-auto">
+    <div className="site-shell text-base font-iaWriterQuattro flex flex-col">
       <Header page={page} />
 
-      <main className="py-5 px-10 grow">{children}</main>
+      <main className="grow">{children}</main>
 
       <Footer />
     </div>
