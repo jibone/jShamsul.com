@@ -1,53 +1,21 @@
 import Link from "next/link";
 
 export default function Nav({ page }: { page: string }) {
-  const highlightClass = `underline underline-offset-2 decoration-2 decoration-purple-500 text-slate-800`;
-  return (
-    <>
-      <nav className="hidden sm:flex gap-2 mt-4 text-slate-500">
-        <Link href="/" className={page === "home" ? highlightClass : ``}>
-          home
-        </Link>{" "}
-        /{" "}
-        <Link href="/about" className={page === "about" ? highlightClass : ``}>
-          about
-        </Link>{" "}
-        /{" "}
-        <Link
-          href="/connect"
-          className={page === "connect" ? highlightClass : ``}
-        >
-          connect
-        </Link>{" "}
-        /{" "}
-        <Link
-          href="/bookshelf"
-          className={page === "bookshelf" ? highlightClass : ``}
-        >
-          bookshelf
-        </Link>
-      </nav>
+  const links = [
+    ["home", "/"],
+    ["about", "/about"],
+    ["connect", "/connect"],
+    ["bookshelf", "/bookshelf"],
+  ];
 
-      <nav className="sm:hidden flex flex-col gap-2 mt-4 text-slate-500">
-        <Link href="/" className={page === "home" ? highlightClass : ``}>
-          home
-        </Link>
-        <Link href="/about" className={page === "about" ? highlightClass : ``}>
-          about
-        </Link>
-        <Link
-          href="/connect"
-          className={page === "connect" ? highlightClass : ``}
-        >
-          connect
-        </Link>
-        <Link
-          href="/bookshelf"
-          className={page === "bookshelf" ? highlightClass : ``}
-        >
-          bookshelf
-        </Link>
-      </nav>
-    </>
+  return (
+    <nav className="site-nav" aria-label="Main navigation">
+      {links.map(([label, href], index) => (
+        <span className="nav-item" key={href}>
+          {index > 0 && <span className="nav-slash" aria-hidden="true">/</span>}
+          <Link href={href} aria-current={page === label ? "page" : undefined} className={page === label ? "active" : undefined}>{label}</Link>
+        </span>
+      ))}
+    </nav>
   );
 }
